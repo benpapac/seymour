@@ -4,7 +4,7 @@ Navigation
 - Home 
      Logo / Art
      Mission Statement
-     Button -> 
+     Learn More Buttons -> Coaching, Talent, etc.
      Free Consultation
    
 - About
