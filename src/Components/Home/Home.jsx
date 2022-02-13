@@ -39,7 +39,7 @@ const Home = () => {
         <img src="" alt="Actor Slideshow" className='photo' />
 
             <h4 className='title' >I got LOTS of actors.</h4>
-            <p className='body'>Tall actors, short actors. Male actors, female actors. Even gender non-binary actors! You want good actors? Great actors? Not, "just okay," actors? This is the place. I even added a fun link you can click to get there faster.
+            <p className='body'>SAMPLE TEXT: Tall actors, short actors! You want good actors? Great actors? Not, "just okay," actors? This is the place. I even added a fun link you can click to get there faster.
             <br/>
             <button className='button'>
             <Link className='link' to='/talent'>Check 'em out here.</Link>
