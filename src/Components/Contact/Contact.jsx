@@ -1,54 +1,69 @@
-import { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-export const Contact = () => {
+const Contact = () => {
   const form = useRef();
+
   const [myForm, setMyForm] = useState({
-    user_name: '',
-    user_email: '',
-    message: '',
-  })
+			From: {
+				Email: '',
+				Name: '',
+			},
+			To: [
+				{
+					Email: 'ben.papac@gmail.com',
+					Name: 'Ben',
+				},
+			],
+			Subject: '',
+			TextPart: '',
+			HTMLPart:'',
+			CustomID: 'An email from your website.',
+		});
 
   const updateForm = (e) => {
-      let value = e.target.value;
-      setMyForm({
-          ...myForm,
-          [e.target.name]: value,
-      });
-  } 
+    let fromContent = myForm.From;
+    let name = e.target.name;
+    let value = e.target.value;
 
-  const sendEmail = async (e) => {
+    if(e.target.className){
+      let newForm =  {
+        ...myForm,
+        From: {
+          ...fromContent,
+           [name]: value},
+            HTMLPart: `<p>${myForm.TextPart}</p>`,
+      }
+      setMyForm(newForm);
+      console.log(newForm);
+    }
+    else {
+      let newForm = {
+        ...myForm,
+        [name]: value,
+        HTMLPart: `<p>${myForm.TextPart}</p>`,
+      }
+      setMyForm(newForm);
+      console.log(newForm);
+    }
+  }
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    //will need to be updated when DEPLOYING
-    const user = process.env.USER_ID;
-    const service = process.env.SERVICE_ID;
-
-    //the prefab version
-    // emailjs.sendForm(`${service}`, 'contact_form', form.current, `${user}`)
-    //   .then((result) => {
-    //       console.log(result.text);
-
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
-
-    //my async version, using myForm
-    // try {
-    //     await emailjs.sendForm(`${service}`, 'contact_form', myForm, `${user}`);
-    // }
-    // catch (err) {
-    //     console.log(err);
-    // }
+    axios.post('http://localhost:3050/emails', myForm);
   };
 
   return (
     <form ref={form} onSubmit={sendEmail}>
       <label>Name</label>
-      <input  onChange={updateForm} type="text" name="user_name" />
+      <input type="text" name="Name" className="From" value={myForm.From.Name} onChange={updateForm} placeholder="What's your name?"/>
       <label>Email</label>
-      <input onChange={updateForm} type="email" name="user_email" />
+      <input type="email" name="Email" className="From" value={myForm.From.Email}  onChange={updateForm} placeholder="What's your email?"/>
       <label>Message</label>
-      <textarea onChange={updateForm} name="message" />
+      <label>Subject</label>
+      <input type="text" name="Subject" value={myForm.Subject} onChange={updateForm} placeholder="What's on your mind?"/>
+      <textarea name="TextPart" value={myForm.TextPart} onChange={updateForm} placeholder='Type your message here.'/>
       <input type="submit" value="Send" />
     </form>
   );

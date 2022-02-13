@@ -6,10 +6,11 @@ import Contact from '../Contact/Contact';
 import Executives from '../Executives/Executives';
 import Talent from '../Talent/Talent';
 import Consultation from '../Consultation/Consultation';
+import './Nav.css';
 const Nav = () => {
     return (
-        <nav>
-            <Link  to='/' > Home </Link>
+        <nav className='Nav'>
+            <Link  to='/' > LG Logo </Link>
             <Link  to='/about' > About </Link>
             <Link  to='/contact' > Contact </Link>
             <Link  to='/talent' > Talent </Link>
