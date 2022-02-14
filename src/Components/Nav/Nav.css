@@ -1,7 +1,10 @@
 .Nav {
 	height: 15vh;
-	background: linear-gradient(180deg, rgba(169, 240, 236, 0.7), rgba(0,0,0,0) );
-
+	background: linear-gradient(
+		180deg,
+		rgba(169, 240, 236, 0.7),
+		rgba(0, 0, 0, 0)
+	);
 
 	display: flex;
 	align-items: center;

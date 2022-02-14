@@ -37,9 +37,6 @@
 	text-decoration: none;
 }
 
-.blurb {
-}
-
 .bio {
 	align-self: center;
 	background-color: #f9f9f7;
@@ -47,7 +44,12 @@
 	padding: 2em;
 }
 
+.actors {
+	background-color: #f9f9f7;
+}
+
 .body {
+	height: fit-content;
 	line-height: 1.5;
 }
 

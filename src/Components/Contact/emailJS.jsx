@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
@@ -6,6 +6,12 @@ import './Contact.css';
 	const form = useRef();
     const user_id = process.env.REACT_APP_USER_ID;
     const service_id = process.env.REACT_APP_SERVICE_ID;
+
+	const [sent, setSent] = useState(false);
+
+	useEffect(() => {
+		setSent(false);
+	}, [])
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -27,9 +33,18 @@ import './Contact.css';
 			);
 
 			e.target.reset();
+			setSent(true);
 	};
 
 	return (
+		<>
+		<h2>Contact</h2>
+		{sent ? 
+		<>
+		<h4>Your message was successfully sent!</h4> 
+		</>
+		: 
+		<>
 		<form className='contact-form' ref={form} onSubmit={sendEmail}>
 			<label>Name</label>
             <input type="hidden" name='to_name' value="Nic"/>
@@ -42,6 +57,9 @@ import './Contact.css';
 			<textarea className='message' name='message' />
 			<input className='button' type='submit' value='Send' />
 		</form>
+		</>
+		}
+		</>
 	);
 };
 
