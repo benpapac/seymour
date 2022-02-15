@@ -1,30 +1,22 @@
 ### Sections
 
 Navigation
-- Home 
-     Logo / Art
-     Mission Statement
-     Learn More Buttons -> Coaching, Talent, etc.
-     Free Consultation
-   
-- About
-     Bio
-     Portrait
-     External Links (Linked In)
+
+- Home
+  Logo / Art
+  Portrait
+  Mission Statement
+  Learn More Buttons -> Coaching, Talent, etc.
+  Testimonials
 
 - Executive Coaching
-   Coaching Blurb
-   Client Testimonials
+  Coaching Blurb
+  Client Testimonials
 
 - Talent Management
-    Clients
-        Portrait
-        Recent Credits
-        External Links -> Press, IMDb, Reels, etc
-
-- Consultation
-    Consultation Blurb
-    Request Form
+  Headshot Slideshow
+  Each Client
+  Portrait, Recent Credits, External Links -> Press, IMDb, Reels, etc
 
 - Contact
-   Email Form
+  Email Form

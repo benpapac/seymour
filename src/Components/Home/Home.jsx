@@ -11,7 +11,7 @@ const Home = () => {
     }
     return (
         <section className='landing'>
-        <div className='header'>
+        <div className='headline'>
             <img src="" alt="Nic's Splash photo" className='header-photo' />
             <h1 className='header-title'>
                 Meet Nicole.
