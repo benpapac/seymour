@@ -9,6 +9,7 @@ import ContactUs from './Components/Contact/emailJS';
 import Executives from './Components/Executives/Executives';
 import Talent from './Components/Talent/Talent';
 import Consultation from './Components/Consultation/Consultation';
+import Test from './Components/Test/Test';
 
 function App() {
 	return (
@@ -20,6 +21,8 @@ function App() {
 				{/* <Home /> */}
 				<Routes>
 					<Route path='/' element={<Home />} />
+					<Route exact path='/test' element={<Test />} />
+
 					<Route exact path='/about' element={<About />} />
 					<Route exact path='/contact' element={<ContactUs />} />
 					<Route exact path='/talent' element={<Talent />} />

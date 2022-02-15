@@ -1,0 +1,40 @@
+{
+    "photos": [
+        {
+            "focus": "focus1",
+            "name": "Ben",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        },
+        {
+            "focus": "focus2",
+            "name": "Ben1",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        },
+        {
+            "focus": "focus3",
+            "name": "Ben2",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        },
+        {
+            "focus": "focus4",
+            "name": "Ben3",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        },
+        {
+            "focus": "focus5",
+            "name": "Ben4",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        },
+        {
+            "focus": "focus6",
+            "name": "Ben5",
+            "img": "https://i.imgur.com/BxDTG47.jpg",
+            "alt": "Ben sports a slim, cotton button-down."
+        }
+    ] 
+}

@@ -1,0 +1,45 @@
+.box {
+    display: flex;
+}
+
+.blue {
+    height: 400px;
+    width: 100px;
+    background-color:  #48cae4;
+}
+
+.sand {
+    height: 400px;
+    width: 100px;
+background-color: #e6ccb2;
+}
+
+.peach {
+    height: 400px;
+    width: 100px;
+background-color: #e7bc91;
+}
+
+.duke {
+    height: 400px;
+    width: 100px;
+background-color: #fec55c;
+}
+
+.halo {
+    height: 400px;
+    width: 100px;
+ background-color: #fffa93;
+}
+
+.moss {
+    height: 400px;
+    width: 100px;
+ background-color: #97a97c;
+}
+
+.slate {
+    height: 400px;
+    width: 100px;
+background-color: #b5c99a;
+}

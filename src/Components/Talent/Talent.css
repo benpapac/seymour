@@ -1,6 +1,13 @@
 .talent {
 	color: #2b1810;
 	background-color: #f9f9f7;
+
+	height: 60vh;
+	overflow: auto;
+}
+
+.talent::-webkit-scrollbar {
+	display: none;
 }
 
 .header {
