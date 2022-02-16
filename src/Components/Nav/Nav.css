@@ -13,3 +13,28 @@
 	text-decoration: none;
 	padding: 2em;
 }
+
+.link {
+	text-decoration: none;
+}
+
+.nav-link {
+	background-size: cover;
+
+	height: 80px;
+	width: 80px;
+	align-items: center;
+	justify-content: center;
+}
+
+.link-contact {
+	background-image: url('../../Assets/rotary-phone.svg');
+}
+
+.link-talent {
+	background-image: url('../../Assets/director-chair.svg');
+}
+
+.link-executives {
+	background-image: url('../../Assets/briefcase.svg');
+}
