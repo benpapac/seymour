@@ -13,21 +13,11 @@
 
 .actor {
 	margin-top: 2em;
-	padding: 1em;
 
 	display: flex;
 	flex-direction: column;
 	/* align-items: center; */
 	justify-content: center;
-}
-
-.ben {
-	background-color: #a9f0ec;
-}
-
-.ben2 {
-	color: #2b1810;
-	background-color: #b7c59d;
 }
 
 .actor-photo {
@@ -37,10 +27,8 @@
 	color: #2b1810;
 }
 
-.name {
-	grid-area: 3/1/3/4;
-	height: 100%;
-	width: 100%;
+.actor-name {
+	line-height: 2;
 }
 
 .actor-bio {
@@ -62,7 +50,7 @@
 	.actor {
 		display: grid;
 		grid-template-columns: 1fr 2fr 1fr;
-		grid-template-rows: 0.3fr 0.8fr 0.5fr;
+		grid-template-rows: 0.33fr 1fr;
 	}
 
 	.actor-photobox {

@@ -16,10 +16,10 @@ const Slideshow = ({slideshow}) => {
 
 
 return (
-    <>
+    <section className="slideshow-box">
      <div className='slideshow'>
             <div className="slider" 
-                style={{transform: `translate3d(0, ${-count*20}%, 0)`}}
+                style={{transform: `translate3d(0, ${-count*(100/slideshow.length)}%, 0)`}}
             >
                 {slideshow.map(
                     (slide, index) => {
@@ -36,7 +36,7 @@ return (
             </div>
         </div>
             <p className='copy'>{copy(slideshow)}</p>
-    </>
+    </section>
 )
 };
 

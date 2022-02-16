@@ -1,6 +1,6 @@
 [
    {
-    "name": "Ben",
+    "name": "Ben Papac",
     "img": "https://i.imgur.com/BxDTG47.jpg",
     "alt": "Ben Papac",
     "imdb": "https://www.imdb.com/name/nm3621230/?ref_=fn_al_nm_",
@@ -17,7 +17,7 @@
     "alt": "Ben Papac",
     "imdb": "https://www.imdb.com/name/nm3621230/?ref_=fn_al_nm_",
     "bio": "Benjamin Papac is an actor known for his roles in Greenhouse Academy (2017-2020), Room 104 (2020), and Into the Badlands (2015). Benjamin made his Theatrical debut as Albus Potter in Harry Potter & the Cursed Child, SF (2019). He was born in California, and grew up near Atlanta, Georgia. He began his career in Atlanta and Baton Rouge, with roles in The Walking Dead (2014), Fantastic Four (2015), and others.",
-  "slideshow":  [{"src":"https://i.imgur.com/Qflx5PM.jpg", "alt":"Ben rehearsing for Cursed Child", "background":"#48cae4" },{"src":"https://i.imgur.com/tZOQ0SR.jpg", "alt":"Poster for How to Deter a Robber", "background": "#b5c99a" },{"src":"https://i.imgur.com/eUehF7O.jpg", "alt":"Company bows for Cursed Child", "background":"#e6ccb2" },{"src":"https://i.imgur.com/yLhkIcE.jpg", "alt":"Ben with castmates at Cursed Child opening night", "background":"#fec55c" },{"src":"https://i.imgur.com/nIf1CvA.jpg", "alt":"Poster for Greenhouse Academy", "background":"#b5c99a" }],
+  "slideshow":  [{"src":"https://i.imgur.com/Qflx5PM.jpg", "alt":"Ben rehearsing for Cursed Child", "background":"#48cae4" },{"src":"https://i.imgur.com/tZOQ0SR.jpg", "alt":"Poster for How to Deter a Robber", "background": "#b5c99a" },{"src":"https://i.imgur.com/eUehF7O.jpg", "alt":"Company bows for Cursed Child", "background":"#e6ccb2" },{"src":"https://i.imgur.com/yLhkIcE.jpg", "alt":"Ben with castmates at Cursed Child opening night", "background":"#fec55c" }],
     "focus": "focus2",
     "background": "#48cae4",
     "img-background": "#97a97c"
