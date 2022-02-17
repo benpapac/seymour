@@ -29,7 +29,6 @@ const Talent = () => {
     return (
         <>
         {console.log(actors)}
-            <h2 className='lookbook-title'>LookBook</h2>
             <Zoom />
             {displayLookbook(chooseFocus)}
             {displayBackground()}

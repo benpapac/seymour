@@ -25,7 +25,8 @@ export const displayActors = (focusPoints) => {
 export const displayLookbook = (chooseFocus) => {
 	return (
 		<div className='lookbook'>
-			{actors.map((actor) => {
+			<h2 className='lookbook-title'>LookBook</h2>
+			{actors.map((actor, index) => {
 				return (
 					<>
 						<img
@@ -34,6 +35,7 @@ export const displayLookbook = (chooseFocus) => {
 							className={`thumbnail`}
 							src={`${actor.img}`}
 							alt={`${actor.alt}`}
+							style={{ gridColumn: index + 1 }}
 						/>
 					</>
 				);
@@ -54,5 +56,3 @@ export const displayBackground = () => {
 		</div>
 	);
 };
-
-
