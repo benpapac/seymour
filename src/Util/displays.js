@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import Actor from '../Components/Talent/Actor/Actor';
 import Slideshow from '../Components/Talent/Slideshow/Slideshow';
+import Talent from '../Components/Talent/Talent';
 import actors from '../Json/actors.json';
 
 export const displayActors = (focusPoints) => {
@@ -53,3 +54,5 @@ export const displayBackground = () => {
 		</div>
 	);
 };
+
+

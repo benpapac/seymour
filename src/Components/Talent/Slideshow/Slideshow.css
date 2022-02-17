@@ -1,8 +1,8 @@
 .zoom {
 	position: fixed;
 	z-index: 1;
-	padding:1em;
-	
+	padding-top: 2em;
+
 	display: flex;
 	align-items: start;
 	justify-content: center;
