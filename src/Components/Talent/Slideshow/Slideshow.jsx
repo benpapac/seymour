@@ -1,12 +1,18 @@
-import {useState, useEffect} from 'react';
+import {useReducer, useState, useEffect} from 'react';
 import "./Slideshow.css";
 
 const Slideshow = ({slideshow}) => {
     const [count, setCount] = useState(0);
+    const [zoom, setZoom] = useState({
+        show: false,
+        src: '',
+        alt: '',
+    });
+
+
     useEffect( () => {
-        // console.log(slideshow);
         setTimeout(  (count) => {
-             setCount((count) => count === slideshow.length-1 ? 0 : count + 1);
+                setCount((count) => count === slideshow.length-1 ? 0 : count + 1);
             }, 4500)
         }, [count]);
 
@@ -14,16 +20,44 @@ const Slideshow = ({slideshow}) => {
         return copy === slideshow.length -1 ? slideshow[0].alt : slideshow[count].alt;
     }
 
+    const zoomIn = (e) => {
+        e.preventDefault();
+        setZoom({
+            show: true,
+            src: e.target.src,
+            alt: e.target.alt,
+                })
+    }
+
+    const zoomOut = (e) => {
+        e.preventDefault();
+        setZoom({
+            show: false,
+            src: '',
+            alt: ''
+        })
+    }
+
 
 return (
-    <section className="slideshow-box">
-     <div className='slideshow'>
+    <>
+    <div className='zoom' >
+    <img className='zoom-photo'
+         onClick={zoomOut}
+         style={{display: `${zoom.show ? 'block' : 'hidden'}`}} 
+         src={`${zoom.src}`}  
+         alt={`${zoom.alt}`}
+    /> 
+    </div>
+    <section className="slideshow-box" style={{display: `${zoom.show ? 'hidden' : 'flex'}`}}>
+     <div className='slideshow' onClick={zoomIn}>
             <div className="slider" 
                 style={{transform: `translate3d(0, ${-count*(100/slideshow.length)}%, 0)`}}
             >
                 {slideshow.map(
                     (slide, index) => {
-                       return <img className = 'slide' 
+                       return <img className='slide'
+                                    
                                 style={{
                                     "align-self": "center",
                                 "boxShadow": `10px 6px ${slide['background']}`}}
@@ -37,6 +71,7 @@ return (
         </div>
             <p className='copy'>{copy(slideshow)}</p>
     </section>
+    </>
 )
 };
 

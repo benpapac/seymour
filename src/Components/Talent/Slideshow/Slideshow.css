@@ -1,3 +1,21 @@
+.zoom {
+	z-index: 2;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	height: 100%;
+	width: 100%;
+}
+
+.zoom-photo {
+	position: fixed;
+	left: 25%;
+	top: 25%;
+	max-height: 400px;
+}
+
 .slideshow-box {
 	grid-row: 1 / span 4;
 	grid-column: 2;
@@ -38,5 +56,5 @@
 	grid-row: 3;
 	grid-column: 3;
 
-	font-weight: 500;
+	font-weight: 900;
 }
