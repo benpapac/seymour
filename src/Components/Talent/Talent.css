@@ -3,11 +3,12 @@
 }
 
 .actor {
-	margin-top: 20vh;
+	margin-top: 25vh;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	animation: fadein 6s;
 }
 
 .actor-photo {
@@ -42,7 +43,7 @@
 	}
 
 	.actor-photobox {
-		grid-row: 2;
+		grid-row: 1;
 		grid-column: 1;
 
 		align-self: end;
@@ -50,11 +51,21 @@
 
 	.actor-name {
 		font-size: 40px;
-		grid-row: 2;
+		grid-row: 1;
 		grid-column: 2;
 		align-self: start;
 
 		margin: 0 auto;
+	}
+	.actor-bio {
+		width: 60%;
+		grid-column: 3;
+		align-self: flex-start;
+		justify-self: center;
+	}
+	.actor-a-tag {
+		height: 100%;
+		align-self: center;
 	}
 
 	.tall-rectangle {
@@ -68,6 +79,8 @@
 		width: 40px;
 
 		transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+		animation: expand 2s;
 	}
 
 	.long-rectangle {
@@ -79,6 +92,7 @@
 		left: 500px;
 		height: 40px;
 		width: 200px;
+		animation: expand 2s;
 	}
 	.dot {
 		display: inline-block;
@@ -92,6 +106,7 @@
 		cursor: pointer;
 		margin: 15px 7px 0px;
 		background-color: #48cae4;
+		animation: expand 1s;
 	}
 
 	.arm {
@@ -103,6 +118,7 @@
 		left: 845px;
 		height: 30px;
 		width: 100px;
+		animation: expand 3s;
 	}
 
 	.white-square {
@@ -126,17 +142,26 @@
 		height: 175px;
 		width: 175px;
 		border-radius: 50%;
+		animation: expand 6s;
 	}
 
-	.actor-bio {
-		width: 60%;
-		grid-row: 2;
-		grid-column: 3;
-		align-self: flex-start;
-		justify-self: center;
+	@keyframes expand {
+		from {
+			transform: scale(0.1, 0.1);
+		}
+
+		to {
+			transform: scale(1, 1);
+		}
 	}
-	.actor-a-tag {
-		height: 100%;
-		align-self: center;
+
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
 	}
 }
