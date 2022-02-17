@@ -1,37 +1,10 @@
 .lookbook {
-	z-index: 1;
-	position: fixed;
-	left: 1em;
-	bottom: 2em;
-	background-color: rgba(230, 204, 178, 0.6);
-
-	margin: 0 auto;
-	width: 140px;
-
-	transition: ease-in-out 700ms;
 	display: none;
-
 	animation: slideup 3s;
 }
 .lookbook-title {
 	display: none;
 	animation: slideright 2s;
-}
-
-.lookbook > .thumbnail {
-	position: absolute;
-	left: 20%;
-	top: 10%;
-	transition: ease-in-out 1000ms;
-}
-
-.lookbook:hover > .thumbnail {
-	position: relative;
-}
-.lookbook-title {
-	position: fixed;
-	bottom: 8em;
-	left: 1em;
 }
 
 .header {
@@ -47,22 +20,39 @@
 	transition: ease-in-out 400ms;
 }
 
-.thumbnail:hover {
-	z-index: 1;
-	transform: scale(1.4, 1.4);
-	opacity: 1;
-}
 
 @media (min-width: 500px) {
 	.lookbook {
+		z-index: 1;
+		position: fixed;
+		left: 1em;
+		bottom: 2em;
+		background-color: rgba(230, 204, 178, 0.6);
+		transition: ease-in-out 700ms;
+
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr;
 		height: 20vh;
+		width: 140px;
 	}
+
+	.lookbook-title {
+	position: fixed;
+	bottom: 8em;
+	left: 1em;
+	}
+
 	.lookbook-title {
 		display: flex;
 	}
+
+	.lookbook > .thumbnail {
+	position: absolute;
+	left: 20%;
+	top: 10%;
+	width: 80px;
+}
 
 	.lookbook:hover {
 		grid-template-columns: repeat(7, minmax(80px, 1fr));
@@ -72,7 +62,13 @@
 		width: 70%;
 	}
 
-	.thumbnail {
-		width: 80px;
+	.thumbnail:hover {
+	transform: scale(1.4, 1.4);
+	opacity: 1;
+}
+
+	.lookbook:hover > .thumbnail {
+	position: relative;
 	}
+
 }

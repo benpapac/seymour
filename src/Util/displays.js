@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Actor from '../Components/Talent/Actor/Actor';
 import Slideshow from '../Components/Talent/Slideshow/Slideshow';
 import actors from '../Json/actors.json';
@@ -22,7 +23,7 @@ export const displayActors = (focusPoints) => {
 
 export const displayLookbook = (chooseFocus) => {
 	return (
-		<div className='lookbook'>
+		<>
 			{actors.map((actor) => {
 				return (
 					<img
@@ -34,7 +35,7 @@ export const displayLookbook = (chooseFocus) => {
 					/>
 				);
 			})}
-		</div>
+		</>
 	);
 };
 

@@ -6,6 +6,7 @@ import {displayActors, displayBackground, displayLookbook} from '../../Util/disp
 
 const Talent = () => {
     // const [scrollHeight, setScrollHeight] = useState(0);
+    const [display, setDisplay] = useState('');
 
     const focusPoints = {
         focus1: useRef(null),
@@ -17,6 +18,7 @@ const Talent = () => {
     }
     
     const chooseFocus = (e) => {
+        e.preventDefault();
         focusPoints[e.target.id].current.scrollIntoView({behavior: 'smooth', block: 'center'});
     }
 
@@ -32,7 +34,12 @@ const Talent = () => {
         <>
         {console.log(actors)}
             <h2 className='lookbook-title'>LookBook</h2>
-            {displayLookbook(chooseFocus)}
+            <div className={`lookbook ${display}`} 
+                onHover={() => setDisplay('expand')}
+                onMouseLeave={() => setDisplay('')}
+            >
+                    {displayLookbook(chooseFocus)}
+            </div>
             {displayBackground()}
             {displayActors(focusPoints)}
         </>
