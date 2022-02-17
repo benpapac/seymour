@@ -10,9 +10,12 @@
 
 	transition: ease-in-out 700ms;
 	display: none;
+
+	animation: slideup 3s;
 }
 .lookbook-title {
 	display: none;
+	animation: slideright 2s;
 }
 
 .lookbook > .thumbnail {

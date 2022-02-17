@@ -8,7 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	animation: fadein 6s;
+	animation: fadein 7s;
 }
 
 .actor-photo {
@@ -152,6 +152,25 @@
 
 		to {
 			transform: scale(1, 1);
+		}
+	}
+
+	@keyframes slideup {
+		from {
+			bottom: -30em;
+		}
+
+		to {
+			bottom: 2em;
+		}
+	}
+
+	@keyframes slideright {
+		from {
+			left: -30em;
+		}
+		to {
+			left: 1em;
 		}
 	}
 
