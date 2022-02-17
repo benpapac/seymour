@@ -1,9 +1,14 @@
 .Nav {
+	z-index: 1;
+	position: fixed;
+
+	top: 0em;
 	height: 15vh;
+	width: 100vw;
 	background: linear-gradient(
 		180deg,
-		rgba(169, 240, 236, 0.7),
-		rgba(0, 0, 0, 0)
+		rgba(169, 240, 236, 1),
+		rgba(255, 255, 255, 1) 30%
 	);
 
 	display: flex;

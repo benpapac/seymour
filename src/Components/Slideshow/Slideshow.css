@@ -1,7 +1,6 @@
 .slideshow-box {
 	grid-row: 1 / span 4;
-	grid-column: 3;
-	background-color: rgba(0, 0, 0, 0.4);
+	grid-column: 2;
 	align-items: center;
 	justify-content: center;
 
@@ -38,17 +37,6 @@
 .copy {
 	grid-row: 3;
 	grid-column: 3;
-}
 
-.dots {
-	text-align: center;
-}
-.dot {
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	margin: 15px 7px 0px;
-	background-color: #c4c4c4;
+	font-weight: 500;
 }

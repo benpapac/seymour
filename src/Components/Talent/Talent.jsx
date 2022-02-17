@@ -5,6 +5,7 @@ import actors from '../../Json/actors.json';
 import Slideshow from '../Slideshow/Slideshow';
 
 const Talent = () => {
+    const [scrollHeight, setScrollHeight] = useState(0);
 
     const focusPoints = {
         focus1: useRef(null),
@@ -16,31 +17,46 @@ const Talent = () => {
     }
     
     const chooseFocus = (e) => {
-        focusPoints[e.target.id].current.scrollIntoView({behavior: 'smooth'});
+        focusPoints[e.target.id].current.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+
+    const scroll = (e) => {
+        e.preventDefault();
+        let childNodes = e.nativeEvent.target.childNodes;
+        console.log(childNodes[childNodes.length-1].offsetTop);
+  ;
     }
 
     return (
         <>
         {console.log(actors)}
-        <section className='header'>
+            <h2 className='lookbook-title'>LookBook</h2>
             <div className='lookbook' >
                 {actors.map(actor => {
                     return <img 
-                        onClick={chooseFocus}
-                        id={`${actor.focus}`} 
-                        className={`thumbnail`} 
-                        src={`${actor.img}`} 
-                        alt={`${actor.alt}`} 
+                    onClick={chooseFocus}
+                    id={`${actor.focus}`} 
+                    className={`thumbnail`} 
+                    src={`${actor.img}`} 
+                    alt={`${actor.alt}`} 
                     />
                 })}
             </div>
-        </section>
-        <section className='talent'>
+            <div>
+
+                <div className='tall-rectangle'
+                     style={{transform: [scrollHeight]}}></div>
+                <div className='long-rectangle' ></div>
+                <div className='dot'></div>
+                <div className='arm' ></div>
+                <div className='circle' ></div>
+                <div className='white-square' ></div>
+            </div>
+
             {actors.map(actor => {
                 return (
                 <div key={`${actor.name}`} 
                     className={`actor ${actor.name}`}  
-                    style={{"backgroundColor": `${actor.background}` }}
                     ref={focusPoints[`${actor.focus}`]}
                 >
                     <div className="actor-photobox">
@@ -49,8 +65,8 @@ const Talent = () => {
                             alt={`${actor.alt}`}
                         />
                     </div>
-                    <h2 className="actor-name">{`${actor.name}`}</h2>
-                    <p className="actor-bio">{`${actor.bio}`}
+                    <h1 className="actor-name">{`${actor.name}`}</h1>
+                    <p className="actor-bio" style={{"boxShadow": `-30px 16px ${actor['img-background']}`}}>{`${actor.bio}`}
                     <br/>
                         <a  className='actor-a-tag' href={`${actor.imdb}`}>IMDb</a>
                     </p>
@@ -60,7 +76,6 @@ const Talent = () => {
                 </div>
                     )
             })}
-        </section>
         </>
     );
 };
