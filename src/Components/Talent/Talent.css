@@ -80,7 +80,7 @@
 
 		transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-		animation: expand 2s;
+		animation: expand 4s infinite alternate;
 	}
 
 	.long-rectangle {
@@ -92,7 +92,7 @@
 		left: 500px;
 		height: 40px;
 		width: 200px;
-		animation: expand 2s;
+		animation: expand 4s infinite alternate;
 	}
 	.dot {
 		display: inline-block;
@@ -106,7 +106,7 @@
 		cursor: pointer;
 		margin: 15px 7px 0px;
 		background-color: #48cae4;
-		animation: expand 1s;
+		animation: hover 6s infinite alternate;
 	}
 
 	.arm {
@@ -118,7 +118,7 @@
 		left: 845px;
 		height: 30px;
 		width: 100px;
-		animation: expand 3s;
+		animation: arm 12s infinite;
 	}
 
 	.white-square {
@@ -142,12 +142,12 @@
 		height: 175px;
 		width: 175px;
 		border-radius: 50%;
-		animation: expand 6s;
+		animation: expand 8s;
 	}
 
 	@keyframes expand {
 		from {
-			transform: scale(0.1, 0.1);
+			transform: scale(0.8, 0.8);
 		}
 
 		to {
@@ -162,6 +162,48 @@
 
 		to {
 			bottom: 2em;
+		}
+	}
+
+	@keyframes squeeze {
+		from {
+			height: 20px;
+		}
+
+		to {
+			height: 40px;
+		}
+	}
+
+	@keyframes hover {
+		from {
+			top: 345px;
+		}
+
+		to {
+			top: 370px;
+		}
+	}
+
+	@keyframes arm {
+		from {
+			top: 435px;
+			left: 820px;
+		}
+
+		33% {
+			top: 455px;
+			left: 805px;
+		}
+
+		66% {
+			top: 455px;
+			left: 845px;
+		}
+
+		to {
+			top: 435px;
+			left: 820px;
 		}
 	}
 
