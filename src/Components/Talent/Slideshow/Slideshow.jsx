@@ -41,7 +41,12 @@ const Slideshow = ({slideshow}) => {
 
 return (
     <>
-    <div className='zoom' >
+    <div className='zoom' 
+         style={{
+            backgroundColor: `${!zoom.show ? 'white' : 'rgba(0,0,0,0.4)'}`,
+            zIndex: `${!zoom.show ? -1 : 1}`
+                }}
+    >
     <img className='zoom-photo'
          onClick={zoomOut}
          style={{display: `${zoom.show ? 'block' : 'hidden'}`}} 

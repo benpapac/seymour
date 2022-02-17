@@ -78,7 +78,7 @@
 		height: 250px;
 		width: 40px;
 
-		animation: expand 4s infinite alternate;
+		animation: expand 6s infinite alternate;
 	}
 
 	.long-rectangle {
@@ -116,7 +116,7 @@
 		left: 845px;
 		height: 30px;
 		width: 100px;
-		animation: arm 12s infinite;
+		animation: arm 9s infinite;
 	}
 
 	.white-square {

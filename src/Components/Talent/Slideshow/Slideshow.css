@@ -1,8 +1,10 @@
 .zoom {
+	position: fixed;
 	z-index: 1;
-
+	padding:1em;
+	
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 
 	height: 100%;
@@ -10,9 +12,6 @@
 }
 
 .zoom-photo {
-	position: fixed;
-	left: 25%;
-	top: 25%;
 	max-height: 400px;
 }
 
