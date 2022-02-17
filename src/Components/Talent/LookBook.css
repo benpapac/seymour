@@ -14,16 +14,18 @@
 }
 
 .thumbnail {
-	width: 100px;
+	position: absolute;
+	align-self: center;
+	justify-self: center;
+	width: 80px;
 	opacity: 0.7;
 
 	transition: ease-in-out 400ms;
 }
 
-
 @media (min-width: 500px) {
 	.lookbook {
-		z-index: 1;
+		z-index: 2;
 		position: fixed;
 		left: 1em;
 		bottom: 2em;
@@ -34,49 +36,28 @@
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr;
 		height: 20vh;
-		width: 140px;
+		width: 160px;
 	}
 
-	.lookbook-title {
-	position: fixed;
-	bottom: 8em;
-	left: 1em;
+	.lookbook:hover {
+		width: 70%;
+		grid-template-rows: repeat(1, minmax(160px, 1fr));
+		grid-template-columns: repeat(7, minmax(160px, 1fr));
+	}
+
+	.lookbook:hover > .thumbnail {
+		position: relative;
 	}
 
 	.lookbook-title {
 		display: flex;
-	}
-
-	.lookbook > .thumbnail {
-	position: absolute;
-	left: 20%;
-	top: 10%;
-	width: 80px;
-}
-
-	.lookbook:hover {
-		grid-template-columns: repeat(7, minmax(80px, 1fr));
-		grid-template-rows: repeat(1, minmax(160px, 1fr));
-
-		justify-content: space-evenly;
-		width: 70%;
-	}
-
-	.expand {
-		grid-template-columns: repeat(7, minmax(80px, 1fr));
-		grid-template-rows: repeat(1, minmax(160px, 1fr));
-
-		justify-content: space-evenly;
-		width: 70%;
+		position: fixed;
+		bottom: 8em;
+		left: 1em;
 	}
 
 	.thumbnail:hover {
-	transform: scale(1.4, 1.4);
-	opacity: 1;
-}
-
-	.lookbook:hover > .thumbnail {
-	position: relative;
+		transform: scale(1.2, 1.2);
+		opacity: 1;
 	}
-
 }

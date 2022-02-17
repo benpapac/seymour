@@ -23,19 +23,21 @@ export const displayActors = (focusPoints) => {
 
 export const displayLookbook = (chooseFocus) => {
 	return (
-		<>
+		<div className='lookbook'>
 			{actors.map((actor) => {
 				return (
-					<img
-						onClick={chooseFocus}
-						id={`${actor.focus}`}
-						className={`thumbnail`}
-						src={`${actor.img}`}
-						alt={`${actor.alt}`}
-					/>
+					<>
+						<img
+							onClick={chooseFocus}
+							id={`${actor.focus}`}
+							className={`thumbnail`}
+							src={`${actor.img}`}
+							alt={`${actor.alt}`}
+						/>
+					</>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 

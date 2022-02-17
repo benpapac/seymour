@@ -3,7 +3,7 @@
 }
 
 .actor {
-	margin-top: 25vh;
+	margin: 25vh 0;
 
 	display: flex;
 	flex-direction: column;
@@ -39,7 +39,7 @@
 	.actor {
 		display: grid;
 		grid-template-columns: 2fr 1fr 2fr;
-		grid-template-rows: 0.33fr 1fr;
+		grid-template-rows: 1fr;
 	}
 
 	.actor-photobox {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './Talent.css';
 import './LookBook.css';
 import actors from '../../Json/actors.json';
@@ -7,6 +7,8 @@ import {displayActors, displayBackground, displayLookbook} from '../../Util/disp
 const Talent = () => {
     // const [scrollHeight, setScrollHeight] = useState(0);
     const [display, setDisplay] = useState('');
+
+  
 
     const focusPoints = {
         focus1: useRef(null),
@@ -19,8 +21,10 @@ const Talent = () => {
     
     const chooseFocus = (e) => {
         e.preventDefault();
+         setDisplay('');
         focusPoints[e.target.id].current.scrollIntoView({behavior: 'smooth', block: 'center'});
     }
+
 
     const scroll = (e) => {
         e.preventDefault();
@@ -34,12 +38,7 @@ const Talent = () => {
         <>
         {console.log(actors)}
             <h2 className='lookbook-title'>LookBook</h2>
-            <div className={`lookbook ${display}`} 
-                onHover={() => setDisplay('expand')}
-                onMouseLeave={() => setDisplay('')}
-            >
-                    {displayLookbook(chooseFocus)}
-            </div>
+            {displayLookbook(chooseFocus)}
             {displayBackground()}
             {displayActors(focusPoints)}
         </>
