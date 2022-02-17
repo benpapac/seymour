@@ -13,6 +13,7 @@ import { TalentContext } from '../../../Util/Context';
 	return (
 		<div
 			className='zoom'
+			onClick={zoomOut}
 			style={{
 				height: `${!zoom.show ? '0px' : '100%'}`,
 				backgroundColor: `${!zoom.show ? 'white' : 'rgba(0,0,0,0.4)'}`,
@@ -20,7 +21,6 @@ import { TalentContext } from '../../../Util/Context';
 			}}>
 			<img
 				className='zoom-photo'
-				onClick={zoomOut}
 				style={{ display: `${zoom.show ? 'block' : 'hidden'}` }}
 				src={`${zoom.src}`}
 				alt={`${zoom.alt}`}

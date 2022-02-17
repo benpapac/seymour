@@ -20,11 +20,13 @@ function App() {
 
 	const zoomIn = (e) => {
 		e.preventDefault();
-		setZoom({
-			show: true,
-			src: e.target.src,
-			alt: e.target.alt,
-		});
+		if (!e.target.src) return;
+		else
+			setZoom({
+				show: true,
+				src: e.target.src,
+				alt: e.target.alt,
+			});
 	};
 
 	const zoomOut = (e) => {
