@@ -4,18 +4,20 @@ import Slideshow from '../Components/Talent/Slideshow/Slideshow';
 import Talent from '../Components/Talent/Talent';
 import actors from '../Json/actors.json';
 
-export const displayActors = (focusPoints) => {
+export const displayActors = (focusPoints, chooseFocus) => {
 	return (
 		<>
 			{actors.map((actor) => {
 				return (
-					<div
-						key={`${actor.name}`}
-						className={`actor ${actor.name}`}
-						ref={focusPoints[`${actor.focus}`]}>
-						<Actor actor={actor} focusPoints={focusPoints} />
-						<Slideshow slideshow={actor.slideshow} />
-					</div>
+					<>
+						<div
+							key={`${actor.name}`}
+							className={`actor ${actor.name}`}
+							ref={focusPoints[`${actor.focus}`]}>
+							<Actor actor={actor} focusPoints={focusPoints} />
+							{/* <Slideshow slideshow={actor.slideshow} /> */}
+						</div>
+					</>
 				);
 			})}
 		</>
@@ -24,23 +26,25 @@ export const displayActors = (focusPoints) => {
 
 export const displayLookbook = (chooseFocus) => {
 	return (
-		<div className='lookbook'>
+		<>
 			<h2 className='lookbook-title'>LookBook</h2>
-			{actors.map((actor, index) => {
-				return (
-					<>
-						<img
-							onClick={chooseFocus}
-							id={`${actor.focus}`}
-							className={`thumbnail`}
-							src={`${actor.img}`}
-							alt={`${actor.alt}`}
-							style={{ gridColumn: index + 1 }}
-						/>
-					</>
-				);
-			})}
-		</div>
+			<div className='lookbook'>
+				{actors.map((actor, index) => {
+					return (
+						<>
+							<img
+								onClick={chooseFocus}
+								id={`${actor.focus}`}
+								className={`thumbnail`}
+								src={`${actor.img}`}
+								alt={`${actor.alt}`}
+								style={index === 0 ? { marginTop: '0em' } : null}
+							/>
+						</>
+					);
+				})}
+			</div>
+		</>
 	);
 };
 

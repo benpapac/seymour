@@ -12,6 +12,7 @@ import Talent from './Components/Talent/Talent';
 import Test from './Components/Test/Test';
 
 function App() {
+	const width = window.innerWidth;
 	const [zoom, setZoom] = useState({
 		show: false,
 		src: '',
@@ -49,10 +50,11 @@ function App() {
 
 	const chooseFocus = (e) => {
 		e.preventDefault();
+		const value = width < 1000 ? 'end' : 'center';
 		// setDisplay('');
 		focusPoints[e.target.id].current.scrollIntoView({
 			behavior: 'smooth',
-			block: 'center',
+			block: value,
 		});
 	};
 	return (

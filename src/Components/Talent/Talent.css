@@ -2,29 +2,6 @@
 	display: none;
 }
 
-.actor {
-	margin: 25vh 0;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	animation: fadein 7s;
-}
-
-.actor-photo {
-	margin: 0 auto;
-	height: 300px;
-
-	color: #2b1810;
-}
-
-.actor-bio {
-	margin: 1em 1em;
-	padding: 1em;
-	line-height: 1.5;
-	background-color: whitesmoke;
-}
-
 .headshot {
 	grid-column: 2;
 	justify-self: center;
@@ -35,38 +12,7 @@
 	grid-column: 2;
 }
 
-@media (min-width: 500px) {
-	.actor {
-		display: grid;
-		grid-template-columns: 2fr 1fr 2fr;
-		grid-template-rows: 1fr;
-	}
-
-	.actor-photobox {
-		grid-row: 1;
-		grid-column: 1;
-
-		align-self: end;
-	}
-
-	.actor-name {
-		font-size: 40px;
-		grid-row: 1;
-		grid-column: 2;
-		align-self: start;
-
-		margin: 0 auto;
-	}
-	.actor-bio {
-		width: 60%;
-		grid-column: 3;
-		align-self: flex-start;
-		justify-self: center;
-	}
-	.actor-a-tag {
-		height: 100%;
-		align-self: center;
-	}
+@media (min-width: 1000px) {
 
 	.tall-rectangle {
 		background-color: #b5c99a;
@@ -81,17 +27,6 @@
 		animation: expand 6s infinite alternate;
 	}
 
-	.long-rectangle {
-		background-color: #b5c99a;
-		z-index: -1;
-		position: fixed;
-		align-self: center;
-		top: 612px;
-		left: 500px;
-		height: 40px;
-		width: 200px;
-		animation: expand 4s infinite alternate;
-	}
 	.dot {
 		display: inline-block;
 		position: fixed;
@@ -105,29 +40,6 @@
 		margin: 15px 7px 0px;
 		background-color: #48cae4;
 		animation: hover 6s infinite alternate;
-	}
-
-	.arm {
-		background-color: #c4c4c4;
-		z-index: -1;
-		position: fixed;
-		align-self: center;
-		top: 455px;
-		left: 845px;
-		height: 30px;
-		width: 100px;
-		animation: arm 9s infinite;
-	}
-
-	.white-square {
-		background-color: white;
-		z-index: -2;
-		position: fixed;
-		align-self: center;
-		top: 351px;
-		left: 840px;
-		height: 140px;
-		width: 140px;
 	}
 
 	.circle {
@@ -145,7 +57,7 @@
 
 	@keyframes expand {
 		from {
-			transform: scale(0.8, 0.8);
+			transform: scale(0, 0);
 		}
 
 		to {
@@ -153,15 +65,6 @@
 		}
 	}
 
-	@keyframes slideup {
-		from {
-			bottom: -30em;
-		}
-
-		to {
-			bottom: 2em;
-		}
-	}
 
 	@keyframes squeeze {
 		from {

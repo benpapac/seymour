@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TalentContext } from '../../../Util/Context';
+import { displayLookbook } from '../../../Util/displays';
+import './Actor.css';
 
 const Actor = ({ actor, focusPoints }) => {
+    const talentContext = useContext(TalentContext);
+    const chooseFocus = talentContext.chooseFocus;
     return (
         <>
             <div className="actor-photobox">

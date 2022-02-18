@@ -1,7 +1,33 @@
 .lookbook {
-	display: none;
-	animation: slideup 3s;
+	animation: lookbook 3s;
+	background-color: rgba(230, 204, 178, 0.6);
+
+	position: fixed;
+	z-index: 2;
+	left: 1em;
+	top: 10em;
+
+	height: 200px;
+	width: 100px;
+
+	display: grid;
+	gap: 1em;
+	padding: 1em;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	overflow: hidden;
+
+	animation: expand 5s;
 }
+
+.lookbook:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+	height: fit-content;
+	width: fit-content;
+	grid-template-rows: repeat(3, minmax(80px, 1fr));
+	grid-template-columns: repeat(2, minmax(100px, 1fr));
+}
+
 .lookbook-title {
 	display: none;
 	animation: slideright 2s;
@@ -14,56 +40,52 @@
 }
 
 .thumbnail {
-	margin: 0 -15em;
+	margin-top: -6em;
 	align-self: center;
 	justify-self: center;
-	width: 80px;
+	width: 70px;
 
 	transition: ease-in-out 400ms;
 }
 
-@media (min-width: 500px) {
+.lookbook:hover > .thumbnail {
+	margin-top: 0;
+	display: inline;
+	opacity: 0.8;
+}
+.lookbook:hover > .thumbnail:hover {
+	transform: scale(1.2, 1.2);
+	opacity: 1;
+	z-index: 3;
+}
+
+@media (min-width: 1000px) {
 	.lookbook {
-		z-index: 2;
-		position: fixed;
 		left: 1em;
-		bottom: 2em;
-		background-color: rgba(0, 0, 0, 0.6);
+		top: 15em;
 		padding: 1em;
+		height: fit-content;
+		width: fit-content;
 
 		transition: ease-in-out 700ms;
 
 		display: grid;
 		gap: 1em;
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr;
-		overflow: hidden;
-		height: 20vh;
-		width: 220px;
-	}
-
-	.lookbook:hover {
-		background-color: rgba(230, 204, 178, 0.6);
-
-		width: 80%;
-		grid-template-rows: repeat(2, minmax(160px, 1fr));
-		grid-template-columns: repeat(7, minmax(160px, 1fr));
-	}
-
-	.lookbook:hover > .thumbnail {
-		grid-row: 1;
-		opacity: 0.7;
+		grid-template-rows: repeat(3, minmax(80px, 1fr));
+		grid-template-columns: repeat(2, minmax(100px, 1fr));
 	}
 
 	.lookbook-title {
 		display: flex;
-		position: fixed;
-		bottom: 8em;
-		left: 1em;
+	}
+	.lookbook:hover > .lookbook-title {
+		display: none;
 	}
 
-	.thumbnail:hover {
-		transform: scale(1.2, 1.2);
-		opacity: 1;
+	.thumbnail {
+		margin-top: 0;
+		width: 80px;
+
+		transition: ease-in-out 400ms;
 	}
 }

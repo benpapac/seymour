@@ -28,11 +28,8 @@ const Talent = () => {
 
     return (
         <>
-        {console.log(actors)}
-            <Zoom />
             {displayLookbook(chooseFocus)}
-            {displayBackground()}
-            {displayActors(focusPoints)}
+            {displayActors(focusPoints, chooseFocus)}
         </>
     );
 };
