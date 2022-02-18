@@ -26,25 +26,22 @@ export const displayActors = (focusPoints, chooseFocus) => {
 
 export const displayLookbook = (chooseFocus) => {
 	return (
-		<>
-			<h2 className='lookbook-title'>LookBook</h2>
-			<div className='lookbook'>
-				{actors.map((actor, index) => {
-					return (
-						<>
-							<img
-								onClick={chooseFocus}
-								id={`${actor.focus}`}
-								className={`thumbnail`}
-								src={`${actor.img}`}
-								alt={`${actor.alt}`}
-								style={index === 0 ? { marginTop: '0em' } : null}
-							/>
-						</>
-					);
-				})}
-			</div>
-		</>
+		<div className='lookbook'>
+			{actors.map((actor, index) => {
+				return (
+					<>
+						<img
+							onClick={chooseFocus}
+							id={`${actor.focus}`}
+							className={`thumbnail`}
+							src={`${actor.img}`}
+							alt={`${actor.alt}`}
+							style={index === 0 ? { marginTop: '0em' } : null}
+						/>
+					</>
+				);
+			})}
+		</div>
 	);
 };
 

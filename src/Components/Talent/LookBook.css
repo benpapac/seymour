@@ -1,5 +1,4 @@
 .lookbook {
-	animation: lookbook 3s;
 	background-color: rgba(230, 204, 178, 0.6);
 
 	position: fixed;
@@ -17,7 +16,8 @@
 	grid-template-columns: repeat(2, minmax(100px, 1fr));
 	overflow: hidden;
 
-	animation: expand 5s;
+	animation: expand 4s;
+	display: none;
 }
 
 .lookbook-title {
@@ -47,6 +47,12 @@
 	transform: scale(1.2, 1.2);
 	opacity: 1;
 	z-index: 3;
+}
+
+@media (min-width: 600px) {
+	.lookbook {
+		display: none;
+	}
 }
 
 @media (min-width: 1000px) {
