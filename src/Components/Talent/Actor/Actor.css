@@ -1,5 +1,5 @@
 .actor {
-	margin-top: 30em;
+	margin: 12em;
 
 	display: flex;
 	flex-direction: column;
@@ -14,7 +14,7 @@
 
 .actor-photo {
 	margin: 0 auto;
-	max-height: 300px;
+	max-height: 250px;
 	max-width: 90%;
 
 	color: #2b1810;

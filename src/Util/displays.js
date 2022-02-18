@@ -51,12 +51,12 @@ export const displayLookbook = (chooseFocus) => {
 export const displayBackground = () => {
 	return (
 		<div>
-			<div className='tall-rectangle'></div>
-			<div className='long-rectangle'></div>
+			{/* <div className='tall-rectangle'></div> */}
+			{/* <div className='long-rectangle'></div> */}
 			<div className='dot'></div>
-			<div className='arm'></div>
-			<div className='circle'></div>
-			<div className='white-square'></div>
+			{/* <div className='arm'></div> */}
+			{/* <div className='circle'></div> */}
+			{/* <div className='white-square'></div> */}
 		</div>
 	);
 };

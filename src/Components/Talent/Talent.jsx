@@ -30,6 +30,7 @@ const Talent = () => {
         <>
             {displayLookbook(chooseFocus)}
             {displayActors(focusPoints, chooseFocus)}
+            {/* {displayBackground} */}
         </>
     );
 };

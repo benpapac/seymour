@@ -7,25 +7,17 @@
 	left: 1em;
 	top: 10em;
 
-	height: 200px;
-	width: 100px;
+	height: fit-content;
+	width: fit-content;
 
 	display: grid;
 	gap: 1em;
 	padding: 1em;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, minmax(80px, 1fr));
+	grid-template-columns: repeat(2, minmax(100px, 1fr));
 	overflow: hidden;
 
 	animation: expand 5s;
-}
-
-.lookbook:hover {
-	background-color: rgba(0, 0, 0, 0.7);
-	height: fit-content;
-	width: fit-content;
-	grid-template-rows: repeat(3, minmax(80px, 1fr));
-	grid-template-columns: repeat(2, minmax(100px, 1fr));
 }
 
 .lookbook-title {
@@ -40,7 +32,6 @@
 }
 
 .thumbnail {
-	margin-top: -6em;
 	align-self: center;
 	justify-self: center;
 	width: 70px;
@@ -49,7 +40,6 @@
 }
 
 .lookbook:hover > .thumbnail {
-	margin-top: 0;
 	display: inline;
 	opacity: 0.8;
 }
@@ -73,6 +63,10 @@
 		gap: 1em;
 		grid-template-rows: repeat(3, minmax(80px, 1fr));
 		grid-template-columns: repeat(2, minmax(100px, 1fr));
+	}
+
+	.lookbook:hover {
+		background-color: rgba(0, 0, 0, 0.7);
 	}
 
 	.lookbook-title {
