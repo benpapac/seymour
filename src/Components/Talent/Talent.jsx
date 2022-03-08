@@ -15,22 +15,23 @@ const Talent = () => {
     const [display, setDisplay] = useState('');
  
     const displayActors = displayHOF.displayActors;
-    const displayBackground = displayHOF.displayBackground;
+    // const displayBackground = displayHOF.displayBackground;
     const displayLookbook = displayHOF.displayLookbook
 
-    const scroll = (e) => {
-        e.preventDefault();
-        let childNodes = e.nativeEvent.target.childNodes;
-        console.log(childNodes[childNodes.length-1].offsetTop);
-  ;
-    }
+//     const scroll = (e) => {
+//         e.preventDefault();
+//         let childNodes = e.nativeEvent.target.childNodes;
+//         console.log(childNodes[childNodes.length-1].offsetTop);
+//   ;
+//     }
 
 
     return (
         <>
             {displayLookbook(chooseFocus)}
             {displayActors(focusPoints, chooseFocus)}
-            {/* {displayBackground} */}
+			<div className='dot'></div>
+			<div className='tall-rectangle'></div>
         </>
     );
 };

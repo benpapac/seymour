@@ -50,7 +50,7 @@ function App() {
 
 	const chooseFocus = (e) => {
 		e.preventDefault();
-		const value = width < 1000 ? 'center' : 'center';
+		const value = width < 1000 ? 'end' : 'end';
 		// setDisplay('');
 		focusPoints[e.target.id].current.scrollIntoView({
 			behavior: 'smooth',

@@ -7,10 +7,10 @@ import './Contact.css';
     const user_id = process.env.REACT_APP_USER_ID;
     const service_id = process.env.REACT_APP_SERVICE_ID;
 
-	const [sent, setSent] = useState(false);
+	const [sent, setSent] = useState('');
 
 	useEffect(() => {
-		setSent(false);
+		setSent('');
 	}, [])
 
 	const sendEmail = (e) => {
@@ -26,40 +26,47 @@ import './Contact.css';
 			.then(
 				(result) => {
 					console.log(result.text);
+					setSent('pass');
 				},
 				(error) => {
 					console.log(error.text);
+					setSent('fail')
+
 				}
 			);
 
 			e.target.reset();
-			setSent(true);
 	};
 
 	return (
-		<>
+		<div className='contact'>
 		<h2>Contact</h2>
-		{sent ? 
+		{sent === 'pass' ? 
 		<>
 		<h4>Your message was successfully sent!</h4> 
 		</>
-		: 
-		<>
-		<form className='contact-form' ref={form} onSubmit={sendEmail}>
-			<label>Name</label>
-            <input type="hidden" name='to_name' value="Nic"/>
-			<input className='input' type='text' placeholder='Name' name='name' />
-			<label>Email</label>
-			<input className='input' type='email' placeholder='Email Address' name='email' />
-            <label >Subject</label>
-            <input className='input' type="text" placeholder='Subject' name='subject'/>
-			<label>Message</label>
-			<textarea className='message' name='message' />
-			<input className='button' type='submit' value='Send' />
-		</form>
-		</>
+		: ( sent === 'fail' ?
+			<>
+			<h4>Oops! Something went wrong. Refresh the page, and try again.</h4>
+			</>
+			: 
+			<>
+			<form className='contact-form' ref={form} onSubmit={sendEmail}>
+				<label>Name</label>
+				<input type="hidden" name='to_name' value="Nic"/>
+				<input className='input' type='text' placeholder='Name' name='name' />
+				<label>Email</label>
+				<input className='input' type='email' placeholder='Email Address' name='email' />
+				<label >Subject</label>
+				<input className='input' type="text" placeholder='Subject' name='subject'/>
+				<label>Message</label>
+				<textarea className='message' name='message' />
+				<input className='button' type='submit' value='Send' />
+			</form>
+			</>
+		)
 		}
-		</>
+		</div>
 	);
 };
 

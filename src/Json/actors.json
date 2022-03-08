@@ -4,8 +4,8 @@
     "img": "https://i.imgur.com/BxDTG47.jpg",
     "alt": "Ben Papac",
     "imdb": "https://www.imdb.com/name/nm3621230/?ref_=fn_al_nm_",
-    "bio": "Benjamin Papac is an actor known for his roles in Greenhouse Academy (2017-2020), Room 104 (2020), and Into the Badlands (2015). Benjamin made his Theatrical debut as Albus Potter in Harry Potter & the Cursed Child, SF (2019). He was born in California, and grew up near Atlanta, Georgia. He began his career in Atlanta and Baton Rouge, with roles in The Walking Dead (2014), Fantastic Four (2015), and others.",
-    "slideshow":  [{"src":"https://i.imgur.com/Qflx5PM.jpg", "alt":"Ben Papac (Albus) & Jon Steiger (Scorpius)", "background":"#48cae4" },{"src":"https://i.imgur.com/tZOQ0SR.jpg", "alt":"Ben Papac & Vanessa Marano", "background": "#b5c99a" },{"src":"https://i.imgur.com/eUehF7O.jpg", "alt":"Company bows for Cursed Child", "background":"#e6ccb2" },{"src":"https://i.imgur.com/yLhkIcE.jpg", "alt":"Ben Papac, Folami Williams, and Jon Steiger", "background":"#fec55c" },{"src":"https://i.imgur.com/nIf1CvA.jpg", "alt":"Greenhouse Academy", "background":"#b5c99a" }],
+    "bio": "Ben made his Theatrical debut as Albus Potter in Harry Potter & the Cursed Child, SF (2019-2022). He is also known for his roles on American Horror Story, HBO's Room 104, and Into the Badlands on AMC. Ben began his career in Atlanta and Baton Rouge, with roles in The Walking Dead, Fantastic Four, and others.",
+    "slideshow":  [{"src":"https://i.imgur.com/BxDTG47.jpg", "alt":"Ben Papac", "background": "#b5c99a"},{"src":"https://i.imgur.com/Qflx5PM.jpg", "alt":"Ben Papac & Jon Steiger", "background":"#48cae4" },{"src":"https://i.imgur.com/tZOQ0SR.jpg", "alt":"Ben Papac & Vanessa Marano", "background": "#b5c99a" },{"src":"https://i.imgur.com/eUehF7O.jpg", "alt":"Cursed Child bows", "background":"#e6ccb2" },{"src":"https://i.imgur.com/yLhkIcE.jpg", "alt":"Ben Papac, Folami Williams, Jon Steiger", "background":"#fec55c" },{"src":"https://i.imgur.com/nIf1CvA.jpg", "alt":"Greenhouse Academy", "background":"#b5c99a" }],
     "focus": "focus1",
     "background": "#97a97c",
     "img-background": "#b5c99a"

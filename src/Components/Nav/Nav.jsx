@@ -9,10 +9,10 @@ const Nav = () => {
                 <div className="nav-link link-logo"></div>
                 <h4>LG Logo</h4>
             </Link>
-            <Link  className="link" to='/test'>
+            {/* <Link  className="link" to='/test'>
                 <div className="link-test"></div>
                 <h4>Test</h4>
-            </Link>
+            </Link> */}
             <Link  className="link" to='/contact'>
                 <div className="nav-link link-contact"></div>
                 <h4>Contact</h4>

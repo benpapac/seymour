@@ -15,13 +15,13 @@
 @media (min-width: 1000px) {
 	.tall-rectangle {
 		background-color: #b5c99a;
-		z-index: -1;
+		/* z-index: -1; */
 		position: fixed;
 		align-self: center;
-		left: 500px;
-		top: 361px;
-		height: 250px;
-		width: 40px;
+		left: 280px;
+		top: 261px;
+		height: 350px;
+		width: 10px;
 
 		animation: expand 6s infinite alternate;
 	}
@@ -29,16 +29,14 @@
 	.dot {
 		display: inline-block;
 		position: fixed;
-		z-index: -3;
-		top: 360px;
-		left: 650px;
-		height: 250px;
-		width: 250px;
+		/* z-index: -3; */
+		right: 350px;
+		height: 50px;
+		width: 50px;
 		border-radius: 50%;
 		cursor: pointer;
-		margin: 15px 7px 0px;
 		background-color: #48cae4;
-		animation: hover 6s infinite alternate;
+		animation: hover 3s infinite alternate;
 	}
 
 	.circle {
@@ -56,11 +54,21 @@
 
 	@keyframes expand {
 		from {
-			transform: scale(0, 0);
+			transform: scale(0.6, 0.6);
 		}
 
 		to {
 			transform: scale(1, 1);
+		}
+	}
+
+	@keyframes slideup {
+		from {
+			top: 40vh;
+		}
+
+		to {
+			top: 10vh;
 		}
 	}
 
@@ -76,11 +84,11 @@
 
 	@keyframes hover {
 		from {
-			top: 345px;
+			top: 235px;
 		}
 
 		to {
-			top: 370px;
+			top: 285px;
 		}
 	}
 

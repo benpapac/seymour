@@ -1,5 +1,6 @@
 .lookbook {
-	background-color: rgba(230, 204, 178, 0.6);
+	/* background-color: rgba(230, 204, 178, 0.6); */
+	background-color: rgba(237, 235, 235, 0.6);
 
 	position: fixed;
 	z-index: 2;
@@ -20,21 +21,15 @@
 	display: none;
 }
 
-.lookbook-title {
+.spotlight {
 	display: none;
-	animation: slideright 2s;
-}
-
-.header {
-	margin-bottom: 1em;
-	height: 10%;
-	color: #2b1810;
 }
 
 .thumbnail {
 	align-self: center;
 	justify-self: center;
 	width: 70px;
+	border: 0.2em solid white;
 
 	transition: ease-in-out 400ms;
 }
@@ -49,18 +44,26 @@
 	z-index: 3;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
 	.lookbook {
-		display: none;
+		position: fixed;
+		top: 12em;
+		left: 1em;
+
+		display: grid;
+		gap: 1em;
+		padding: 1em;
+		grid-template-rows: repeat(3, minmax(80px, 1fr));
+		grid-template-columns: repeat(2, minmax(100px, 1fr));
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
 	.lookbook {
 		left: 1em;
-		top: 15em;
+		top: 12em;
 		padding: 1em;
-		height: fit-content;
+		height: 70%;
 		width: fit-content;
 
 		transition: ease-in-out 700ms;

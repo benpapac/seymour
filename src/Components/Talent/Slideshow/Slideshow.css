@@ -18,18 +18,17 @@
 .slideshow-box {
 	grid-row: 1;
 	grid-column: 2;
-	align-items: center;
-	justify-content: center;
 
 	display: flex;
 	flex-direction: column;
-	margin: 1em;
+	align-items: center;
+	justify-content: center;
 }
 
 .slideshow {
 	align-self: center;
 	justify-self: center;
-	height: 200px;
+	height: 275px;
 
 	display: flex;
 	flex-direction: column;
@@ -48,17 +47,20 @@
 }
 
 .slide {
+	align-self: center;
+
 	margin: 1em;
-	max-height: 180px;
+	max-height: 250px;
+	animation: slideup 4s;
 }
 
 .copy-box {
 	grid-row: 1;
 	grid-column: 2;
-	margin-top: 3em;
 	align-self: end;
 	justify-self: center;
-	width: 260px;
+	margin: 1em;
+	max-width: 300px;
 
 	display: flex;
 	flex-direction: row;
@@ -70,17 +72,34 @@
 	flex-direction: row;
 	transition: ease 1800ms;
 	transition-delay: 200ms;
+	justify-self: center;
 
 	justify-content: space-evenly;
 }
 
 .copy {
 	height: 60px;
-	width: 250px;
+	width: 260px;
 
 	align-self: center;
 	justify-self: center;
 
 	line-height: 1.5;
 	font-weight: 900;
+	text-align: center;
+}
+
+@media (min-width: 1100px) {
+	.slideshow {
+		align-self: center;
+		justify-self: center;
+		height: 275px;
+
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	.slide {
+		height: 375px;
+	}
 }

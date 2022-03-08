@@ -44,7 +44,7 @@ return (
             </div>
         </div>
         </section>
-        <section className="copy-box" style={{display: `${zoom.show ? 'hidden' : 'flex'}`}}>
+        <div className="copy-box" style={{display: `${zoom.show ? 'hidden' : 'flex'}`}}>
             <div className="copy-slider" 
                 style={{transform: `translate3d(${-count*(100/slideshow.length)}%, 0, 0)`}}
             >
@@ -58,7 +58,7 @@ return (
          </div>
 
             <p className='copy'>{copy(slideshow)}</p>
-    </section>
+    </div>
     </>
 )
 };

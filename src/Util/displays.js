@@ -15,7 +15,6 @@ export const displayActors = (focusPoints, chooseFocus) => {
 							className={`actor ${actor.name}`}
 							ref={focusPoints[`${actor.focus}`]}>
 							<Actor actor={actor} focusPoints={focusPoints} />
-							{/* <Slideshow slideshow={actor.slideshow} /> */}
 						</div>
 					</>
 				);
@@ -24,31 +23,40 @@ export const displayActors = (focusPoints, chooseFocus) => {
 	);
 };
 
-export const displayLookbook = (chooseFocus) => {
+export const displayLookbook = (chooseFocus, setLightCoordinates) => {
+	// 	const spotlight = (e) => {
+	// 		e.preventDefault();
+	// 		setlightCoordinates({
+	// 			x: e.target.xOffset,
+	// 			y: e.target.yOffset,
+	// 		})}
 	return (
-		<div className='lookbook'>
-			{actors.map((actor, index) => {
-				return (
-					<>
-						<img
-							onClick={chooseFocus}
-							id={`${actor.focus}`}
-							className={`thumbnail`}
-							src={`${actor.img}`}
-							alt={`${actor.alt}`}
-							style={index === 0 ? { marginTop: '0em' } : null}
-						/>
-					</>
-				);
-			})}
-		</div>
+		<>
+			{/* <div className='spotlight' ></div> */}
+			<div className='lookbook'>
+				{actors.map((actor, index) => {
+					return (
+						<>
+							<img
+								onClick={chooseFocus}
+								id={`${actor.focus}`}
+								className={`thumbnail`}
+								src={`${actor.img}`}
+								alt={`${actor.alt}`}
+								style={index === 0 ? { marginTop: '0em' } : null}
+							/>
+						</>
+					);
+				})}
+			</div>
+		</>
 	);
 };
 
 export const displayBackground = () => {
 	return (
 		<div>
-			{/* <div className='tall-rectangle'></div> */}
+			<div className='tall-rectangle'></div>
 			{/* <div className='long-rectangle'></div> */}
 			<div className='dot'></div>
 			{/* <div className='arm'></div> */}

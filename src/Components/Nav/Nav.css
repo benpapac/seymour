@@ -1,26 +1,24 @@
 .Nav {
-	z-index: 1;
+	z-index: 2;
 	position: fixed;
-
-	top: 0em;
-	height: 15vh;
 	width: 100vw;
-	background: linear-gradient(
-		180deg,
-		rgba(169, 240, 236, 1),
-		rgba(255, 255, 255, 1) 30%
-	);
+	background-color: #fae1dd;
 
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 
 	text-decoration: none;
-	padding: 2em;
 }
 
 .link {
 	text-decoration: none;
+	font-size: x-large;
+	color: black;
+}
+
+.link:hover {
+	color: #97a97c;
 }
 
 .nav-link {
@@ -30,16 +28,4 @@
 	width: 80px;
 	align-items: center;
 	justify-content: center;
-}
-
-.link-contact {
-	background-image: url('../../Assets/rotary-phone.svg');
-}
-
-.link-talent {
-	background-image: url('../../Assets/director-chair.svg');
-}
-
-.link-executives {
-	background-image: url('../../Assets/briefcase.svg');
 }

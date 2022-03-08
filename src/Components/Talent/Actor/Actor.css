@@ -1,11 +1,19 @@
 .actor {
-	margin: 2em 1em;
+	min-height: fit-content;
+	padding: 2em;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	animation: fadein 5s;
+}
+
+.actor-name {
+	font-size: 30px;
+	grid-row: 1;
+	grid-column: 3;
+
+	border-bottom: black solid 1px;
 }
 
 .actor-photobox {
@@ -14,57 +22,35 @@
 
 .actor-photo {
 	margin: 0 auto;
-	max-height: 250px;
+	max-height: 180px;
 	max-width: 90%;
 
 	color: #2b1810;
 }
 
 .actor-bio {
+	align-self: center;
+	height: fit-content;
 	line-height: 1.5;
+	z-index: 1;
 	padding: 1em;
 	background-color: whitesmoke;
-
-	overflow: hidden;
+	opacity: 0.7;
+	animation: fadein 5s;
 }
 
-@media (min-width: 600px) {
-	.actor {
-		margin: 12em 0;
-
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr;
-	}
-
-	.actor-name {
-		font-size: 40px;
-		grid-row: 1;
-		grid-column: 3;
-		align-self: start;
-
-		margin: 0 auto;
-	}
-
-	.actor-photobox {
-		grid-row: 1 / span 2;
-		grid-column: 1;
-		align-self: center;
-	}
-
-	.actor-bio {
-		height: 200px;
-		width: 450px;
-		grid-row: 2;
-		grid-column: 3;
-		align-self: end;
-		justify-self: center;
-	}
+.actor-a-tag {
+	line-height: 1.5;
+	height: 100%;
+	align-self: center;
+	text-decoration: none;
+	text-decoration: bold;
+	font-size: large;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
 	.actor {
-		margin: 12em 0;
+		height: 70vh;
 
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -94,11 +80,7 @@
 		width: 325px;
 		grid-row: 1;
 		grid-column: 3;
-		align-self: end;
+		/* align-self: end; */
 		justify-self: center;
-	}
-	.actor-a-tag {
-		height: 100%;
-		align-self: center;
 	}
 }
