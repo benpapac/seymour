@@ -3,53 +3,23 @@ import {Link} from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
-    const [view, setView] = useState('small');
 
-    const toggleView = () => {
-        view === 'small' ? setView('large'): setView('small');
-        return view;
-    }
     return (
         <section className='landing'>
-        <div className='headline'>
-            <img src="" alt="Nic's Splash photo" className='header-photo' />
-            <h1 className='header-title'>
-                Meet Nicole.
-            </h1>
-        </div>
-
         <div className='left blurb bio'>
             <img src="" alt="Nic's headshot" className='photo' />
 
-            <h4 className='title'>Brooklyn Roots</h4>
-            <p className='body'>It all started with a passion that was kindled in the grungy off-Broadway studios of New York City. I grew up in Brooklyn, and New York City will always be my home.{ view==='small' ? <span>..</span> : <span>"Brooklyn," is even my daughter's middle name! But I was drawn like a magnet to Los Angeles, to let my own creative light shine on the sun-dappled coast.
-            <br/><br/>
-             After a few years, I realized that I wasn't drawn to be in front of the camera. I wasn't drawn to shape stories on a screen. I was drawn to shape lives, with my own two hands. "You have too much love," my father told me once. And he's right! So, I put my extra love into the lives of those who need it. I fulfill my creative calling by helping others fulfill theirs. 
-            <br/><br/>
-            If this sounds like something you need in your life, <Link to="/contact">Let's talk.</Link>
-            </span>}
-             <br/>
-            <button className='button bio-button' onClick={toggleView}>{view === 'small' ? 'Read more' : 'Read less'}
-            </button>
+            <h4 className='title'>Meet Nicole.</h4>
+            <p className='body'>I was born and raised in Brooklyn, New York, a vibrant, colorful place where there was no shortage of culture, creativity, and characters.  After majoring in Psychology and minoring in Theater at Binghamton University, I decided that connecting with and learning about people was what made me feel most ALIVE.  I attended Brooklyn College’s School Psychology graduate program and practiced as a psychologist, primarily working with adolescents in the Brooklyn High Schools, for several years.  During this time, I discovered that acting helped me be of better service to others.  It was my therapy- I took numerous acting classes and performed regularly with a theater company.  Performing was always about uncovering new layers of myself and about the impact I could have on others.
+            <br></br>
+            <br></br>
+            In 2005, my husband and I moved to Los Angeles for what was supposed to be a brief adventure, but we started thriving in our careers and loved the weather, so we decided to stay.  In 2009, I had the idea to combine my passions for creativity and helping others and LG Management was born (coincidentally my daughter was also born that year).  LG Management has 2 arms: the first is a talent representation company where I develop and represent artists, and the second is a coaching company where I provide individual coaching to people in all fields.  
+            <br></br>
+            <br></br>
+            Through the The International Federation of Coaches, I became a Professional Certified Coach.  Coaching feeds my soul.  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.  It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.   
             </p>
+            <Link to="/contact">Let's talk.</Link>
         </div>
-
-        <div className='right blurb executives'>
-            <h4 className='title' >I got LOTS of Execs.</h4>
-            <p className='body'>SAMPLE TEXT: Tall execs, short execs! You want good execs? Great execs? Not, "just okay," execs? This is the place. I even added a fun link you can click to get there faster.
-            <br/>
-            <Link className='link' to='/executives'><button className='button'>Check 'em out here.</button></Link>
-            </p>
-        </div>
-
-        <div className='left blurb actors'>
-            <h4 className='title' >I got LOTS of actors.</h4>
-            <p className='body'>SAMPLE TEXT: Tall actors, short actors! You want good actors? Great actors? Not, "just okay," actors? This is the place. I even added a fun link you can click to get there faster.
-            <br/>
-            <Link className='link' to='/talent'><button className='button'>Check 'em out here.</button></Link>
-            </p>
-        </div>
-
         </section>
     );
 };

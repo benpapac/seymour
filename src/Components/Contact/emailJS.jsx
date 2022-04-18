@@ -40,7 +40,6 @@ import './Contact.css';
 
 	return (
 		<div className='contact'>
-		<h2>Contact</h2>
 		{sent === 'pass' ? 
 		<>
 		<h4>Your message was successfully sent!</h4> 

@@ -6,8 +6,7 @@ const Nav = () => {
     return (
         <nav className='Nav'>
             <Link  className="link" to='/'>
-                <div className="nav-link link-logo"></div>
-                <h4>LG Logo</h4>
+                    <img className='link home-link' src="https://i.imgur.com/dhAuOr0.jpg" alt="LG Management" />
             </Link>
             {/* <Link  className="link" to='/test'>
                 <div className="link-test"></div>
