@@ -5,8 +5,16 @@
 	/* padding: 1em; */
 	height: 80vh;
 	overflow: auto;
-	background-color: #eaac8b;
 	margin: 0.7em;
+}
+
+.contact-background {
+	position: fixed;
+	left: 39vw;
+	top: 15vh;
+	width: 62vw;
+	height: 85vh;
+	background-color: #eaac8b;
 }
 
 .contact-photo {
@@ -109,7 +117,7 @@
 	
 	.contact-blurb {
 		position: fixed;
-		right: 40vw;
+		right: 35vw;
 		bottom: 17vh;
 		z-index: 1;
 		max-width: 300px;

@@ -65,6 +65,7 @@ import './Contact.css';
 					} 
 					: null}
 				>
+			{window.innerWidth >= 1100 ? <div className='contact-background'/> : null}
 				<h3 className='contact-headline'>Let's talk.</h3>
 				{ window.innerWidth >= 1100? <p className='contact-blurb'>If you'd like to set up a consultation, just send Nicole a quick message with your interests. </p> : null}
 			</div>
