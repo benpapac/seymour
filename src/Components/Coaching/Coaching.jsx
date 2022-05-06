@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import testimonials from '../../Json/testimonials.json'
 import { heatMap } from '../../Util/heatMap';
 
+import './Coaching.css';
+
 const Executives = () => {
     // const [count, setCount] = useState(0);
     console.log(heatMap);
@@ -24,9 +26,11 @@ const Executives = () => {
     // );
 
     return (
-        <div>
-            heatMap;
-        </div>
+        <section className='coaching'>
+        <p>
+           Through the The International Federation of Coaches, I became a Professional Certified Coach.  Coaching feeds my soul.  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.  It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities. 
+        </p>
+        </section>
     )
 };
 

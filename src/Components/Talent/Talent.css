@@ -12,6 +12,7 @@
 	grid-column: 2;
 }
 
+
 @media (min-width: 1000px) {
 	.tall-rectangle {
 		background-color: #b5c99a;
@@ -26,41 +27,6 @@
 		animation: expand 6s infinite alternate;
 	}
 
-	.dot {
-		display: inline-block;
-		position: fixed;
-		/* z-index: -3; */
-		right: 350px;
-		height: 50px;
-		width: 50px;
-		border-radius: 50%;
-		cursor: pointer;
-		background-color: #48cae4;
-		animation: hover 3s infinite alternate;
-	}
-
-	.circle {
-		background-color: white;
-		z-index: -2;
-		position: fixed;
-		align-self: center;
-		top: 411px;
-		left: 695px;
-		height: 175px;
-		width: 175px;
-		border-radius: 50%;
-		animation: expand 8s;
-	}
-
-	@keyframes expand {
-		from {
-			transform: scale(0.6, 0.6);
-		}
-
-		to {
-			transform: scale(1, 1);
-		}
-	}
 
 	@keyframes slideup {
 		from {
@@ -72,64 +38,4 @@
 		}
 	}
 
-	@keyframes squeeze {
-		from {
-			height: 20px;
-		}
-
-		to {
-			height: 40px;
-		}
-	}
-
-	@keyframes hover {
-		from {
-			top: 235px;
-		}
-
-		to {
-			top: 285px;
-		}
-	}
-
-	@keyframes arm {
-		from {
-			top: 435px;
-			left: 820px;
-		}
-
-		33% {
-			top: 455px;
-			left: 805px;
-		}
-
-		66% {
-			top: 455px;
-			left: 845px;
-		}
-
-		to {
-			top: 435px;
-			left: 820px;
-		}
-	}
-
-	@keyframes slideright {
-		from {
-			left: -30em;
-		}
-		to {
-			left: 1em;
-		}
-	}
-
-	@keyframes fadein {
-		from {
-			opacity: 0;
-		}
-
-		to {
-			opacity: 1;
-		}
-	}
 }

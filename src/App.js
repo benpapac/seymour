@@ -2,14 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useRef, createContext, useContext } from 'react';
-import { TalentContext } from './Util/Context';
+import { Context } from './Util/Context';
 
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
 import ContactUs from './Components/Contact/emailJS';
-import Executives from './Components/Executives/Executives';
+import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
 import Test from './Components/Test/Test';
+import About from './Components/About/About';
 
 function App() {
 	const width = window.innerWidth;
@@ -50,15 +51,14 @@ function App() {
 
 	const chooseFocus = (e) => {
 		e.preventDefault();
-		const value = width < 1000 ? 'end' : 'end';
-		// setDisplay('');
 		focusPoints[e.target.id].current.scrollIntoView({
 			behavior: 'smooth',
-			block: value,
+			block: 'end',
 		});
 	};
+
 	return (
-		<TalentContext.Provider
+		<Context.Provider
 			value={{
 				zoom: zoom,
 				setZoom: setZoom,
@@ -78,11 +78,12 @@ function App() {
 
 						<Route exact path='/contact' element={<ContactUs />} />
 						<Route exact path='/talent' element={<Talent />} />
-						<Route exact path='/executives' element={<Executives />} />
+						<Route exact path='/coaching' element={<Coaching />} />
+						<Route exact path='/about' element={<About />} />
 					</Routes>
 				</main>
 			</div>
-		</TalentContext.Provider>
+		</Context.Provider>
 	);
 }
 

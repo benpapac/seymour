@@ -1,63 +1,197 @@
-.landing {
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+.home-photo-box {
+	position: fixed;
+	top: 20vh;
+	left: 10vw;
+	animation: home-shrink 4s;
+
 	display: flex;
 	flex-direction: column;
-	height: 90%;
-	color: #2b1810;
 }
 
-.left {
-	margin-left: 1em;
-	align-items: flex-start;
-	/* text-align: left; */
+#about {
+	animation: home-slide-down 6s;
 }
 
-.right {
-	margin-right: 1em;
-	align-items: flex-end;
-	/* text-align: right; */
+.home-background {
+	position: fixed;
+	top: 15vh;
+	left: 5vw;
+	height: 85vh;
+	width: 90vw;
+	background-color: #93bc83;
+	z-index: -1;
 }
 
-.button {
-	margin-top: 1em;
-	width: 200px;
-	height: 60px;
-	padding: 1em;
-	background-color: #a9f0ec;
-	border-radius: 1em;
+.home-photo {
+	z-index: 2;
+	width: 15vw;
+	border: solid black 2px;
+
 }
 
-.bio {
-	align-self: center;
-	background-color: #f9f9f7;
-	width: 80%;
-	padding: 2em;
+.home-headline {
+	position: fixed;
+	top: 20vh;
+	left: 40vw;
+	text-align: center;
+	align-items: center;
+	font-size: 45px;
+	font-family: 'Forum', cursive;
+	animation: home-appear 6s;
 }
 
-.actors {
-	background-color: #f9f9f7;
-}
 
-.body {
+#home-talent-copy,
+#home-coaching-copy {
+	position: fixed;
+	top: 50vh;
+	width: 20%;
+	/* padding: 0.5em; */
 	height: fit-content;
-	line-height: 1.5;
+	/* line-height: 1.5; */
 }
 
-.actors {
-	align-self: center;
-
-	width: 80%;
+#home-talent-copy {
+	left: 35vw;
+	color: #774936;
+	padding: 0.5em;
+	animation: home-slide-up 9s;
+}
+#home-coaching-copy {
+	left: 70vw;
+	color: #774936;
+	padding: 0.5em;
+	animation: home-slide-up 10s;
 }
 
-@media (min-width: 500px) {
-	.blurb {
-		display: grid;
-		grid-template: 1fr 4fr 1fr / 1fr 5fr 1fr;
-	}
-	.title {
-		grid-column: 2;
+#home-talent-copy span,
+#home-coaching-copy span {
+	font-size: 30px;
+	border-bottom: black 1px;
+}
+
+#home-talent-link,
+#home-coaching-link {
+	position: fixed;
+	top: 65vh;
+}
+
+#home-talent-link {
+	left: 40vw;
+	animation: home-slide-down 12s;
+}
+
+#home-coaching-link {
+	left: 75vw;
+	animation: home-slide-down 13s;
+}
+
+.home-copy-box {
+	background-color: aliceblue;
+}
+
+#home-talent span,
+#home-coaching span {
+	font-size: 28px;
+	/* line-height: 1.5; */
+	border-bottom: solid black 1px;
+}
+
+#home-contact-copy {
+	position: fixed;
+	left: 10vw;
+	top: 80vh;
+}
+
+#home-contact-copy span {
+	text-decoration: none;
+}
+
+.homePage-link {
+	border-bottom: solid black 1px;
+	width: fit-content;
+	padding: 0.1em;
+
+	font-size: large;
+	color: black;
+	text-decoration: none;
+}
+
+.homePage-link:hover {
+	transform: scale(1.1);
+	transition: ease 0.4s;
+}
+
+@keyframes home-appear {
+	from {
+		opacity: 0;
 	}
 
-	.body {
-		grid-area: 2 / 2 / 2 / 2;
+	50% {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes home-shrink {
+	from {
+		position: fixed;
+		top: 43vh;
+		left: 9vw;
+		transform: scale(2.1);
+	}
+
+	40% {
+		position: fixed;
+		top: 43vh;
+		left: 9vw;
+		transform: scale(2.1);
+	}
+
+	to {
+		position: fixed;
+		top: 20vh;
+		left: 10vw;
+		transform: scale(1);
+	}
+}
+
+@keyframes home-slide-down {
+	from {
+		opacity: 0;
+		transform: translate(0, -225%);
+
+	}
+	60% {
+		opacity: 0;
+		transform: translate(0, -225%);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes home-slide-up {
+	from {
+		opacity: 0;
+		transform: translate(0, 100%);
+
+	}
+
+	70% {
+		opacity: 0;
+		transform: translate(0, 100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
 	}
 }

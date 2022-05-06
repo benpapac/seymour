@@ -1,10 +1,10 @@
 import {useReducer, useState, useEffect, useContext} from 'react';
 import "./Slideshow.css";
-import {TalentContext} from '../../../Util/Context';
+import {Context} from '../../../Util/Context';
 
 const Slideshow = ({slideshow}) => {
     const [count, setCount] = useState(0);
-    const talentContext = useContext(TalentContext);
+    const talentContext = useContext(Context);
     const zoom = talentContext.zoom;
     const zoomIn = talentContext.zoomIn;
 
@@ -18,8 +18,6 @@ const Slideshow = ({slideshow}) => {
     const copy = (slideshow) => {
         return copy === slideshow.length -1 ? slideshow[0].alt : slideshow[count].alt;
     }
-
-
 
 return (
     <>
@@ -44,7 +42,7 @@ return (
             </div>
         </div>
         </section>
-        <div className="copy-box" style={{display: `${zoom.show ? 'hidden' : 'flex'}`}}>
+        {/* <div className="copy-box" style={{display: `${zoom.show ? 'hidden' : 'flex'}`}}>
             <div className="copy-slider" 
                 style={{transform: `translate3d(${-count*(100/slideshow.length)}%, 0, 0)`}}
             >
@@ -58,7 +56,7 @@ return (
          </div>
 
             <p className='copy'>{copy(slideshow)}</p>
-    </div>
+    </div> */}
     </>
 )
 };

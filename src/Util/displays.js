@@ -7,14 +7,15 @@ import actors from '../Json/actors.json';
 export const displayActors = (focusPoints, chooseFocus) => {
 	return (
 		<>
-			{actors.map((actor) => {
+			{actors.map((actor, idx, arr) => {
 				return (
 					<>
 						<div
 							key={`${actor.name}`}
 							className={`actor ${actor.name}`}
-							ref={focusPoints[`${actor.focus}`]}>
-							<Actor actor={actor} focusPoints={focusPoints} />
+							ref={focusPoints[`${actor.focus}`]}
+							>
+							<Actor actor={actor} idx={idx} arr={arr} focusPoints={focusPoints} />
 						</div>
 					</>
 				);

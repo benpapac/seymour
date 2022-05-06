@@ -8,9 +8,3 @@ main {
 	/* height: 85vh; */
 	/* background-color: rgb(245, 245, 245); */
 }
-
-@media (min-width: 800px) {
-	main {
-		/* margin-top: 0vh; */
-	}
-}

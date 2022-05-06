@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+
+.about-photo {
+    position: fixed;
+    top: 20vh;
+    left: 10vw;
+    width: 20vw;
+    border: solid black 1px;
+    border-radius: 100%;
+
+    animation: shrink 4s;
+}
+
+.about-blurb {
+    font-family: 'Gruppo', cursive;
+}
+
+.about-blurb::first-line {
+    font-family: 'Forum', cursive;
+}
+
+.about-link {
+    position: fixed;
+    left: 15vw;
+    bottom: 10vh;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Forum';
+}
+
+@media(min-width: 1100px) {
+    .about-blurb {
+        line-height: 1.5;
+        font-size: 22px;
+        width: 500px;
+        margin-left: 50vw;
+    }
+
+    .about-background {
+        position: fixed;
+        height: 100%;
+        width: 90%;
+        left: 5vw;
+        top: 15vh;
+        background-color: #93bc83;
+        padding: 0.5em;
+        z-index: -1;
+    }
+ 
+}
+
+
+@keyframes shrink {
+    from {
+        top: 50vh;
+        left: 10vw;
+        /* border-radius: 0%; */
+        transform: scale(2);
+    }
+
+    /* 20% {
+        /* top: 30vh; 
+        transform: scale(1.7);
+    } */
+
+    to {
+        position: fixed;
+        top: 20vh;
+        left: 10vw;
+        /* border-radius: 100%; */
+        transform: scale(1);
+    }
+}

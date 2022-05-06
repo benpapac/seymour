@@ -3,7 +3,7 @@
 	position: fixed;
 	height: 15vh;
 	width: 100vw;
-	padding: 1em;
+	/* padding: 1em; */
 	background-color: #ffffff;
 
 	display: flex;

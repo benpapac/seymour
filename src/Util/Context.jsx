@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const TalentContext = createContext();
+export const Context = createContext();
