@@ -1,8 +1,84 @@
-.coaching {
-    margin-top: 4vh;
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+#coaching-blurb {
+    position: fixed;
+    top: 25vh;
+    right: 5vw;
     height: 85vh;
+    width: 30vw;
+    z-index: 2;
+
+    padding: 0.5em;
+
+    line-height: 2;
+    font-size: 18px;
+    font-family: 'Gruppo', cursive ;
 }
 
-.coaching-blurb {
+.testimonial {
+    position: fixed;
+    left: 5vw;
+    top: 25vh;
+    height: 50vh;
+    width: 50vw;
+    overflow: auto;;
+}
 
+.testimonial p {
+    font-size: 22px;
+    line-height: 1.4;
+    font-family: 'Gruppo', cursive;
+}
+
+#testimonial-name {
+    position: fixed;
+    left: 20vw;
+    bottom: 7vw;
+    font-size: 26px;
+    font-family: 'Forum';
+    margin: 0;
+}
+
+#testimonial-occupation {
+    position: fixed;
+    left: 20vw;
+    bottom: 5vw;
+    font-size: 24px;
+    font-family: 'Forum';
+    margin: 0;
+}
+
+#testimonial-button {
+    position: fixed;
+    left: 50vw;
+    bottom: 15vh;
+    height: 30px;
+    width: 80px;
+    border-radius: 3em;
+    background-color: none;
+    border: none;
+    font-family: 'Gruppo', cursive;
+    font-size: 26px;
+}
+
+#coaching-bg-one {
+    background-color: antiquewhite;
+    height: 85vh;
+    width: 33vw;
+    position: fixed;
+    right: 5vw;
+    top: 25vh;
+}
+
+#coaching-bg-two {
+    background-color: cadetblue;
+}
+
+#coaching-certification {
+    position: fixed;
+    bottom: 5vh;
+    left: 5vw;
+    width: 9vw;
+    opacity: 0.6;
 }
