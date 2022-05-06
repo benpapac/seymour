@@ -9,6 +9,17 @@ const Executives = () => {
     // const [count, setCount] = useState(0);
     console.log(heatMap);
 
+    const [count, setCount] = useState(0);
+    const [testimonial, setTestimonial] = useState(testimonials[count]);
+
+    const increment = () => {
+        setCount ( count === testimonials.length-1 ? 0 : count +1);
+    }
+
+    useEffect( () => {
+        setTestimonial(testimonials[count]);
+    }, [count]);
+
     // useEffect( () => {
     //     setTimeout( () => {
     //         setCount( count === testimonials.length - 1 ? 0 : count+1)
@@ -26,11 +37,26 @@ const Executives = () => {
     // );
 
     return (
-        <section className='coaching'>
-        <p>
-           Through the The International Federation of Coaches, I became a Professional Certified Coach.  Coaching feeds my soul.  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.  It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities. 
+        <>
+        <p id='coaching-blurb'>
+           Through the The International Federation of Coaches, I became a Professional Certified Coach.
+           <br />
+           <br />
+           <br />
+
+            Coaching feeds my soul.  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.  It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities. 
         </p>
-        </section>
+        <div id='coaching-bg-one' />
+        <div id='coaching-bg-two'/>
+        <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
+
+        <div className='testimonial'>
+            <p>{testimonial.copy}</p>
+        </div>
+            <h4 id='testimonial-name'>{testimonial.name}</h4>
+            <h6 id='testimonial-occupation'>- {testimonial.occupation}</h6>
+            <button id='testimonial-button' onClick={increment}>Next</button>
+        </>
     )
 };
 
