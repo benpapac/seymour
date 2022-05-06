@@ -1,0 +1,27 @@
+.box {
+	display: flex;
+}
+
+.duke {
+	height: 400px;
+	width: 100px;
+	background-color: #fec55c;
+}
+
+.halo {
+	height: 400px;
+	width: 100px;
+	background-color: #fffa93;
+}
+
+.moss {
+	height: 400px;
+	width: 100px;
+	background-color: #97a97c;
+}
+
+.slate {
+	height: 400px;
+	width: 100px;
+	background-color: #b5c99a;
+}

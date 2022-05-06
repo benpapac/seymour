@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+.contact {
+	/* padding: 1em; */
+	height: 80vh;
+	overflow: auto;
+	background-color: #eaac8b;
+	margin: 0.7em;
+}
+
+.contact-photo {
+	position: fixed;
+	right: 10vw;
+	top: 20vh;
+	width: 90vw;
+	max-width: 100px;
+	border-radius: 100%;
+
+	animation: expand 3s;
+}
+
+.contact-box {
+	/* background-image: url("https://i.imgur.com/drgFS8B.jpg"); */
+	background-size: cover;
+	height: 85vh;
+	max-width: 400px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+.contact-headline {
+	text-align: right;
+	color: #bb6130;
+	z-index: 1;
+	font-size: 62px;
+	font-weight: 600;
+
+	font-family: 'Forum', cursive;
+}
+
+.contact-blurb {
+	color: black;
+	font-size: 20px;
+		font-family: 'Gruppo',
+		cursive;
+}
+
+.contact-form {
+	padding: 1em;
+	height: 85vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.3);
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+}
+
+.input {
+	/* padding: 1em; */
+	height: 40px;
+	width: 80%;
+}
+
+.label {
+	font-size: x-large;
+	color: whitesmoke;
+	font-family: 'Forum', cursive;
+}
+.message {
+	height: 10vh;
+	width: 80%;
+}
+
+
+.contact-button {
+	margin-top: 1em;
+	height: 60px;
+	width: 200px;
+	border-radius: 1em;
+}
+
+@media(min-width: 1100px) {
+	.contact {
+		display: flex;
+	}
+
+	.contact-form {
+		height: fit-content;
+		position: fixed;
+		bottom: 7vh;
+		left: 5vw;
+		width: 30vw;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.contact-headline {
+		color: black;
+		z-index: 1;
+		font-size: 62px;
+		font-weight: 800;
+		position: fixed;
+		left: 5vw;
+		top: 13vh;
+	}
+	
+	.contact-blurb {
+		position: fixed;
+		right: 40vw;
+		bottom: 17vh;
+		z-index: 1;
+		max-width: 300px;
+		/* transform: rotate(15deg); */
+	
+		color: black;
+		/* background-color: rgba(253, 252, 220, 0.7); */
+		font-size: 28px;
+	}
+
+	.contact-photo {
+		width: 50vw;
+		max-width: 300px;
+		border: solid black 1px;
+	}
+
+	.label {
+		height: 30px;
+		margin: 0.1em;
+		color: whitesmoke;
+	}
+
+	.input {
+		height: 30px;
+		width: 60%;
+		border-radius: 0.5em;
+	}
+}
+
+@keyframes expand {
+	from {
+		transform: scale(0.1);
+	}
+
+	to {
+		transform: scale(1);
+	}
+	
+}

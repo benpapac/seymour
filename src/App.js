@@ -1,34 +1,89 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { useState, useRef, createContext, useContext } from 'react';
+import { Context } from './Util/Context';
 
 import Nav from './Components/Nav/Nav';
-import  Home  from './Components/Home/Home';
-import About from './Components/About/About';
-import Contact from './Components/Contact/Contact';
-import Executives from './Components/Executives/Executives';
+import Home from './Components/Home/Home';
+import ContactUs from './Components/Contact/emailJS';
+import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
-import Consultation from './Components/Consultation/Consultation';
+import Test from './Components/Test/Test';
+import About from './Components/About/About';
 
 function App() {
-  return (
-		<div className='App'>
-			<header>
-				<h1>LG LOGO HERE</h1>
-				<Nav />
-			</header>
-			<main>
-				{/* <Home /> */}
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route exact path='/about' element={<About />} />
-					<Route exact path='/contact' element={<Contact />} />
-					<Route exact path='/talent' element={<Talent />} />
-					<Route exact path='/executives' element={<Executives />} />
-					<Route exact path='/consultation' element={<Consultation />} />
-				</Routes>
-			</main>
-		</div>
+	const width = window.innerWidth;
+	const [zoom, setZoom] = useState({
+		show: false,
+		src: '',
+		alt: '',
+	});
+
+	const zoomIn = (e) => {
+		e.preventDefault();
+		if (!e.target.src) return;
+		else
+			setZoom({
+				show: true,
+				src: e.target.src,
+				alt: e.target.alt,
+			});
+	};
+
+	const zoomOut = (e) => {
+		e.preventDefault();
+		setZoom({
+			show: false,
+			src: '',
+			alt: '',
+		});
+	};
+
+	const focusPoints = {
+		focus1: useRef(null),
+		focus2: useRef(null),
+		focus3: useRef(null),
+		focus4: useRef(null),
+		focus5: useRef(null),
+		focus6: useRef(null),
+	};
+
+	const chooseFocus = (e) => {
+		e.preventDefault();
+		focusPoints[e.target.id].current.scrollIntoView({
+			behavior: 'smooth',
+			block: 'end',
+		});
+	};
+
+	return (
+		<Context.Provider
+			value={{
+				zoom: zoom,
+				setZoom: setZoom,
+				zoomIn: zoomIn,
+				zoomOut: zoomOut,
+				chooseFocus: chooseFocus,
+				focusPoints: focusPoints,
+			}}>
+			<div className='App'>
+				<header>
+					<Nav />
+				</header>
+				<main>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route exact path='/test' element={<Test />} />
+
+						<Route exact path='/contact' element={<ContactUs />} />
+						<Route exact path='/talent' element={<Talent />} />
+						<Route exact path='/coaching' element={<Coaching />} />
+						<Route exact path='/about' element={<About />} />
+					</Routes>
+				</main>
+			</div>
+		</Context.Provider>
 	);
 }
 

@@ -1,14 +1,131 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Talent.css';
+import './Actor/Actor.css';
+import './LookBook.css';
+import actors from '../../Json/actors.json';
+import * as displayHOF from '../../Util/displays.js';
+import {Context} from '../../Util/Context';
+import Actor from './Actor/Actor';
 
 const Talent = () => {
+
+    //height
+    const body = document.body;
+    const html = document.documentElement;
+    const height = Math.max( body.scrollHeight, body.offsetHeight, 
+                   html.clientHeight, html.scrollHeight, html.offsetHeight );
+    // const scrollPosition = useScrollPosition();
+    const context = useContext(Context);
+    const chooseFocus = context.chooseFocus;
+    const focusPoints = context.focusPoints;
+
+    // const displayBackground = displayHOF.displayBackground;
+    const displayLookbook = displayHOF.displayLookbook;
+
+    const [yScroll, setYScroll] = useState(0);
+    const [oldY, setOldY] = useState(0);
+    const [count, setCount] = useState(1);
+    const [xTrans, setXTrans] = useState({
+        1: {x: 100, y: 0},
+        2: {x: 100, y: 0},
+        3: {x: 100, y: 0},
+        4: {x: 100, y: 0}
+    }); //this will become a percentage
+    const [currentActor, setCurrentActor] = useState(0);
+    const [init, setInit] = useState(true);
+
+
+	const handleScroll = (e) => {
+        setOldY(yScroll);
+		setYScroll( e.path[1].scrollY);
+	};
+
+    const getPos = (offset)=> {
+            if(offset < 18.75) return 1;
+            else if ( offset > 37.5 && offset <= 56.25 ) return 2;
+            else if (offset > 56.25 && offset <= 75 ) return 3;
+            else return 4;
+        }
+
+	useEffect(() => {
+        if(init)window.addEventListener('scroll', handleScroll);
+        setInit(false);
+
+        let offset = yScroll/height*100;
+        console.log(offset);
+        let currentPos = getPos(offset);
+
+        let scrollingDown = yScroll - oldY > 0;
+        if(scrollingDown) {
+            // first, reduce the currentPos xVal to 0.
+            //then, increase the currentPos yVal to 100.
+            //then, setCurrentPos to currentPos+1.
+
+            //increment y
+            if(xTrans[currentPos].x === 0) {
+                setXTrans({...xTrans, [currentPos]: {...xTrans[currentPos], y: count} });
+                if(count < 99) setCount(count + 1);
+                else setCount(100);
+            }
+
+            //decrement x
+            else {
+                setXTrans({...xTrans, [currentPos]: {...xTrans[currentPos], x: count} });
+                if(count > 1) setCount(count -1);
+                else setCount(0);
+            }
+        }
+        else {
+           //decrement y
+            if(xTrans[currentPos].x === 0) {
+                setXTrans({...xTrans, [currentPos]: {...xTrans[currentPos], y: count} });
+                if(count < 99) setCount(count - 1);
+                else setCount(100);
+            }
+
+            //decrement x
+            else {
+                setXTrans({...xTrans, [currentPos]: {...xTrans[currentPos], x: count} });
+                if(count > 1) setCount(count -1);
+                else setCount(0);
+            }
+        }
+        console.log('count: ', count);
+		return () => {
+			window.removeEventListener('onScroll', handleScroll);
+		}
+	}, [yScroll]);
+
+
+    //style={{transform: `translate(${xTrans[idx]}%, 0)`}}
+     //style={{transform: `translate(${xTrans[idx]}%, 0)`}}
     return (
-        <div className='actor'>
-            <h2 className="name">Ben Papac</h2>
-            <p className="blurb">Benjamin Papac is an actor known for his roles in Greenhouse Academy (2017-2020), Room 104 (2020), and Into the Badlands (2015). Benjamin made his Theatrical debut as Albus Potter in Harry Potter & the Cursed Child, SF (2019). He was born in California, and grew up near Atlanta, Georgia. He began his career in Atlanta and Baton Rouge, with roles in The Walking Dead (2014), Fantastic Four (2015), and others.</p>
-            <img className="headshot" src="https://i.imgur.com/BxDTG47.jpg" alt="Ben's face" />
-            <a className="a-tag" href="https://www.imdb.com/name/nm3621230/?ref_=fn_al_nm_1">IMDb</a>
-        </div>
+        <>
+            {displayLookbook(chooseFocus)}
+            {/* {displayActors(focusPoints, chooseFocus)} */}
+
+             
+			{actors.map((actor, idx, arr) => {
+				return (
+						<div
+							key={`${actor.name}`}
+							className={`actor ${actor.name}`}
+							ref={focusPoints[`${actor.focus}`]}
+							>
+                                <div className="actor-box" >
+                <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} />
+                <p className="actor-bio"> 
+                <p className='actor-name'>{actor.name}</p>
+                    {actor.bio}
+                    <br/>
+                    <br/>
+                    <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
+                </p>
+            </div>
+						</div>
+				);
+			})}
+        </>
     );
 };
 
