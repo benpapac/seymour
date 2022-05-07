@@ -16,6 +16,11 @@
     font-family: 'Gruppo', cursive ;
 }
 
+#coaching-blurb::first-line {
+    font-family: 'Forum', cursive;
+    font-size: 30px;
+}
+
 .testimonial {
     position: fixed;
     left: 5vw;

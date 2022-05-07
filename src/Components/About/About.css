@@ -4,6 +4,7 @@
 
 .about-photo {
     position: fixed;
+    z-index: 1;
     top: 20vh;
     left: 15vw;
     width: 20vw;
@@ -35,18 +36,26 @@
         line-height: 1.5;
         font-size: 22px;
         width: 500px;
-        margin-left: 50vw;
+        margin-left: 51vw;
     }
 
     .about-background {
         position: fixed;
-        height: 100%;
-        width: 90%;
-        left: 30vw;
+        height: 85vh;
+        width: 35vw;
+        left: 50vw;
         top: 15vh;
         background-color: #93bc83;
         padding: 0.5em;
         z-index: -1;
+    }
+
+    .about-background-two {
+        position: fixed;
+        height: 35vh;
+        width: 40vw;
+        top: 20vh;
+        background-color: darkcyan;
     }
  
 }

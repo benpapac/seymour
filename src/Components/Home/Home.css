@@ -5,7 +5,7 @@
 	position: fixed;
 	top: 20vh;
 	left: 10vw;
-	animation: home-shrink 4s;
+	animation: home-shrink 3s;
 
 	display: flex;
 	flex-direction: column;
@@ -13,23 +13,27 @@
 
 #about {
 	animation: home-slide-down 6s;
+	background-color: #3a38bb;
+	padding: 0.5em;
+	color: aliceblue;
 }
 
 .home-background {
 	position: fixed;
-	top: 15vh;
+	top: 25vh;
 	left: 30vw;
-	height: 85vh;
+	height: 40vh;
 	width: 90vw;
 	background-color: #93bc83;
 	z-index: -1;
+
+	/* animation: stretch 3s; */
 }
 
 .home-photo {
 	z-index: 2;
 	width: 15vw;
 	border: solid black 2px;
-
 }
 
 .home-headline {
@@ -40,15 +44,27 @@
 	align-items: center;
 	font-size: 45px;
 	font-family: 'Forum', cursive;
-	animation: home-appear 6s;
+	/* animation: home-appear 2s; */
+}
+
+#home-mission {
+	position: fixed;
+	top: 35vh;
+	left: 40vw;
+	width: 400px;
+	height: 5vh;
+
+	font-size: 24px;
+	font-family: 'Gruppo';
+	animation: home-appear 4s;
 }
 
 
 #home-talent-copy,
 #home-coaching-copy {
 	position: fixed;
-	top: 50vh;
-	width: 20%;
+	top: 65vh;
+	width: 25%;
 	/* padding: 0.5em; */
 	height: fit-content;
 	/* line-height: 1.5; */
@@ -76,7 +92,11 @@
 #home-talent-link,
 #home-coaching-link {
 	position: fixed;
-	top: 65vh;
+	top: 75vh;
+	padding: 0.5em;
+	text-decoration: none;
+	background-color: #3a38bb;
+	color: aliceblue;
 }
 
 #home-talent-link {
@@ -111,7 +131,6 @@
 }
 
 .homePage-link {
-	border-bottom: solid black 1px;
 	width: fit-content;
 	padding: 0.1em;
 
@@ -142,16 +161,16 @@
 @keyframes home-shrink {
 	from {
 		position: fixed;
-		top: 43vh;
+		top: 31vh;
 		left: 9vw;
-		transform: scale(2.1);
+		transform: scale(1.5);
 	}
 
 	40% {
 		position: fixed;
-		top: 43vh;
+		top: 31vh;
 		left: 9vw;
-		transform: scale(2.1);
+		transform: scale(1.5);
 	}
 
 	to {
@@ -194,4 +213,19 @@
 		opacity: 1;
 		transform: translate(0, 0);
 	}
+
+}
+@keyframes stretch {
+	from {
+		height: 11vh;
+	}
+
+	30% {
+		height: 11vh;
+	}
+
+	to {
+		height: 40vh;
+	}
+	
 }

@@ -39,10 +39,8 @@ const Executives = () => {
     return (
         <>
         <p id='coaching-blurb'>
-           Through the The International Federation of Coaches, I became a Professional Certified Coach.
+            Coaching feeds my soul.<br/>  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.
            <br />
-           <br />
-            Coaching feeds my soul.  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.
            <br />
              It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities. 
         </p>
