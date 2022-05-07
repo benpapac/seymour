@@ -5,11 +5,11 @@
 .about-photo {
     position: fixed;
     z-index: 1;
-    top: 20vh;
+    bottom: 10vh;
     left: 15vw;
-    width: 20vw;
+    width: 30vw;
     border: solid black 1px;
-    border-radius: 100%;
+    /* border-radius: 100%; */
 
     animation: shrink 4s;
 }
@@ -63,22 +63,12 @@
 
 @keyframes shrink {
     from {
-        top: 50vh;
-        left: 10vw;
-        /* border-radius: 0%; */
-        transform: scale(2);
+        left: -33vw;
     }
 
-    /* 20% {
-        /* top: 30vh; 
-        transform: scale(1.7);
-    } */
+
 
     to {
-        position: fixed;
-        top: 20vh;
         left: 15vw;
-        /* border-radius: 100%; */
-        transform: scale(1);
     }
 }
