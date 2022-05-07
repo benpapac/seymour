@@ -42,6 +42,8 @@ const About = () => {
         <>
             <img className='about-photo' src="https://i.imgur.com/dqYKOPv.jpg?2" alt="Nicole and her dog Seymour" />
             <div className='about-background'/>
+            <div className='about-background-two'/>
+
 
             <p className='about-blurb top'>
                 I was born and raised in Brooklyn, New York, a vibrant, colorful place where there was no shortage of culture, creativity, and characters.  After majoring in Psychology and minoring in Theater at Binghamton University, I decided that connecting with and learning about people was what made me feel most ALIVE.
