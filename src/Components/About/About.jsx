@@ -40,7 +40,7 @@ const About = () => {
 
     return (
         <>
-            <img className='about-photo' src="https://i.imgur.com/dqYKOPv.jpg?2" alt="Nicole and her dog Seymour" />
+            <img className='about-photo' src="https://i.imgur.com/XNcUYAs.jpg" alt="Nicole in her sitting room" />
             <div className='about-background'/>
             <div className='about-background-two'/>
 
