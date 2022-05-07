@@ -74,13 +74,13 @@
 	left: 35vw;
 	color: #774936;
 	padding: 0.5em;
-	animation: home-slide-up 9s;
+	animation: home-slide-up 5s;
 }
 #home-coaching-copy {
 	left: 70vw;
 	color: #774936;
 	padding: 0.5em;
-	animation: home-slide-up 10s;
+	animation: home-slide-up 5.5s;
 }
 
 #home-talent-copy span,
@@ -101,12 +101,12 @@
 
 #home-talent-link {
 	left: 40vw;
-	animation: home-slide-down 12s;
+	animation: home-slide-down 7s;
 }
 
 #home-coaching-link {
 	left: 75vw;
-	animation: home-slide-down 13s;
+	animation: home-slide-down 8s;
 }
 
 .home-copy-box {
