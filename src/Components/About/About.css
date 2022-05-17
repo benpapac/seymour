@@ -36,7 +36,6 @@
         line-height: 1.5;
         font-size: 22px;
         width: 500px;
-        margin-left: 51vw;
     }
 
     .about-background {
@@ -56,6 +55,40 @@
         width: 40vw;
         top: 20vh;
         background-color: darkcyan;
+    }
+
+    #one,
+    #two,
+    #three {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    #one {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    #two{
+        grid-row: 3;
+        grid-column: 2;
+    }
+
+    #three {
+        grid-row: 2;
+        grid-column: 3;
+    }
+
+    .about-text-wheel {
+        position: fixed;
+        height: 100vw;
+        width: 100vw;
+        top: -30vh;
+        left: 51vw;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
  
 }

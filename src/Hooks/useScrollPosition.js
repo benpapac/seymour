@@ -9,10 +9,10 @@ const useScrollPosition = () => {
 	};
 
 	useEffect(() => {
-		window.addEventListener('onScroll', handleScroll);
+		window.addEventListener('scroll', handleScroll);
 
 		return () => {
-			window.removeEventListener('onScroll', handleScroll);
+			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
 
