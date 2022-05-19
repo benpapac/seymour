@@ -1,3 +1,6 @@
+/* Normalize brings all browser defaults to a single standard style. */
+@import-normalize;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

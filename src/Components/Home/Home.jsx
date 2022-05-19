@@ -22,10 +22,10 @@ const Home = () => {
                 <img src="https://i.imgur.com/scUZ8l7.jpg" alt="Nic's headshot" className='home-photo' />
                 <Link to='/about' style={{textDecoration: 'none'}}><p className='homePage-link' id='about'>Meet Nicole.</p></Link>
             </div>
-            <div className='home-background'/>
+            {/* <div className='home-background'/> */}
 
                 <h4 className="home-headline">Welcome to LG Management</h4>
-                <p id='home-mission'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in the world.</p>
+            <p id='home-mission'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in the world</p>
                     <div className='home-copy-box'>
                     <p id="home-talent-copy"><span>Artists</span>
                     <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
