@@ -45,10 +45,10 @@ const useTextWheel = () => {
 					targetAngle: action.value,
 				};
 
-			case 'reachedTarget':
+			case 'atTarget':
 				return {
 					...state,
-					reachedTarget: action.value,
+					atTarget: action.value,
 				};
 
 			default:
@@ -58,7 +58,7 @@ const useTextWheel = () => {
 
 	const [wheel, wheelDispatch] = useReducer(wheelReducer, {
 		angles: [0, 90, 180],
-		reachedTarget: false,
+		atTarget: false,
 		angle: 0,
 		targetAngle: 0,
 		oldAngle: 0,
@@ -80,7 +80,7 @@ const useTextWheel = () => {
 		console.log(wheel.angle === wheel.targetAngle);
 		wheelDispatch({ type: 'opacity', value: null });
 		if (wheel.angle === wheel.targetAngle) {
-			wheelDispatch({ type: 'reachedTarget', value: true });
+			wheelDispatch({ type: 'atTarget', value: true });
 		} else if (wheel.angle > wheel.targetAngle) {
 			console.log('decreasing angle...', wheel.angle);
 			wheelDispatch({ type: 'angle', value: wheel.angle - 1 });
@@ -97,8 +97,7 @@ const useTextWheel = () => {
 
 		console.log(wheel);
 		if (!atTarget) {
-			if (wheel.reachedTarget)
-				wheelDispatch({ type: 'reachedTarget', value: false });
+			if (wheel.atTarget) wheelDispatch({ type: 'atTarget', value: false });
 			setTimeout(() => {
 				rotate();
 			}, 10);
