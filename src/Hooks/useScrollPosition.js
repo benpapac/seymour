@@ -5,7 +5,10 @@ const useScrollPosition = () => {
 	const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
 
 	const handleScroll = (e) => {
-		setScrollPosition({ x: e.path[1].scrollX, y: e.path[1].scrollY });
+		console.log(e);
+		if (e.path)
+			setScrollPosition({ x: e.path[1].scrollX, y: e.path[1].scrollY });
+		else setScrollPosition({ x: e.target.scrollingElement.scrollLeft, y: e.target.scrollingElement.scrollTop });
 	};
 
 	useEffect(() => {

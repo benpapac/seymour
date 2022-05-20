@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
+
+
+.home-bg {
+	height: 400vh;
+}
 .home-photo-box {
 	position: fixed;
 	top: 20vh;
-	right: 0vw;
-	animation: home-appear 3s;
+	right: 5vw;
+	animation: home-appear 2s;
 
 	display: flex;
 	flex-direction: column;
 }
 
+.home-photo {
+	z-index: 2;
+	height: 85vh;
+	/* border: solid black 2px; */
+}
 #about {
 	animation: home-slide-down 6s;
 	background-color: #3a38bb;
@@ -30,28 +40,36 @@
 	/* animation: stretch 3s; */
 }
 
-.home-photo {
-	z-index: 2;
-	height: 85vh;
-	border: solid black 2px;
-}
 
 .home-headline {
 	position: fixed;
-	top: 20vh;
-	left: 20vw;
+	left: 5vw;
 	text-align: center;
 	align-items: center;
-	font-size: 45px;
+	font-size: 55px;
 	font-family: 'Forum', cursive;
 	/* animation: home-appear 2s; */
+}
+
+#scroll-down {
+	position: fixed;
+	top: 80vh;
+	left: 5vw;
+
+	/* background-color: #3a38bb; */
+	width: 6vw;
+	height: 5vw;
+	/* border-radius: 100%; */
+	text-align: center;
+
+	animation: bounce 2s infinite;
 }
 
 #home-mission {
 	position: fixed;
 	top: 35vh;
-	left: 20vw;
-	width: 400px;
+	left: 5vw;
+	width: 35vw;
 	height: 5vh;
 
 	font-size: 24px;
@@ -59,25 +77,34 @@
 	animation: home-appear 4s;
 }
 
+.home-talent-box,
+.home-coaching-box {
+	position: fixed;
+}
+
+.home-talent-box {
+	left: 5vw;
+}
+
+.home-coaching-box {
+	left: 35vw;
+}
+
 
 #home-talent-copy,
 #home-coaching-copy {
-	position: fixed;
-	top: 65vh;
-	width: 25%;
+	width: 20vw;
 	/* padding: 0.5em; */
 	height: fit-content;
 	/* line-height: 1.5; */
 }
 
 #home-talent-copy {
-	left: 5vw;
 	color: #774936;
 	padding: 0.5em;
 	animation: home-slide-up 5s;
 }
 #home-coaching-copy {
-	left: 35vw;
 	color: #774936;
 	padding: 0.5em;
 	animation: home-slide-up 5.5s;
@@ -91,8 +118,6 @@
 
 #home-talent-link,
 #home-coaching-link {
-	position: fixed;
-	top: 75vh;
 	padding: 0.5em;
 	text-decoration: none;
 	background-color: #3a38bb;
@@ -100,18 +125,14 @@
 }
 
 #home-talent-link {
-	left: 5vw;
 	animation: home-slide-down 7s;
 }
 
 #home-coaching-link {
-	left: 35vw;
 	animation: home-slide-down 8s;
 }
 
-.home-copy-box {
-	background-color: aliceblue;
-}
+
 
 #home-talent span,
 #home-coaching span {
@@ -228,4 +249,22 @@
 		height: 40vh;
 	}
 	
+}
+
+@keyframes bounce {
+	from {
+		transform: translate(0, 0);
+	}
+
+	45% {
+		transform: translate(0, 10%);
+	}
+
+	50% {
+		transform: translate(0, 10%);
+	}
+
+	to {
+		transform: translate(0, 0);
+	}
 }
