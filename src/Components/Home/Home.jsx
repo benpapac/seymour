@@ -12,41 +12,64 @@ const Home = () => {
     const scrollData = useScroll();
     const [scroll, setScroll] = useState(110);
     const [oldHeight, setOldHeight] = useState(0);
-    const [ready, setReady] = useState(false );
-    const [opacity, setOpacity] = useState(1.0);
+    const [scrollDirection, setScrollDirection] = useState('neutral');
+    const [delay, setDelay] = useState(0);
+    const [opacity, setOpacity] = useState(0);
+    const [photoScale, setPhotoScale] = useState(85);
+    const [animation, setAnimation] = useState('none');
+
 
     const updateScrolls = (yDiff) => {
-
-        if(yDiff > 0) {
-            setScroll(scroll === 60 ? 60 : scroll - 1);
+        if(scrollDirection === 'down') {
+            setTimeout(()=>{
+                setScroll(scroll <= 60 ? 60 : scroll - 1);
+                setPhotoScale(photoScale <= 50 ? 50 : photoScale - 0.33);
+            }, 10)
         }
-        else setScroll(scroll === 110 ? 110 : scroll + 2);
+        else setTimeout(()=>{
+            setScroll(scroll >= 110 ? 110 : scroll + 2);
+                setPhotoScale(photoScale >= 85 ? 85 : photoScale + 0.33);
+            }, 10)
+    }
+
+    const showScrollDown = () => {
+        setTimeout(()=> {
+            if(delay < 300) setDelay(delay+1);
+            else setOpacity(opacity >= 1? 1: opacity + 0.01)
+        }, 10)
+    }
+
+    const updateAnimations = () => {
+        if(scroll <= 100) setAnimation('home-slide-down 3s');
     }
 
     useEffect( () => {
         setOldHeight(scrollData.y);
         let yDiff = scrollData.y-oldHeight;
-        updateScrolls(yDiff);
+        let scrollDirection = 'neutral';
+        if(yDiff > 0) {
+            setScrollDirection('down');
+        } else if(yDiff < 0) {
+            setScrollDirection('up');
+        }
 
-        // if(!ready)setTimeout( ()=> {
-        //     setReady(true);
-        // }, 3000)
+        showScrollDown();
+        updateScrolls(scrollDirection);
+        updateAnimations();
 
-        // else setTimeout(()=> {
-        //     setOpacity(opacity === 1? 1: opacity + 0.01)
-        // }, 10)
-
-    }, [scrollData.y, opacity, ready])
+    }, [scrollData.y, opacity, photoScale])
 
 
     return (
         <section className='home-bg'>
-            {/* <img className='home-photo' src="https://i.imgur.com/jRinQU3.jpg?1" alt="Nicole and her dog Seymour" /> */}
             <div className='home-photo-box'>
-                <img src="https://i.imgur.com/scUZ8l7.jpg" alt="Nic's headshot" className='home-photo' />
+                <img src="https://i.imgur.com/scUZ8l7.jpg" 
+                    alt="Nic's headshot" 
+                    className='home-photo'
+                    style={{height: `${photoScale}vh`}} />
                 <Link to='/about' style={{textDecoration: 'none'}}><p className='homePage-link' id='about'>Meet Nicole.</p></Link>
             </div>
-            { scroll > 80? <img  id='scroll-down' 
+            { scroll > 80 ? <img  id='scroll-down' 
                                 src="https://i.imgur.com/aavGSjK.jpg" 
                                 alt="scroll down"
                                 style={{opacity: `${opacity}`}} /> : null}
@@ -58,14 +81,14 @@ const Home = () => {
                     <p id="home-talent-copy"><span>Artists</span>
                     <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
                     </p>
-                    <Link to="/talent" style={{textDecoration: 'none'}}><h6 className='homePage-link' id='home-talent-link'>Meet the artists.</h6></Link>
-                    </div>
+                    <Link to="/talent" style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-talent-link'>Meet the artists.</h6></Link>
+                     </div>
                 
                     <div className='home-coaching-box' style={{top: `${scroll}vh`}}>
                     <p id='home-coaching-copy'><span>Coaching</span>
                         <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
                     </p>
-                    <Link to='/coaching' style={{textDecoration: 'none'}}><h6 className='homePage-link' id='home-coaching-link'>Learn about coaching.</h6></Link>   
+                    <Link to='/coaching' style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-coaching-link'>Learn about coaching.</h6></Link>  
                     </div>
 
                     {/* <p id='home-contact-copy'>If you'd like to speak with Nicole, <span className='homePage-link'> <Link to="/contact" style={{textDecoration: 'none'}}>Reach out.</Link></span>
