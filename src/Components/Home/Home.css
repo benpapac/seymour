@@ -10,7 +10,7 @@
 	position: fixed;
 	top: 20vh;
 	right: 5vw;
-	animation: home-appear 2s;
+	animation: home-appear 4s;
 
 	display: flex;
 	flex-direction: column;
@@ -74,7 +74,7 @@
 
 	font-size: 24px;
 	font-family: 'Gruppo';
-	animation: home-appear 4s;
+	animation: home-appear 6s;
 }
 
 .home-talent-box,
@@ -93,7 +93,7 @@
 
 #home-talent-copy,
 #home-coaching-copy {
-	width: 20vw;
+	width: 24vw;
 	/* padding: 0.5em; */
 	height: fit-content;
 	/* line-height: 1.5; */
@@ -125,11 +125,11 @@
 }
 
 #home-talent-link {
-	animation: home-slide-down 7s;
+	animation-duration: 2s;
 }
 
 #home-coaching-link {
-	animation: home-slide-down 8s;
+	animation-duration: 3s;
 }
 
 
@@ -170,7 +170,7 @@
 		opacity: 0;
 	}
 
-	50% {
+	40% {
 		opacity: 0;
 	}
 
@@ -235,20 +235,6 @@
 		transform: translate(0, 0);
 	}
 
-}
-@keyframes stretch {
-	from {
-		height: 11vh;
-	}
-
-	30% {
-		height: 11vh;
-	}
-
-	to {
-		height: 40vh;
-	}
-	
 }
 
 @keyframes bounce {
