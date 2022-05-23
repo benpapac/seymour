@@ -57,7 +57,7 @@ const Home = () => {
         updateScrolls(scrollDirection);
         updateAnimations();
 
-    }, [scrollData.y, opacity, photoScale])
+    }, [scrollData.y, opacity, photoScale, delay])
 
 
     return (
