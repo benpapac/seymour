@@ -3,7 +3,7 @@
 
 
 .coaching-bg {
-    margin-top: -25vh;
+    margin-top: -15vh;
     padding-top: 25vh;
     height: 100vh;
     width: 100vw;
@@ -15,6 +15,7 @@
 }
 
 .coaching-filter {
+    margin-top: -25vh;
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -62,6 +63,8 @@
 }
 
 #testimonial-name {
+    color: antiquewhite;
+    z-index: 1;
     position: fixed;
     left: 16vw;
     bottom: 10vh;
@@ -71,6 +74,8 @@
 }
 
 #testimonial-occupation {
+    color: antiquewhite;
+    z-index: 1;
     position: fixed;
     left: 16vw;
     bottom: 5vh;

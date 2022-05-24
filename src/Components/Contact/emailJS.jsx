@@ -62,6 +62,7 @@ import './Contact.css';
 			{window.innerWidth >= 1100 ? <div className='contact-background'/> : null}
 				<p className='contact-blurb'>If you'd like to set up a consultation, just send Nicole a quick message. </p> 
 			</div>
+			<div className='contact-filter'/>
 
 			<form className='contact-form' ref={form} onSubmit={sendEmail}>
 				<label className='label'>Name</label>

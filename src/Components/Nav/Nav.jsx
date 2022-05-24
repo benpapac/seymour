@@ -6,6 +6,9 @@ import logo from '../../Assets/Naomi_Vector.png'
 import './Nav.css';
 const Nav = () => {
     return (
+        <>
+        <div className='nav-filter'/>
+
         <nav className='Nav'>
             <Link  className="link" to='/'>
                     <img className='link home-link' src={logo} alt="LG Management" />
@@ -23,6 +26,7 @@ const Nav = () => {
                 <h4>Contact</h4>
             </Link>
         </nav>
+        </>
     );
 };
 
