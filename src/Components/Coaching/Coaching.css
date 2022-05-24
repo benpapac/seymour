@@ -30,6 +30,10 @@
     overflow: auto;;
 }
 
+.testimonial::first-line {
+    font-weight: 800;
+}
+
 .testimonial p {
     font-size: 22px;
     line-height: 1.4;
@@ -38,8 +42,8 @@
 
 #testimonial-name {
     position: fixed;
-    left: 20vw;
-    bottom: 7vw;
+    left: 16vw;
+    bottom: 10vh;
     font-size: 26px;
     font-family: 'Forum';
     margin: 0;
@@ -47,8 +51,8 @@
 
 #testimonial-occupation {
     position: fixed;
-    left: 20vw;
-    bottom: 5vw;
+    left: 16vw;
+    bottom: 5vh;
     font-size: 24px;
     font-family: 'Forum';
     margin: 0;
@@ -56,19 +60,26 @@
 
 #testimonial-button {
     position: fixed;
-    left: 50vw;
-    bottom: 15vh;
-    height: 30px;
+    left: 52vw;
+    bottom: 5vh;
+    height: 40px;
     width: 80px;
-    border-radius: 3em;
+
+    padding: 0.1em;
+    /* border-radius: 1em; */
     background-color: none;
     border: none;
     font-family: 'Gruppo', cursive;
-    font-size: 26px;
+    font-size: 30px;
+}
+
+#testimonial-button:hover {
+    transform: scale(1.2);
+    transition: ease 0.4s;
 }
 
 #coaching-bg-one {
-    background-color: antiquewhite;
+    background-color: rgb(149, 204, 233);
     height: 85vh;
     width: 33vw;
     position: fixed;

@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import testimonials from '../../Json/testimonials.json'
 import { heatMap } from '../../Util/heatMap';
+import useScroll from '../../Hooks/useScrollPosition';
 
 import './Coaching.css';
 
 const Executives = () => {
     // const [count, setCount] = useState(0);
     console.log(heatMap);
+    const scrollData = useScroll();
 
     const [count, setCount] = useState(0);
     const [testimonial, setTestimonial] = useState(testimonials[count]);
 
     const increment = () => {
         setCount ( count === testimonials.length-1 ? 0 : count +1);
+        // setAngle( angle >= 365 ? 365 : angle + 1);
     }
 
     useEffect( () => {
@@ -35,6 +38,7 @@ const Executives = () => {
     //         <Link to="/contact"> Contact Nicole for a free consultation.</Link>
     //     </>
     // );
+
 
     return (
         <>

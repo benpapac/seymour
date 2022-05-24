@@ -40,11 +40,11 @@
 
     .about-background {
         position: fixed;
-        height: 85vh;
+        height: 45vh;
         width: 35vw;
         left: 50vw;
-        top: 15vh;
-        background-color: #93bc83;
+        top: 36vh;
+        background-color: #b6dea7;
         padding: 0.5em;
         z-index: -1;
     }
