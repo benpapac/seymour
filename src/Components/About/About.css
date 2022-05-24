@@ -1,21 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
+.about-bg {
+    margin-top: -25vh;
+    padding-top: 25vh;
+    height: fit-content;
+    width: 100vw;
+
+    background-image: url(../../Assets/AdobeStock_Brooklyn.jpeg);
+        background-position: top;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+.about-filter {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .about-photo {
     position: fixed;
     z-index: 1;
     bottom: 10vh;
-    left: 15vw;
-    width: 30vw;
+    left: 5vw;
+    width: 25vw;
     border: solid black 1px;
     /* border-radius: 100%; */
 
     animation: shrink 4s;
 }
 
+
+.about-copy-box {
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: -25vh;
+    padding-top: 35vh;
+}
+
 .about-blurb {
     font-family: 'Gruppo', cursive;
+    color: white;
+    margin-left: 50vw;
+    width: 45vw;
+
+    line-height: 1.5;
+        font-size: 26px;
+        font-weight: 800;
+}
+
+.about blurb p {
+    z-index: 2;
 }
 
 .about-blurb::first-line {
@@ -29,79 +67,4 @@
     text-decoration: none;
     font-size: 30px;
     font-family: 'Forum';
-}
-
-@media(min-width: 1100px) {
-    .about-blurb {
-        line-height: 1.5;
-        font-size: 22px;
-        width: 500px;
-    }
-
-    .about-background {
-        position: fixed;
-        height: 85vh;
-        width: 35vw;
-        left: 50vw;
-        top: 15vh;
-        background-color: #93bc83;
-        padding: 0.5em;
-        z-index: -1;
-    }
-
-    .about-background-two {
-        position: fixed;
-        height: 35vh;
-        width: 40vw;
-        top: 20vh;
-        background-color: darkcyan;
-    }
-
-    #one,
-    #two,
-    #three {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    #one {
-        grid-row: 2;
-        grid-column: 1;
-    }
-
-    #two{
-        grid-row: 3;
-        grid-column: 2;
-    }
-
-    #three {
-        grid-row: 2;
-        grid-column: 3;
-    }
-
-    .about-text-wheel {
-        position: fixed;
-        height: 100vw;
-        width: 100vw;
-        top: -30vh;
-        left: 51vw;
-
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
- 
-}
-
-
-@keyframes shrink {
-    from {
-        left: -33vw;
-    }
-
-
-
-    to {
-        left: 15vw;
-    }
 }

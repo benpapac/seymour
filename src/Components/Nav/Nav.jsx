@@ -1,12 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import logo from '../../Assets/Naomi_Vector.png'
+
 
 import './Nav.css';
 const Nav = () => {
     return (
         <nav className='Nav'>
             <Link  className="link" to='/'>
-                    <img className='link home-link' src="https://i.imgur.com/dhAuOr0.jpg" alt="LG Management" />
+                    <img className='link home-link' src={logo} alt="LG Management" />
             </Link>
             <Link className="link" to='/about'>
                 <h4>About</h4>

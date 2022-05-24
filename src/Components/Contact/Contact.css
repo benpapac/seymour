@@ -3,19 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 .contact {
 	/* padding: 1em; */
-	height: 80vh;
+	height: 125vh;
 	overflow: auto;
-	margin: 0.7em;
+	margin-top: -25vh;
+	padding-top: 25vh;
+
+	background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+		background-position: top;
+		background-attachment: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
 }
 
-.contact-background {
-	position: fixed;
-	left: 39vw;
-	top: 15vh;
-	width: 62vw;
-	height: 35vh;
-	background-color: #eaac8b;
-}
 
 .contact-photo {
 	position: fixed;
@@ -49,22 +48,34 @@
 }
 
 .contact-blurb {
-	color: black;
-	font-size: 20px;
+	color: antiquewhite;
 		font-family: 'Gruppo',
 		cursive;
+		
+				position: fixed;
+				right: 10vw;
+				bottom: -10vh;
+				height: 35vh;
+				max-width: 30vw;
+				font-size: 38px;
+				background-color: rgba(0,0,0,0.3);
 }
 
 .contact-form {
+	height: fit-content;
+		position: fixed;
+		bottom: 7vh;
+		left: 5vw;
+		width: 30vw;
 	padding: 1em;
-	height: 85vh;
-	width: 100vw;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255,0.3);
 
 	display: flex;
 	flex-direction: column;
 	align-items: start;
 	justify-content: center;
+
+				
 }
 
 .input {
@@ -96,14 +107,6 @@
 		display: flex;
 	}
 
-	.contact-form {
-		height: fit-content;
-		position: fixed;
-		bottom: 7vh;
-		left: 5vw;
-		width: 30vw;
-		background-color: rgba(0, 0, 0, 0.3);
-	}
 
 	.contact-headline {
 		color: black;
@@ -115,18 +118,6 @@
 		top: 10vh;
 	}
 	
-	.contact-blurb {
-		position: fixed;
-		right: 35vw;
-		bottom: 17vh;
-		z-index: 1;
-		max-width: 300px;
-		/* transform: rotate(15deg); */
-	
-		color: black;
-		/* background-color: rgba(253, 252, 220, 0.7); */
-		font-size: 28px;
-	}
 
 	.contact-photo {
 		width: 50vw;
@@ -149,7 +140,7 @@
 
 @keyframes expand {
 	from {
-		transform: scale(0.1);
+		transform: scale(0.8);
 	}
 
 	to {

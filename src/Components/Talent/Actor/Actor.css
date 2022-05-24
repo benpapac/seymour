@@ -113,6 +113,7 @@
 		grid-column: 2;
 
 		overflow: hidden;
-		background-color: #774936;
+		/* background-color: #77365e; */
+		background-color: rgba(0,0,0,0.7);
 	}
 }

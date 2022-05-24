@@ -100,7 +100,7 @@ const Talent = () => {
     //style={{transform: `translate(${xTrans[idx]}%, 0)`}}
      //style={{transform: `translate(${xTrans[idx]}%, 0)`}}
     return (
-        <>
+        <section className='talent-box'>
             {displayLookbook(chooseFocus)}
             {/* {displayActors(focusPoints, chooseFocus)} */}
 
@@ -125,7 +125,7 @@ const Talent = () => {
 						</div>
 				);
 			})}
-        </>
+        </section>
     );
 };
 

@@ -1,4 +1,17 @@
-.talent::-webkit-scrollbar {
+
+.talent-box {
+	margin-top: -25vh;
+	padding-top: 25vh;
+	height: fit-content;
+	width: 100vw;
+	background-image: url(../../Assets/AdobeStock_theater_seats.jpeg);
+	background-position:top ;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.talent-box::-webkit-scrollbar {
 	display: none;
 }
 
@@ -10,32 +23,4 @@
 
 .a-tag {
 	grid-column: 2;
-}
-
-
-@media (min-width: 1000px) {
-	.tall-rectangle {
-		background-color: #b5c99a;
-		/* z-index: -1; */
-		position: fixed;
-		align-self: center;
-		left: 280px;
-		top: 261px;
-		height: 350px;
-		width: 10px;
-
-		animation: expand 6s infinite alternate;
-	}
-
-
-	@keyframes slideup {
-		from {
-			top: 40vh;
-		}
-
-		to {
-			top: 10vh;
-		}
-	}
-
 }

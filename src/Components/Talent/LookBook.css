@@ -1,13 +1,13 @@
 .lookbook {
 	/* background-color: rgba(230, 204, 178, 0.6); */
-	background-color: rgba(237, 235, 235, 0.6);
+	background-color: rgba(237, 235, 235, 0.5);
 
 	position: fixed;
 	z-index: 2;
-	left: 1em;
-	top: 10em;
+	left: 5vw;
+	top: 10vh;
 
-	height: fit-content;
+	height: 50vh;
 	width: fit-content;
 
 	display: grid;
@@ -15,14 +15,8 @@
 	padding: 1em;
 	grid-template-rows: repeat(3, minmax(80px, 1fr));
 	grid-template-columns: repeat(2, minmax(100px, 1fr));
-	overflow: hidden;
 
 	animation: expand 4s;
-	display: none;
-}
-
-.spotlight {
-	display: none;
 }
 
 .thumbnail {
@@ -47,32 +41,22 @@
 @media (min-width: 800px) {
 	.lookbook {
 		position: fixed;
-		top: 12em;
-		left: 1em;
+		top: 25vh;
+		left: 2vw;
+
+		height: 50vh;
+		justify-content: center;
 
 		display: grid;
 		gap: 1em;
 		padding: 1em;
-		grid-template-rows: repeat(3, minmax(80px, 1fr));
+		grid-template-rows: repeat(2, minmax(80px, 1fr));
 		grid-template-columns: repeat(2, minmax(100px, 1fr));
 	}
 }
 
 @media (min-width: 1100px) {
-	.lookbook {
-		left: 1em;
-		top: 12em;
-		padding: 1em;
-		height: 70%;
-		width: fit-content;
 
-		transition: ease-in-out 700ms;
-
-		display: grid;
-		gap: 1em;
-		grid-template-rows: repeat(3, minmax(80px, 1fr));
-		grid-template-columns: repeat(2, minmax(100px, 1fr));
-	}
 
 	.lookbook:hover {
 		background-color: rgba(0, 0, 0, 0.7);

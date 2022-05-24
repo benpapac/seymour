@@ -57,19 +57,12 @@ import './Contact.css';
 			</>
 			: 
 			<>
-			<div className='contact-box'
-				style={window.innerWidth >= 1100 ? 
-					{
-						// backgroundImage: `url(https://i.imgur.com/drgFS8B.jpg)`, 
-						backgroundSize: 'cover'
-					} 
-					: null}
-				>
+
+			<div className='contact-box'>
 			{window.innerWidth >= 1100 ? <div className='contact-background'/> : null}
-				<h3 className='contact-headline'>Let's talk.</h3>
-				{ window.innerWidth >= 1100? <p className='contact-blurb'>If you'd like to set up a consultation, just send Nicole a quick message with your interests. </p> : null}
+				<p className='contact-blurb'>If you'd like to set up a consultation, just send Nicole a quick message. </p> 
 			</div>
-				{ window.innerWidth >= 1100 ? <img  className='contact-photo' src="https://i.imgur.com/qIWZNrc.jpg" alt="Nicole and her dog, Seymour" /> : null}
+
 			<form className='contact-form' ref={form} onSubmit={sendEmail}>
 				<label className='label'>Name</label>
 				<input type="hidden" name='to_name' value="Nic"/>
@@ -82,6 +75,7 @@ import './Contact.css';
 				<textarea className='message' name='message' />
 				<input className='contact-button' type='submit' value='Send' />
 			</form>
+
 			</>
 		)
 		}
