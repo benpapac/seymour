@@ -13,9 +13,13 @@ export const displayActors = (focusPoints, chooseFocus) => {
 						<div
 							key={`${actor.name}`}
 							className={`actor ${actor.name}`}
-							ref={focusPoints[`${actor.focus}`]}
-							>
-							<Actor actor={actor} idx={idx} arr={arr} focusPoints={focusPoints} />
+							ref={focusPoints[`${actor.focus}`]}>
+							<Actor
+								actor={actor}
+								idx={idx}
+								arr={arr}
+								focusPoints={focusPoints}
+							/>
 						</div>
 					</>
 				);

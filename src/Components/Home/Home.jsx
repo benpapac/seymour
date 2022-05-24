@@ -87,21 +87,24 @@ const Home = () => {
                 style={{opacity: `${opacity}`}} 
                 /> */}
 
-            <div className='home-box' id='home-links-box' >
-                <div id='home-talent-box'>
-            <p id="home-talent-copy"><span>Artists</span>
-            <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
-            <Link to="/talent" style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-talent-link'>Meet the artists.</h6></Link>
-            </p>
-                </div>
-                
-            <div id='home-coaching-box'>
-            <p id='home-coaching-copy'><span>Coaching</span>
-                <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
-            <Link to='/coaching' style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-coaching-link'>Learn about coaching.</h6></Link>  
-            </p>
-            </div>
-            </div>
+            <section className='home-box' id='home-links-box' >
+                <div className='home-filter' />
+
+                    <div id='home-talent-box'>
+                        <p id="home-talent-copy"><span>Artists</span>
+                        <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
+                        <Link to="/talent" style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-talent-link'>Meet the artists.</h6></Link>
+                        </p>
+                    </div>
+                    
+                    <div id='home-coaching-box'>
+                    <p id='home-coaching-copy'><span>Coaching</span>
+                        <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
+                    <Link to='/coaching' style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-coaching-link'>Learn about coaching.</h6></Link>  
+                    </p>
+                    </div>
+                    
+            </section>
 
                     {/* <p id='home-contact-copy'>If you'd like to speak with Nicole, <span className='homePage-link'> <Link to="/contact" style={{textDecoration: 'none'}}>Reach out.</Link></span>
                     </p> */}

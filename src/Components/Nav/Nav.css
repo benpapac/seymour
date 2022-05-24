@@ -1,18 +1,14 @@
 .Nav {
-	z-index: 2;
-	/* position: fixed; */
-	height: 15vh;
+	height: 20vh;
 	width: 100vw;
-	/* padding: 1em; */
-	background-color: #ffffff;
-	background: none;
 
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	background: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.3);
 }
 .link {
+	z-index: 2;
 	height: 70px;
 	width: 100px;
 

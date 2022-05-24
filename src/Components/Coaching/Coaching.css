@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
+
+.coaching-bg {
+    margin-top: -25vh;
+    padding-top: 25vh;
+    height: fit-content;
+    width: 100vw;
+    background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 #coaching-blurb {
     position: fixed;
     top: 25vh;
@@ -87,9 +99,6 @@
     top: 25vh;
 }
 
-#coaching-bg-two {
-    background-color: cadetblue;
-}
 
 #coaching-certification {
     position: fixed;
