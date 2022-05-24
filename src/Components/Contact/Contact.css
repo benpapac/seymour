@@ -15,6 +15,14 @@
 		background-repeat: no-repeat;
 }
 
+.contact-filter {
+	margin-top: -25vh;
+	position: fixed;
+	height: 125vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
 
 .contact-photo {
 	position: fixed;
@@ -51,6 +59,7 @@
 	color: antiquewhite;
 		font-family: 'Gruppo',
 		cursive;
+		z-index: 1;
 		
 				position: fixed;
 				right: 10vw;
@@ -58,7 +67,7 @@
 				height: 35vh;
 				max-width: 30vw;
 				font-size: 38px;
-				background-color: rgba(0,0,0,0.3);
+				/* background-color: rgba(0,0,0,0.3); */
 }
 
 .contact-form {
