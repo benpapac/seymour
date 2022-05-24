@@ -5,13 +5,20 @@
 .coaching-bg {
     margin-top: -25vh;
     padding-top: 25vh;
-    height: fit-content;
+    height: 100vh;
     width: 100vw;
     background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
     background-position: top;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.coaching-filter {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
 }
 #coaching-blurb {
     position: fixed;
@@ -47,7 +54,9 @@
 }
 
 .testimonial p {
-    font-size: 22px;
+    color: antiquewhite;
+    font-size: 25px;
+    font-weight: 500;
     line-height: 1.4;
     font-family: 'Gruppo', cursive;
 }
