@@ -64,7 +64,7 @@ const Home = () => {
     return (
         <section className='home-bg'>
             <div className='home-box' id='home-headline-box'>
-                <img src={logo} style={{width:' 40vw', marginTop: '20vh'}}/>
+                <img className='home-headline' src={logo} style={{width:' 40vw', marginTop: '20vh'}}/>
             </div>
 
 
@@ -80,12 +80,6 @@ const Home = () => {
                 <Link to='/about' style={{textDecoration: 'none'}}><span className='homePage-link' id='about'>Meet Nicole.</span></Link>
                 </p>
             </div>
-            
-            {/* <img  id='scroll-down' 
-                src="https://i.imgur.com/aavGSjK.jpg" 
-                alt="scroll down"
-                style={{opacity: `${opacity}`}} 
-                /> */}
 
             <section className='home-box' id='home-links-box' >
                 <div className='home-filter' />

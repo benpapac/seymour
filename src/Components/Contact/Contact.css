@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
 .contact {
 	/* padding: 1em; */
 	height: 125vh;
@@ -13,6 +11,7 @@
 		background-attachment: fixed;
 		background-size: cover;
 		background-repeat: no-repeat;
+
 }
 
 .contact-filter {
@@ -20,19 +19,20 @@
 	position: fixed;
 	height: 125vh;
 	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 
 .contact-photo {
+	z-index: 2;
 	position: fixed;
 	right: 10vw;
-	top: 20vh;
-	width: 90vw;
-	max-width: 100px;
+	top: 25vh;
+	width: 25vw;
+	/* max-width: 300px; */
 	border-radius: 100%;
 
-	animation: expand 3s;
+	/* animation: expand 3s; */
 }
 
 .contact-box {
@@ -57,16 +57,16 @@
 
 .contact-blurb {
 	color: antiquewhite;
-		font-family: 'Gruppo',
-		cursive;
+		font-family: 'Playfair Display',
+		serif;
 		z-index: 1;
 		
 				position: fixed;
-				right: 10vw;
-				bottom: -10vh;
+				right: 35vw;
+				bottom: -15vh;
 				height: 35vh;
-				max-width: 30vw;
-				font-size: 38px;
+				max-width: 25vw;
+				font-size: 28px;
 				/* background-color: rgba(0,0,0,0.3); */
 }
 
@@ -83,7 +83,6 @@
 	flex-direction: column;
 	align-items: start;
 	justify-content: center;
-
 				
 }
 
@@ -96,7 +95,7 @@
 .label {
 	font-size: x-large;
 	color: whitesmoke;
-	font-family: 'Forum', cursive;
+	font-family: 'Playfair Display', serif;
 }
 .message {
 	height: 10vh;
@@ -109,6 +108,7 @@
 	height: 60px;
 	width: 200px;
 	border-radius: 1em;
+	font-family: 'Playfair Display', serif;
 }
 
 @media(min-width: 1100px) {
@@ -126,13 +126,7 @@
 		left: 5vw;
 		top: 10vh;
 	}
-	
 
-	.contact-photo {
-		width: 50vw;
-		max-width: 300px;
-		border: solid black 1px;
-	}
 
 	.label {
 		height: 30px;

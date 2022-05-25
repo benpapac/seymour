@@ -39,6 +39,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     margin-top: -25vh;
     padding-top: 35vh;
+    padding-bottom: 5vh;
 }
 
 .about-blurb {
@@ -57,7 +58,7 @@
 }
 
 .about-blurb::first-line {
-    font-family: 'Forum', cursive;
+    font-family: 'Playfair Display', serif;
 }
 
 .about-link {
@@ -66,5 +67,5 @@
     bottom: 10vh;
     text-decoration: none;
     font-size: 30px;
-    font-family: 'Forum';
+    font-family: 'Abel', sans-serif;
 }
