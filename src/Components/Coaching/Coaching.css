@@ -23,7 +23,7 @@
 }
 #coaching-blurb {
     position: fixed;
-    top: 25vh;
+    top: 19vh;
     right: 5vw;
     height: 85vh;
     width: 30vw;
@@ -31,22 +31,22 @@
 
     padding: 0.5em;
 
-    line-height: 2;
-    font-size: 18px;
+    line-height: 1.6;
+    font-size: 22px;
     font-family: 'Abel', sans-serif ;
 }
 
 #coaching-blurb::first-line {
     font-family: 'Playfair Display', serif;
-    font-size: 30px;
+    font-size: 32px;
 }
 
 .testimonial {
     position: fixed;
-    padding: 0.5em;
+    padding: 0.3em;
     left: 5vw;
-    top: 25vh;
-    height: 50vh;
+    top: 19vh;
+    height: fit-content;
     width: 50vw;
     overflow: auto;;
     background-color: rgba(0, 0, 0, 0.7);
@@ -62,9 +62,9 @@
 
 .testimonial p {
     color: antiquewhite;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.6;
     font-family: 'Abel', sans-serif;
 }
 
@@ -112,11 +112,11 @@
 
 #coaching-bg-one {
     background-color: rgb(149, 204, 233);
-    height: 85vh;
+    height: 70vh;
     width: 33vw;
     position: fixed;
     right: 5vw;
-    top: 25vh;
+    top: 19vh;
 }
 
 
