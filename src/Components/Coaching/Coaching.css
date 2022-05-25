@@ -33,21 +33,27 @@
 
     line-height: 2;
     font-size: 18px;
-    font-family: 'Gruppo', cursive ;
+    font-family: 'Abel', sans-serif ;
 }
 
 #coaching-blurb::first-line {
-    font-family: 'Forum', cursive;
+    font-family: 'Playfair Display', serif;
     font-size: 30px;
 }
 
 .testimonial {
     position: fixed;
+    padding: 0.5em;
     left: 5vw;
     top: 25vh;
     height: 50vh;
     width: 50vw;
     overflow: auto;;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.testimonial::-webkit-scrollbar {
+    display: none;
 }
 
 .testimonial::first-line {
@@ -59,7 +65,7 @@
     font-size: 25px;
     font-weight: 500;
     line-height: 1.4;
-    font-family: 'Gruppo', cursive;
+    font-family: 'Abel', sans-serif;
 }
 
 #testimonial-name {
@@ -69,7 +75,7 @@
     left: 16vw;
     bottom: 10vh;
     font-size: 26px;
-    font-family: 'Forum';
+    font-family: 'Playfair Display', serif;
     margin: 0;
 }
 
@@ -80,7 +86,7 @@
     left: 16vw;
     bottom: 5vh;
     font-size: 24px;
-    font-family: 'Forum';
+    font-family: 'Abel', sans-serif;
     margin: 0;
 }
 
@@ -95,7 +101,7 @@
     /* border-radius: 1em; */
     background-color: none;
     border: none;
-    font-family: 'Gruppo', cursive;
+    font-family: 'Playfair Display', serif;
     font-size: 30px;
 }
 

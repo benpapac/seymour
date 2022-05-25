@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
+import puppy from '../../Assets/Nicole_Puppy.jpg'
 
  const ContactUs = () => {
 	const form = useRef();
@@ -47,6 +48,7 @@ import './Contact.css';
 				}
 			: null}
 			>
+				<img className='contact-photo' src={puppy} alt="Nicole and her dog, Seymour Seymour" />
 		{sent === 'pass' ? 
 		<>
 		<h4>Your message was successfully sent!</h4> 
@@ -60,7 +62,7 @@ import './Contact.css';
 
 			<div className='contact-box'>
 			{window.innerWidth >= 1100 ? <div className='contact-background'/> : null}
-				<p className='contact-blurb'>If you'd like to set up a consultation, just send Nicole a quick message. </p> 
+				<p className='contact-blurb'>If you'd like to set up a consultation, send Nicole a quick message. </p> 
 			</div>
 			<div className='contact-filter'/>
 
