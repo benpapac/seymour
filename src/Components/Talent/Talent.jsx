@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Talent.css';
+import './Actor/Actor-phone.css';
 import './Actor/Actor.css';
 import './LookBook.css';
 import actors from '../../Json/actors.json';
@@ -101,28 +102,31 @@ const Talent = () => {
      //style={{transform: `translate(${xTrans[idx]}%, 0)`}}
     return (
         <section className='talent-box'>
-            {displayLookbook(chooseFocus)}
+            { window.innerWidth > 1050 ? displayLookbook(chooseFocus) : null}
             {/* {displayActors(focusPoints, chooseFocus)} */}
 
              
 			{actors.map((actor, idx, arr) => {
 				return (
-						<div
+                    <div
 							key={`${actor.name}`}
 							className={`actor ${actor.name}`}
 							ref={focusPoints[`${actor.focus}`]}
-							>
-                                <div className="actor-box" >
-                <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} />
-                <p className="actor-bio"> 
-                <p className='actor-name'>{actor.name}</p>
-                    {actor.bio}
-                    <br/>
-                    <br/>
-                    <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
-                </p>
-            </div>
-						</div>
+                             style={window.innerWidth < 1050 ?{backgroundImage: `url(${actor.img})`} : null}
+                    >
+                        {window.innerWidth < 1050 ? <div className='talent-empty' /> : null}
+
+                        <div className="actor-box" >
+                            { window.innerWidth > 1050 ? <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} /> : null}
+                            <p className="actor-bio"> 
+                            <p className='actor-name'>{actor.name}</p>
+                                {actor.bio}
+                                <br/>
+                                <br/>
+                                <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
+                            </p>
+                        </div>
+                    </div>
 				);
 			})}
         </section>

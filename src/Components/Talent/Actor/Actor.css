@@ -1,20 +1,27 @@
 
 
+.actor {
+	margin-top: 5vh;
+}
+
 .actor-box {
 	height: 85vh;
 	width: 100vw;
 	background-size: cover;
-	overflow: auto;
+
+	display: grid;
+		grid-template-columns: 1fr 2fr 2fr;
+		grid-template-rows: 1fr;
 }
 
-.empty {
-	height: 95vh;
-}
 
 .actor-name {
 	margin: 0;
+	grid-row: 1;
+	grid-column: 1;
 	margin-left: 1em;
-	font-size: 30px;
+	font-size: 40px;
+	align-self: start;
 	color: whitesmoke;
 	border-bottom: black solid 1px;
 	font-family: 'Playfair Display',
@@ -22,20 +29,24 @@
 }
 
 .actor-photo {
-	max-width: 35vw;
-
+	height: 85vh;
+	grid-column: 3;
 }
 
 .actor-bio {
+
+	grid-row: 1;
+		grid-column: 2;
+
 	height: 85vh;
+
 	line-height: 1.5;
 	z-index: 1;
 	margin: 0 auto;
-	padding: 0.7em;
+	padding: 0 0.7em ;
 
-	/* overflow: auto; */
 	color: whitesmoke;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.7);
 	animation: fadein 5s;
 	font-family: 'Abel', sans-serif;
 	font-size: large;
@@ -65,41 +76,9 @@
 		height: 0;
 	}
 
-	.actor-box {
-		height: 85vh;
-		max-width: none;
-		width: 100vw;
-		margin: 3em;
 
-		display: grid;
-		grid-template-columns: 1fr 2fr 2fr;
-		grid-template-rows: 1fr;
 
-		align-self: center;
-		overflow: hidden;
-	}
+	
 
-	.actor-photo {
-		/* height: 100%; */
-		grid-column: 3;
-	}
-
-	.actor-name {
-		font-size: 40px;
-		grid-row: 1;
-		grid-column: 1;
-		align-self: start;
-
-		margin: 0 auto;
-	}
-	.actor-bio {
-		height: 100%;
-		/* color: black; */
-		grid-row: 1;
-		grid-column: 2;
-
-		overflow: hidden;
-		/* background-color: #77365e; */
-		background-color: rgba(0,0,0,0.7);
-	}
+	
 }
