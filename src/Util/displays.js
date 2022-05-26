@@ -29,15 +29,9 @@ export const displayActors = (focusPoints, chooseFocus) => {
 };
 
 export const displayLookbook = (chooseFocus, setLightCoordinates) => {
-	// 	const spotlight = (e) => {
-	// 		e.preventDefault();
-	// 		setlightCoordinates({
-	// 			x: e.target.xOffset,
-	// 			y: e.target.yOffset,
-	// 		})}
+
 	return (
 		<>
-			{/* <div className='spotlight' ></div> */}
 			<div className='lookbook'>
 				{actors.map((actor, index) => {
 					return (

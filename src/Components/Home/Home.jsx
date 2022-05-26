@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { Context } from '../../Util/Context';
 import './Home.css';
+import './Home-Phone.css';
 import useScroll from '../../Hooks/useScrollPosition';
 import logo from '../../Assets/Naomi_Vector.png';
 
@@ -16,22 +17,11 @@ const Home = () => {
     const [scrollDirection, setScrollDirection] = useState('neutral');
     const [delay, setDelay] = useState(0);
     const [opacity, setOpacity] = useState(0);
-    const [photoScale, setPhotoScale] = useState(85);
+    const [count, setCount] = useState(0);
     const [animation, setAnimation] = useState('none');
+    const [display, setDisplay] = useState('none');
+    const [rects, setRects] = useState({});
 
-
-    const updateScrolls = (yDiff) => {
-        if(scrollDirection === 'down') {
-            setTimeout(()=>{
-                setScroll(scroll <= 60 ? 60 : scroll - 1);
-                setPhotoScale(photoScale <= 50 ? 50 : photoScale - 0.33);
-            }, 10)
-        }
-        else setTimeout(()=>{
-            setScroll(scroll >= 110 ? 110 : scroll + 2);
-                setPhotoScale(photoScale >= 85 ? 85 : photoScale + 0.33);
-            }, 10)
-    }
 
     const showScrollDown = () => {
         setTimeout(()=> {
@@ -40,25 +30,29 @@ const Home = () => {
         }, 10)
     }
 
-    const updateAnimations = () => {
-        if(scroll <= 100) setAnimation('home-slide-down 3s');
+    const getDiv = () => {
+        let linksBox = document.getElementById('home-links-box') || null;
+
+        let coachingRect = linksBox.getBoundingClientRect();
+        return coachingRect;
     }
 
     useEffect( () => {
         setOldHeight(scrollData.y);
-        let yDiff = scrollData.y-oldHeight;
-        let scrollDirection = 'neutral';
-        if(yDiff > 0) {
+        setRects(getDiv());
+
+        if(scrollData.y > oldHeight) {
             setScrollDirection('down');
-        } else if(yDiff < 0) {
+        } else if(scrollData.y - oldHeight < 0) {
             setScrollDirection('up');
-        }
-
+        } else setScrollDirection('neutral');
+         if(rects.y < 50 ) {
+            setAnimation('home-slide-up 2s');
+            setDisplay('flex');
+            setCount(0);
+        } 
         showScrollDown();
-        updateScrolls(scrollDirection);
-        updateAnimations();
-
-    }, [scrollData.y, opacity, photoScale, delay])
+    }, [scrollData.y, opacity])
 
 
     return (
@@ -83,18 +77,22 @@ const Home = () => {
 
             <section className='home-box' id='home-links-box' >
                 <div className='home-filter' />
-
-                    <div id='home-talent-box'>
-                        <p id="home-talent-copy"><span>Artists</span>
+                    <div id='home-talent-box' style={{display: `${display}`, animation: `${animation}`,}}>
+                        <p id="home-talent-copy"><span className='headline'>Artists</span>
                         <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
-                        <Link to="/talent" style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-talent-link'>Meet the artists.</h6></Link>
+                        <Link to="/talent" style={{textDecoration: 'none'}}>
+                        <br/>
+                        <span className='homePage-link' id='home-talent-link'>
+                            Meet the artists.</span></Link>
                         </p>
                     </div>
                     
-                    <div id='home-coaching-box'>
-                    <p id='home-coaching-copy'><span>Coaching</span>
+                    <div id='home-coaching-box' style={{display: `${display}`, animation: `${animation}`,}}>
+                    <p id='home-coaching-copy'><span className='headline'>Coaching</span>
                         <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
-                    <Link to='/coaching' style={{textDecoration: 'none', animation: `${animation}`, display: `${scroll} === 60 ? none : block`}}><h6 className='homePage-link' id='home-coaching-link'>Learn about coaching.</h6></Link>  
+                    <Link to='/coaching' style={{textDecoration: 'none'}}>
+                        <br/>
+                        <span className='homePage-link' id='home-coaching-link'>Learn about coaching.</span></Link>  
                     </p>
                     </div>
                     
