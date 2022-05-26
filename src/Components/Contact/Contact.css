@@ -5,13 +5,24 @@
 	overflow: auto;
 	margin-top: -25vh;
 	padding-top: 25vh;
+	background-color: antiquewhite;
 
-	background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+	/* background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
 		background-position: top;
 		background-attachment: fixed;
 		background-size: cover;
-		background-repeat: no-repeat;
+		background-repeat: no-repeat; */
 
+}
+
+.contact-block {
+	z-index: 1;
+	position: fixed;
+	top: 22vh;
+	right: 5vw;
+	height: 25vh;
+	width: 45vw;
+	background-color: cornsilk;
 }
 
 .contact-filter {
@@ -19,7 +30,7 @@
 	position: fixed;
 	height: 125vh;
 	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(147, 40, 40, 0.6);
 }
 
 
@@ -56,24 +67,24 @@
 }
 
 .contact-blurb {
+	z-index: 1;
 	color: antiquewhite;
 		font-family: 'Playfair Display',
 		serif;
-		z-index: 1;
 		
-				position: fixed;
-				right: 35vw;
-				bottom: -15vh;
-				height: 35vh;
-				max-width: 25vw;
-				font-size: 28px;
+	position: fixed;
+	right: 35vw;
+	bottom: -8vh;
+	height: 35vh;
+	max-width: 25vw;
+	font-size: 28px;
 				/* background-color: rgba(0,0,0,0.3); */
 }
 
 .contact-form {
 	height: fit-content;
 		position: fixed;
-		bottom: 7vh;
+		bottom: 17vh;
 		left: 5vw;
 		width: 30vw;
 	padding: 1em;
