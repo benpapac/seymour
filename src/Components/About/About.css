@@ -4,7 +4,7 @@
 .about-bg {
     margin-top: -25vh;
     padding-top: 25vh;
-    height: fit-content;
+    height: 400vh;
     width: 100vw;
 
     background-image: url(../../Assets/AdobeStock_Brooklyn.jpeg);
@@ -12,13 +12,6 @@
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
-}
-.about-filter {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .about-photo {
@@ -29,13 +22,14 @@
     width: 25vw;
     border: solid black 1px;
     /* border-radius: 100%; */
-
+    
     animation: shrink 4s;
 }
 
 
 .about-copy-box {
-    height: fit-content;
+    height: 400vh;
+    background-color: rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.7);
     margin-top: -25vh;
     padding-top: 35vh;
@@ -46,6 +40,9 @@
     font-family: 'Gruppo', cursive;
     color: white;
     margin-left: 50vw;
+    /* position: fixed; */
+    /* left: 50vw; */
+    height: fit-content;
     width: 45vw;
 
     line-height: 1.5;
@@ -53,7 +50,7 @@
         font-weight: 800;
 }
 
-.about blurb p {
+.about-blurb p {
     z-index: 2;
 }
 

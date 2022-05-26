@@ -65,6 +65,7 @@ import puppy from '../../Assets/Nicole_Puppy.jpg'
 				<p className='contact-blurb'>If you'd like to set up a consultation, send Nicole a quick message. </p> 
 			</div>
 			<div className='contact-filter'/>
+			<div className='contact-block' />
 
 			<form className='contact-form' ref={form} onSubmit={sendEmail}>
 				<label className='label'>Name</label>
