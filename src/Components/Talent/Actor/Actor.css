@@ -1,15 +1,15 @@
 
 
+.actor {
+
+}
+
 .actor-box {
 	height: 85vh;
 	width: 100vw;
 	background-size: cover;
-	background-color: rgba(0, 0, 0, 0.3);
 }
 
-.empty {
-	height: 95vh;
-}
 
 .actor-name {
 	margin: 0;
@@ -22,8 +22,7 @@
 }
 
 .actor-photo {
-	max-width: 35vw;
-
+	max-height: 85vh;
 }
 
 .actor-bio {
@@ -34,6 +33,7 @@
 	padding: 0.7em;
 
 	color: whitesmoke;
+	background-color: rgba(0,0,0,0.3);
 	animation: fadein 5s;
 	font-family: 'Abel', sans-serif;
 	font-size: large;
@@ -95,7 +95,6 @@
 		grid-row: 1;
 		grid-column: 2;
 
-		overflow: hidden;
 		/* background-color: #77365e; */
 		background-color: rgba(0,0,0,0.7);
 	}

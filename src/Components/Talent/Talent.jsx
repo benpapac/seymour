@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Talent.css';
-import './Actor/Actor.css';
 import './Actor/Actor-phone.css';
+import './Actor/Actor.css';
 import './LookBook.css';
 import actors from '../../Json/actors.json';
 import * as displayHOF from '../../Util/displays.js';
