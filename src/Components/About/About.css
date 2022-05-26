@@ -28,7 +28,7 @@
 
 
 .about-copy-box {
-    height: 400vh;
+    height: fit-content;
     background-color: rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.7);
     margin-top: -25vh;
