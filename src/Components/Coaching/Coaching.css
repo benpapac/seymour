@@ -5,13 +5,17 @@
 .coaching-bg {
     margin-top: -15vh;
     padding-top: 25vh;
-    height: 100vh;
+    height: 75vh;
     width: 100vw;
     background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
     background-position: top;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
 }
 
 .coaching-filter {
@@ -22,18 +26,21 @@
     background-color: rgba(0,0,0,0.4);
 }
 #coaching-blurb {
-    position: fixed;
+    grid-row: 1;
+    grid-column: 2;
+    position: absolute;
     top: 19vh;
     right: 5vw;
-    height: 85vh;
+    height: fit-content;
     width: 30vw;
-    z-index: 2;
+    z-index: 1;
 
-    padding: 0.5em;
+    padding: 1em;
 
     line-height: 1.6;
     font-size: 22px;
     font-family: 'Abel', sans-serif ;
+    background-color: rgb(149, 204, 233);
 }
 
 #coaching-blurb::first-line {
@@ -93,7 +100,7 @@
 #testimonial-button {
     position: fixed;
     left: 52vw;
-    bottom: 5vh;
+    bottom: 15vh;
     height: 40px;
     width: 80px;
 
@@ -111,8 +118,7 @@
 }
 
 #coaching-bg-one {
-    background-color: rgb(149, 204, 233);
-    height: 70vh;
+    height: 65vh;
     width: 33vw;
     position: fixed;
     right: 5vw;

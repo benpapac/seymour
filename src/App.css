@@ -12,6 +12,9 @@ main {
 }
 
 .footer-content {
+	grid-row: 2;
+	grid-column: 1/span 2;
+	/* color: antiquewhite; */
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
