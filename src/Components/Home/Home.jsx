@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { Context } from '../../Util/Context';
+import Footer from '../Footer/Footer';
 import './Home.css';
 import './Home-Phone.css';
 import useScroll from '../../Hooks/useScrollPosition';
@@ -8,7 +9,10 @@ import logo from '../../Assets/Naomi_Vector.png';
 
 const Home = () => {
     /*
-    I'd like to have a splash photo that takes up the majority of the page at first. Then, as the user scrolls, the splash photo decreases in size. SPINOZA is a good example.
+    I'd like to have a scroll-down icon that lets the user know there's more to see. 
+        I'd also like that icon to be clickable, so if the user clicks it, they will be scrolled to the next section.
+    
+    I'd like to add an animation to the Mission Statement, so the portrat
     */
 
     const scrollData = useScroll();
@@ -46,7 +50,7 @@ const Home = () => {
         } else if(scrollData.y - oldHeight < 0) {
             setScrollDirection('up');
         } else setScrollDirection('neutral');
-         if(rects.y < 50 ) {
+         if(rects.y < 200 ) {
             setAnimation('home-slide-up 2s');
             setDisplay('flex');
             setCount(0);
@@ -98,8 +102,7 @@ const Home = () => {
                     
             </section>
 
-                    {/* <p id='home-contact-copy'>If you'd like to speak with Nicole, <span className='homePage-link'> <Link to="/contact" style={{textDecoration: 'none'}}>Reach out.</Link></span>
-                    </p> */}
+                    <Footer />
         </section>
     );
 };
