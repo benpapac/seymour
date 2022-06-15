@@ -1,9 +1,11 @@
 @media (max-width: 1050px) {
 
-
-
-
-
+#home-headline {
+    margin-top: 0;
+	width: 70vw;
+    height: fit-content;
+    justify-self: center;
+}
 
 .home-filter {
     z-index: 1;
@@ -16,9 +18,41 @@
         display: none;
     }
 
+    .home-photo {
+        margin: 0;
+        height: 100vh;
+        display: none;
+        /* width: 100vw; */
+    }
+
+    #home-mission-box {
+        background-image: url(../../Assets/Nicole_Portrait.jpeg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .home-mission-filter {
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #home-mission-copy {
+        z-index: 2;
+        margin-top: 30vh;
+        font-size: 26px;
+        width: 90vw;
+        color: antiquewhite;
+        font-weight: 800;
+    }
+
 
     #home-talent-box, #home-coaching-box{
         z-index: 2;
+        margin: -0.01em;
             position: relative;
             height: 50vh;
             width: 100vw;
