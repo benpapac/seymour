@@ -1,54 +1,73 @@
-@media (max-width: 1050px) {
+@media (max-width: 1099px) {
 
     .talent-box {
         margin-top: -40vh;
     }
     .actor-box {
         z-index: 3;
-            height: fit-content;
+            height: 93vh;
             width: 100vw;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(255, 255, 255, 0.2);
+        margin: 0;
         }
 
     .actor {
-        height: 100vh;
+        height: 93vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
 
         overflow: auto;
+        margin-top: 0;
     }
 
     .actor-bio {
-        height: fit-content;
+        padding: 0;
+        height: 93vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.6) ;
+
+        display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: start;
     }
 
-    .talent-empty {
-        height: 85vh;
+    .actor-name-phone-box {
+        display: flex;
+        flex-direction: row;
+
+        align-items: end;
+        justify-content: space-between;
     }
 
     .actor-name {
         margin: 0;
-        font-size: 50px;
-        color: antiquewhite;
-        border-bottom: black solid 1px;
-        font-family: 'Playfair Display',
-            serif;
+        margin-top: 0;
+        margin-left: 5vw;
+            width: 60vw;
     }
-        .actor-bio {
-            height: 85vh;
-            line-height: 1.5;
-            z-index: 1;
-            margin: 0 auto;
-            padding: 0.7em;
-    
-            /* overflow: auto; */
-            color: antiquewhite;
-            animation: fadein 5s;
-            font-family: 'Abel', sans-serif;
-            font-size: large;
-        }
+    .actor-button {
+        align-self: center;
+        justify-self: center;
+        border: none;
+        padding: 0.5em;
+        background-color: antiquewhite;
+        color: black;
+        font-family: 'Forum', sans-serif;
+        font-size: 16px;
+    }
+
+
+
+    .actor-bio-copy{
+        margin-left: 5vw;
+        transition: ease;
+        width: 90vw;
+        animation: slide-down 2s;
+    }
+
 
     .actor-photo {
         max-width: 100vw;
@@ -57,8 +76,22 @@
 
         .actor-a-tag {
             line-height: 1;
-            height: 40px;
+            margin-left: 5vw;
+            height: 35px;
             align-self: center;
-            margin-bttom: 5vh;
+            margin-bottom: 2vh;
+        }
+
+
+        @keyframes slide-down {
+
+            from {
+                transform: translate(0,-200%);
+            }
+
+            to {
+                transform: translate(0,0);
+            }
+            
         }
 }

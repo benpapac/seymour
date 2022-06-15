@@ -1,14 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../../Assets/Naomi_Vector.png'
-
-
+import logo from '../../Assets/Naomi_Vector.png';
 import './Nav.css';
+import './Nav-phone.css';
 const Nav = () => {
     return (
         <>
-        {window.innerWidth >= 1100 ?( 
-            <>
              <div className='nav-filter'/>
 
             <nav className='Nav'>
@@ -28,9 +25,6 @@ const Nav = () => {
                     <h4>Contact</h4>
                 </Link>
             </nav>
-            </>
-        )
-        : null}
         </>
     );
 };

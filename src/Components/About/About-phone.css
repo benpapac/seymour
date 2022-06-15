@@ -1,0 +1,50 @@
+@media(max-width: 1099px){
+    .about-bg {
+           
+        }
+    
+        .about-photo {
+         display: none;
+        }
+    
+    
+        .about-copy-box {
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-top: -15vh;
+            padding-top: 5vh;
+            /* padding-bottom: 5vh; */
+            overflow: auto;
+        }
+    
+        .about-blurb {
+            font-family: 'Gruppo', cursive;
+            color: white;
+            margin-left: 5vw;
+            /* position: fixed; */
+            /* left: 50vw; */
+            height: fit-content;
+            width: 90vw;
+    
+            line-height: 1.5;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    
+        .about-blurb p {
+            z-index: 2;
+        }
+    
+        .about-blurb::first-line {
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .about-link {
+            position: fixed;
+            left: 15vw;
+            bottom: 10vh;
+            text-decoration: none;
+            font-size: 30px;
+            font-family: 'Abel', sans-serif;
+        }
+}

@@ -29,6 +29,9 @@
 	serif;
 }
 
+#actor-button {
+	display: none;
+}
 .actor-photo {
 	height: 85vh;
 	grid-column: 3;

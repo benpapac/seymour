@@ -68,9 +68,7 @@ function App() {
 				focusPoints: focusPoints,
 			}}>
 			<div className='App'>
-				<header>
-					<Nav />
-				</header>
+				<header>{window.innerWidth >= 1100 ? <Nav /> : null}</header>
 				<main>
 					<Routes>
 						<Route path='/' element={<Home />} />
@@ -82,6 +80,7 @@ function App() {
 						<Route exact path='/about' element={<About />} />
 					</Routes>
 				</main>
+				<footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer>
 			</div>
 		</Context.Provider>
 	);

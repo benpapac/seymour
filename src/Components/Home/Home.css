@@ -24,6 +24,11 @@
 			background-repeat: no-repeat;
 }
 
+#home-headline{
+	width: 40vw;
+	margin-top: 20vh;
+}
+
 #home-mission-box {
 	background-color: white;
 }

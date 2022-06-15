@@ -62,11 +62,12 @@ const Home = () => {
     return (
         <section className='home-bg'>
             <div className='home-box' id='home-headline-box'>
-                <img className='home-headline' src={logo} style={{width:' 40vw', marginTop: '20vh'}}/>
+                <img id='home-headline' src={logo} style={{}}/>
             </div>
 
 
             <div className='home-box' id='home-mission-box'>
+                {window.innerWidth < 1100 ? <div className='home-mission-filter'/> : null}
                 <img src="https://i.imgur.com/scUZ8l7.jpg" 
                     alt="Nic's headshot" 
                     className='home-photo'
@@ -102,7 +103,7 @@ const Home = () => {
                     
             </section>
 
-                    <Footer />
+                    {window.innerWidth < 1100 ? null : <Footer />}
         </section>
     );
 };
