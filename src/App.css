@@ -29,3 +29,17 @@ main {
 	width: 10vw;
 	justify-content: space-around;
 }
+
+@media(max-width: 1099px){
+	.footer-content{
+		grid-row: 1;
+		flex-direction: row;
+		margin-bottom: 8vh;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	#designer-links{
+		width: 30vw;
+	}
+}
