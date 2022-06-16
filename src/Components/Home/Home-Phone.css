@@ -1,6 +1,6 @@
 @media (max-width: 1050px) {
 
-        body:before {
+    body:before {
             content: "";
             display: block;
             position: fixed;
@@ -14,6 +14,10 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+        }
+
+     #home-headline-box {
+			background-attachment: local;
         }
 
 #home-headline {
@@ -45,21 +49,12 @@
        background-color: rgba(0,0,0,0);
     }
 
-    /* #home-mission-box:before {
-        background-image: url(../../Assets/Nicole_Portrait.jpeg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-
-    } */
 
     .home-mission-filter {
         width: 100vw;
         height: 100vh;
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.5);
-        display: none;
     }
 
     #home-mission-copy {
