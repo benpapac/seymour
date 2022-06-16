@@ -26,11 +26,16 @@
     }
 
     #home-mission-box {
+       background-color: rgba(0,0,0,0);
+    }
+
+    #home-mission-box::before {
         background-image: url(../../Assets/Nicole_Portrait.jpeg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
     }
 
     .home-mission-filter {
