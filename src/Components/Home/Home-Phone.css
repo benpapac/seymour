@@ -1,5 +1,21 @@
 @media (max-width: 1050px) {
 
+        body:before {
+            content: "";
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: url(../../Assets/Nicole_Portrait.jpeg) no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
 #home-headline {
     margin-top: 0;
 	width: 70vw;
@@ -29,20 +45,21 @@
        background-color: rgba(0,0,0,0);
     }
 
-    #home-mission-box::before {
+    /* #home-mission-box:before {
         background-image: url(../../Assets/Nicole_Portrait.jpeg);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
 
-    }
+    } */
 
     .home-mission-filter {
         width: 100vw;
         height: 100vh;
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.5);
+        display: none;
     }
 
     #home-mission-copy {
@@ -53,6 +70,15 @@
         color: antiquewhite;
         font-weight: 800;
     }
+
+        #home-links-box {
+            background: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+            background-attachment:local;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* left: 5vw; */
+        }
 
 
     #home-talent-box, #home-coaching-box{
