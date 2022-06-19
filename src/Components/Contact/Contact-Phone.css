@@ -1,8 +1,7 @@
 .contact-form {
     height: 75vh;
-    position: fixed;
-    bottom: 0vh;
     left: 0vw;
+    position: relative;
     width: 92vw;
     padding: 1em;
     padding-top: 5vh;
@@ -21,7 +20,7 @@
     margin-bottom: -40vh;
     align-self: end;
 
-    background-color: antiquewhite;
+    background-color: rgb(122, 186, 214);
     border: none;
     box-shadow: 1px 1px 1px black;
 }
@@ -31,6 +30,6 @@
     margin: 2vh;
 }
 
-.contact-photo, .contact-block, .contact-blurb{
+.contact-photo, .contact-block, .contact-blurb, .contact-filter, .contact-box {
     display: none;
 }
