@@ -119,8 +119,12 @@
 	margin-top: 1em;
 	height: 60px;
 	width: 200px;
-	border-radius: 1em;
 	font-family: 'Playfair Display', serif;
+
+	padding: 0.5em;
+		text-decoration: none;
+		background-color: #3a38bb;
+		color: aliceblue;
 }
 
 @media(min-width: 1100px) {
