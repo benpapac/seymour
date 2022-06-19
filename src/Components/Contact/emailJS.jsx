@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import './Contact.css';
 import './Contact-Phone.css';
+import './Contact.css';
 import puppy from '../../Assets/Nicole_Puppy.jpg'
 
  const ContactUs = () => {
