@@ -69,7 +69,7 @@ const Talent = () => {
                                 <span className='actor-name'>{actor.name}</span>
                             </>
                             : null}
-                           
+                           <br/>
                                
                                 <span className='actor-bio-copy' 
                                     id = {idx}
@@ -80,8 +80,7 @@ const Talent = () => {
                                 <br/>
                             { window.innerWidth < 1100?
                             <div className='actor-name-phone-box'>
-                             <span className='actor-name'>{actor.name} 
-                             </span>
+                             <span className='actor-name'>{actor.name} </span>
                              <button className='actor-button' id={idx} onClick={toggleActorBio} style={buttonStyles[idx]}>Meet the actor.</button>
                              <br/>
                             </div>
