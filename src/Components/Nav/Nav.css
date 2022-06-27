@@ -20,25 +20,34 @@
 	height: 70px;
 	width: 100px;
 
+	/* 
+	sliding underline, from nerdCowboy: 
+	https: //nerdcowboy.com/blog/sliding-underlined-links/ 
+	*/
+	background-size: 0% 0.1em;
+	background-image: linear-gradient(#c4b728, #c4b728);
+	background-position-y: 100%;
+		background-position-x: 50%;
+		background-repeat: no-repeat;
 	text-decoration: none;
+	text-align: center;
+	transition:  0.2s ease-in-out;
+	/* transition: color 0.2s ease-in-out; */
+
 	font-size: x-large;
 	color: antiquewhite;
 
 	font-family: 'Playfair Display', serif;
-
-	text-align: left;
 }
 
-.link:hover {
+.link:hover, .link:focus, .link:active {
 	color: #c4b728;
+	background-size: 100% 0.1em;
 }
 
 .home-link {
+	margin-top: 2vh;
 	height: 15vh;
 	width: 21vh;
-}
-
-.home-link:hover {
-	transform: scale(1.2);
-	transition: 0.3s ease-in-out;
+	padding: 0;
 }
