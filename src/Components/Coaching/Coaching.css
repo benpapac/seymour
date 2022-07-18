@@ -97,7 +97,7 @@
     font-weight: 800;
 }
 
-.testimonial p, h4, h6 {
+.testimonial p, .testimonial h4, .testimonial h6 {
     color: antiquewhite;
     font-size: 22px;
     font-weight: 500;
@@ -107,9 +107,9 @@
 }
 
 
-.testimonial h4, h6 {
+.testimonial h4, .testimonial h6 {
     margin-left: 5vw;
-    font-family: 'Gruppo', cursive;
+    /* font-family: 'Forum', sans-serif; */
     font-weight: 800;
 }
 
@@ -134,26 +134,6 @@
 
 .testimonial-occupation {
     font-size: 18px;
-}
-
-#testimonial-button {
-    position: fixed;
-    left: 52vw;
-    bottom: 15vh;
-    height: 40px;
-    width: 80px;
-
-    padding: 0.1em;
-    /* border-radius: 1em; */
-    background-color: none;
-    border: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-}
-
-#testimonial-button:hover {
-    transform: scale(1.2);
-    transition: ease 0.4s;
 }
 
 

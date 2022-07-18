@@ -1,7 +1,5 @@
-@media(max-width: 1099px){
-    .about-bg {
-           
-        }
+@media(max-width: 500px){
+   
     
         .about-photo {
          display: none;
