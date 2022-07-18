@@ -17,7 +17,7 @@
 }
 
 #home-headline-box {
-		background: url(../../Assets/AdobeStock_theater_seats.jpeg);
+		background: url(../../Assets/AdobeStock_theater_seats.jpg);
 			background-size: cover;
 			background-attachment: fixed;
 			
@@ -80,7 +80,7 @@
 }
 
 #home-links-box {
-	background: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+	background: url(../../Assets/AdobeStock_LightBulbs.jpg);
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;

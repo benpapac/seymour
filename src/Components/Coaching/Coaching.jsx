@@ -67,11 +67,15 @@ const Executives = () => {
         //all rects logic copied from Home.jsx, and should become part of custom component. Could be publishable!
         
         if(!initiated){
-            if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
+            // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
             let obj = testimonials.reduce((accum, testimonial) => {
                 return {...accum, [testimonial.focus]: 'none'}
             }, {})
-            setDisplay(obj);
+            if(window.innerWidth >= 1100) setDisplay(obj);
+            else setDisplay( testimonials.reduce((accum, test) => {
+                return {...accum, [test.focus]: 'block'}
+            }, {})
+            )
             setAnimation(obj);
             setAuthorAnimation(obj);
             setRects(getDivs());
@@ -110,16 +114,19 @@ const Executives = () => {
 
     return (
         <section className='coaching-bg'>
+
             <div id='coaching-blurb' style={window.innerWidth < 1100 ? blurbDisplay : null}>
                 <p>
-                Coaching feeds my soul.<br/>  When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.
-            <br />
-            <br />
-                It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.<br/> 
+                    Coaching feeds my soul.
+                    <br/>
+                    When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.
+                    <br />
+                    <br />
+                    It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.
+                    <br/> 
                 </p>
-            {window.innerWidth < 1100 ? <button id='testimonial-toggle-button' onClick={toggleTestimonial}>Testimonials</button> : null}
             </div>
-            {/* <div id='coaching-bg-one' /> */}
+
             <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
 
             <div id='testimonials-authors-box' onClick={updateFocus}>
