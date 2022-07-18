@@ -5,7 +5,6 @@ import './Actor/Actor.css';
 import './Actor/Actor-phone.css';
 import './LookBook.css';
 import actors from '../../Json/actors.json';
-import * as displayHOF from '../../Util/displays.js';
 import {Context} from '../../Util/Context';
 
 import Footer from '../Footer/Footer';
@@ -18,7 +17,26 @@ const Talent = () => {
     const [displays, setDisplays] = useState({});
     const [buttonStyles, setButtonStyles] = useState([]);
 
-    const displayLookbook = displayHOF.displayLookbook;
+    const displayLookbook = (chooseFocus) => {
+        return (
+            <div className='lookbook'>
+                {actors.map((actor, index) => {
+                    return (
+                        <>
+                            <img
+                                onClick={chooseFocus}
+                                id={`${actor.focus}`}
+                                className={`thumbnail`}
+                                src={`${actor.img}`}
+                                alt={`${actor.alt}`}
+                                style={index === 0 ? { marginTop: '0em' } : null}
+                            />
+                        </>
+                    );
+                })}
+            </div>
+        );
+    };
     const toggleActorBio = (e) => {
         let idx = e.target.id;
         let myArray = buttonStyles;
