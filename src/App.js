@@ -53,7 +53,7 @@ function App() {
 	const chooseFocus = (e) => {
 		e.preventDefault();
 		let id;
-		
+
 		if (e.target.id.length) {
 			console.log('checking for author');
 			id =
