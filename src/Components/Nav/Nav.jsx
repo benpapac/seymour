@@ -1,29 +1,38 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import logo from '../../Assets/Naomi_Vector.png';
 import './Nav.css';
 import './Nav-phone.css';
 const Nav = () => {
+    const activeStyle = {color: '#c4b728'}
     return (
         <>
              <div className='nav-filter'/>
 
             <nav className='Nav'>
-                <Link  className="link" to='/'>
-                        <img className='link home-link' src={logo} alt="LG Management" />
-                </Link>
-                <Link className="link" to='/about'>
+                <NavLink  className="link home-link" to='/' >
+                        <img className='home-link' src={logo} alt="LG Management" />
+                </NavLink>
+                <NavLink className="link" to='/about'  style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                     <h4>About</h4>
-                </Link>
-                <Link className="link" to='/talent'>
+                </NavLink>
+                <NavLink className="link" to='/talent' style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                     <h4>Talent</h4>
-                </Link>
-                <Link className="link" to='/coaching'>
+                </NavLink>
+                <NavLink className="link" to='/coaching' style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                     <h4>Coaching</h4>
-                </Link>
-                <Link  className="link" to='/contact'>
+                </NavLink>
+                <NavLink  className="link" to='/contact' style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                     <h4>Contact</h4>
-                </Link>
+                </NavLink>
             </nav>
         </>
     );

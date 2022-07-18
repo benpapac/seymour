@@ -3,9 +3,13 @@
 
 
 .coaching-bg {
+    /* position: fixed; */
+    z-index: -2;
     margin-top: -15vh;
     padding-top: 25vh;
-    height: 75vh;
+    /* height: 75vh;
+     */
+     height: fit-content;
     width: 100vw;
     background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
     background-position: top;
@@ -13,50 +17,76 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 5fr 1fr; */
 }
 
-.coaching-filter {
-    margin-top: -25vh;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0,0,0,0.4);
-}
 #coaching-blurb {
-    grid-row: 1;
-    grid-column: 2;
-    position: absolute;
-    top: 19vh;
-    right: 5vw;
-    height: fit-content;
-    width: 30vw;
-    z-index: 1;
+    /* position: fixed; */
+    /* top: 19vh; */
+    /* right: 5vw; */
+    height: 50vh;
+    width: 60vw;
+    z-index: 2;
 
-    padding: 1em;
+    margin-top: -25vh;
+    padding-top: 35vh;
+    padding: 30vh 10vw;
+    padding-right: 30vw;
 
     line-height: 1.6;
+    color: antiquewhite;
     font-size: 22px;
-    font-family: 'Abel', sans-serif ;
-    background-color: rgb(149, 204, 233);
+    font-family: 'Forum', sans-serif ;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #coaching-blurb::first-line {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Forum', serif;
     font-size: 32px;
 }
 
-.testimonial {
+#testimonials-authors-box {
     position: fixed;
-    padding: 0.3em;
-    left: 5vw;
-    top: 19vh;
+    top: 15vh;
+    right: 5vw;
     height: fit-content;
-    width: 50vw;
+    width: 20vw;
+}
+
+.author {
+    border-bottom: solid antiquewhite 1px;
+    /* border-top: solid antiquewhite 1px; */
+    padding: 0.5em;
+    padding-top: 1vh;
+    background-color: rgba(255,255,255,0);
+    transition: ease 1s;
+    color: antiquewhite;
+}
+
+.author:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+.testimonials-box {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.testimonial {
+    /* position: fixed; */
+    padding: 20vh 10vw;
+    padding-right: 30vw;
+    /* margin-left: 5vw; */
+    /* margin-top: 19vh; */
+    height: fit-content;
+    width: 60vw;
     overflow: auto;;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: antiquewhite;
+    transition: ease;
 }
 
 .testimonial::-webkit-scrollbar {
@@ -67,34 +97,43 @@
     font-weight: 800;
 }
 
-.testimonial p {
+.testimonial p, h4, h6 {
     color: antiquewhite;
     font-size: 22px;
     font-weight: 500;
     line-height: 1.6;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Forum', sans-serif;
+    margin: 0;
 }
 
-#testimonial-name {
-    color: antiquewhite;
-    z-index: 1;
-    position: fixed;
-    left: 16vw;
-    bottom: 10vh;
+
+.testimonial h4, h6 {
+    margin-left: 5vw;
+    font-family: 'Gruppo', cursive;
+    font-weight: 800;
+}
+
+.testimonial h4 {
     font-size: 26px;
-    font-family: 'Playfair Display', serif;
-    margin: 0;
 }
 
-#testimonial-occupation {
-    color: antiquewhite;
+.testimonial p {
+    margin-bottom: 3vh;
+}
+
+.testimonial-name, .testimonial-occupation {
     z-index: 1;
-    position: fixed;
-    left: 16vw;
-    bottom: 5vh;
-    font-size: 24px;
-    font-family: 'Abel', sans-serif;
-    margin: 0;
+        /* position: fixed; */
+        left: 16vw;
+        margin: 0;
+    }
+    
+.testimonial-name {
+    font-size: 20px;
+}
+
+.testimonial-occupation {
+    font-size: 18px;
 }
 
 #testimonial-button {
@@ -117,19 +156,56 @@
     transition: ease 0.4s;
 }
 
-#coaching-bg-one {
-    height: 65vh;
-    width: 33vw;
-    position: fixed;
-    right: 5vw;
-    top: 19vh;
-}
-
 
 #coaching-certification {
     position: fixed;
+    z-index: 3;
     bottom: 5vh;
     left: 5vw;
     width: 9vw;
-    opacity: 0.6;
+    opacity: 0.8;
+}
+
+@keyframes coaching-appear {
+    from {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes coaching-slide-up {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
+}
+
+@keyframes coaching-slide-in {
+    from {
+        opacity: 0;
+        transform: translate(-10%, 0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translate(2%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }

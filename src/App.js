@@ -47,13 +47,27 @@ function App() {
 		focus4: useRef(null),
 		focus5: useRef(null),
 		focus6: useRef(null),
+		focus7: useRef(null),
 	};
 
 	const chooseFocus = (e) => {
 		e.preventDefault();
-		focusPoints[e.target.id].current.scrollIntoView({
+		let id;
+		
+		if (e.target.id.length) {
+			console.log('checking for author');
+			id =
+				e.target.id.substring(0, 6) === 'author'
+					? e.target.id.substring(7)
+					: e.target.id;
+		} else {
+			id = e.target.parentElement.id.substring(7);
+		}
+		console.log('id: ', id);
+		let blockFocus = e.target.id ? 'end' : 'start';
+		focusPoints[id].current.scrollIntoView({
 			behavior: 'smooth',
-			block: 'end',
+			block: blockFocus,
 		});
 	};
 
