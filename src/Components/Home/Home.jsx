@@ -61,9 +61,9 @@ const Home = () => {
 
     return (
         <section className='home-bg'>
-            <div className='home-box' id='home-headline-box'>
+            {/* <div className='home-box' id='home-headline-box'>
                 <img id='home-headline' src={logo} style={{}}/>
-            </div>
+            </div> */}
 
 
             <div className='home-box' id='home-mission-box'>
