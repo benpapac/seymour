@@ -29,14 +29,14 @@
 
 .about-copy-box {
     height: fit-content;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     margin-top: -25vh;
     padding-top: 35vh;
     padding-bottom: 5vh;
 }
 
 .about-blurb {
-    font-family: 'Gruppo', cursive;
+    font-family: 'Forum', cursive;
     color: white;
     margin-left: 50vw;
     /* position: fixed; */
@@ -46,7 +46,7 @@
 
     line-height: 1.5;
         font-size: 26px;
-        font-weight: 800;
+        font-weight: 300;
 }
 
 .about-blurb p {
@@ -54,7 +54,9 @@
 }
 
 .about-blurb::first-line {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Gruppo', serif;
+    font-size: 30px;
+    font-weight: 800;
 }
 
 .about-link {
@@ -63,5 +65,5 @@
     bottom: 10vh;
     text-decoration: none;
     font-size: 30px;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Forum', sans-serif;
 }

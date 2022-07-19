@@ -64,9 +64,9 @@
 	animation: home-float-up 3.5s;
 }
 #about {
-	background-color: #3a38bb;
+	background-color: peachpuff;
 	padding: 0.5em;
-	color: aliceblue;
+	color: black;
 }
 
 
@@ -136,8 +136,8 @@
 #home-coaching-link {
 	padding: 0.5em;
 	text-decoration: none;
-	background-color: #3a38bb;
-	color: aliceblue;
+	background-color: peachpuff;
+	color: black;
 }
 
 
