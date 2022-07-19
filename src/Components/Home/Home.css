@@ -17,12 +17,11 @@
 }
 
 #home-headline-box {
-		background: url(../../Assets/AdobeStock_theater_seats.jpg);
-			background-size: cover;
-			background-attachment: fixed;
-			
-			background-position: center;
-			background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 #home-headline{
@@ -31,13 +30,22 @@
 }
 
 #home-mission-box {
-	background-color: white;
+	/* background-color: rgba(0,0,0,0);  */
+	background: url(../../Assets/AdobeStock_theater_seats.jpg);
+	background-size: cover;
+		background-attachment: fixed;
+	
+		background-position: center;
+		background-repeat: no-repeat;
 }
 
 #home-mission-copy {
 	width: 50%;
 	position: absolute;
 	left: 5vw;
+	color: antiquewhite;
+	transition: ease;
+	animation: home-slide-up 2.5s;
 }
 
 #home-mission-copy::first-line {
@@ -46,11 +54,14 @@
 
 .home-photo {
 	height: 75vh;
-	margin: 1em;
+	margin-top: 10vh;
 	/* width: 35vw; */
 	/* border: solid black 2px; */
 	position: absolute;
-	right: 1vw;
+	right: 5vw;
+
+	transition: ease;
+	animation: home-float-up 3.5s;
 }
 #about {
 	background-color: #3a38bb;
@@ -197,17 +208,36 @@
 @keyframes home-slide-up {
 	from {
 		opacity: 0;
-		transform: translate(0, 100%);
+		transform: translate(0, 50%);
 	}
-
-	70% {
-		opacity: 0.9;
+	
+	50%{
+		transform: translate(0, -3%);
+		opacity: 0.7;
 	}
 
 	to {
 		opacity: 1;
 		transform: translate(0, 0);
 	}
+}
+
+@keyframes home-float-up {
+
+	from {
+			opacity: 0;
+			transform: translate(0, 50%);
+		}
+	
+		50% {
+			transform: translate(0, -3%);
+		opacity: 0.7;
+		}
+	
+		to {
+			opacity: 1;
+			transform: translate(0, 0);
+		}
 
 }
 
