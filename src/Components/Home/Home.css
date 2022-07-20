@@ -40,25 +40,34 @@
 }
 
 #home-mission-copy {
-	width: 50%;
+	width: 40%;
 	position: absolute;
-	left: 5vw;
+	top: 30vh;
+	left: 10vw;
 	color: antiquewhite;
 	transition: ease;
 	animation: home-slide-up 2.5s;
+
+	font-size: 30px;
+	font-weight: 500;
 }
+
+#home-mission-copy span {
+	animation: home-slide-up 2.5s;
+}
+
 
 #home-mission-copy::first-line {
 	font-family: 'Forum', serif;
 }
 
 .home-photo {
-	height: 75vh;
+	height: 65vh;
 	margin-top: 10vh;
 	/* width: 35vw; */
 	/* border: solid black 2px; */
 	position: absolute;
-	right: 5vw;
+	right: 10vw;
 
 	transition: ease;
 	animation: home-float-up 3.5s;
@@ -165,7 +174,7 @@
 	width: fit-content;
 	padding: 0.1em;
 
-	font-size: large;
+	font-size: 20px;
 	color: black;
 	text-decoration: none;
 	font-family: 'Forum', serif;
