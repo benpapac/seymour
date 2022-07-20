@@ -70,7 +70,7 @@
 .contact-blurb {
 	z-index: 1;
 	color: antiquewhite;
-		font-family: 'Playfair Display',
+		font-family: 'Forum',
 		serif;
 		
 	position: fixed;
@@ -107,7 +107,7 @@
 .label {
 	font-size: x-large;
 	color: whitesmoke;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Forum', serif;
 }
 .message {
 	height: 10vh;
@@ -119,7 +119,7 @@
 	margin-top: 1em;
 	height: 60px;
 	width: 200px;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Forum', serif;
 
 	padding: 0.5em;
 		text-decoration: none;
