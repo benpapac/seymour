@@ -34,7 +34,7 @@
         }
     
         .about-blurb::first-line {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Forum', serif;
         }
     
         .about-link {
@@ -43,6 +43,6 @@
             bottom: 10vh;
             text-decoration: none;
             font-size: 30px;
-            font-family: 'Abel', sans-serif;
+            font-family: 'Forum', sans-serif;
         }
 }
