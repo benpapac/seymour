@@ -27,19 +27,23 @@
     /* top: 19vh; */
     /* right: 5vw; */
     height: 50vh;
-    width: 60vw;
+    width: 80vw;
     z-index: 2;
 
     margin-top: -25vh;
     padding-top: 35vh;
     padding: 30vh 10vw;
-    padding-right: 30vw;
 
     line-height: 1.6;
     color: antiquewhite;
     font-size: 22px;
     font-family: 'Forum', sans-serif ;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+#coaching-blurb span {
+    font-size: 26px;
+    font-family: 'Gruppo', cursive;
 }
 
 #coaching-blurb::first-line {
@@ -79,11 +83,11 @@
 .testimonial {
     /* position: fixed; */
     padding: 20vh 10vw;
-    padding-right: 30vw;
+    /* padding-right: 30vw; */
     /* margin-left: 5vw; */
     /* margin-top: 19vh; */
     height: fit-content;
-    width: 60vw;
+    width: 80vw;
     overflow: auto;;
     background-color: rgba(0, 0, 0, 0.8);
     color: antiquewhite;
@@ -171,6 +175,19 @@
     to {
         opacity: 0;
         transform: translate(0, -100%);
+    }
+}
+
+@keyframes coaching-slide-down {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(0, 100%);
     }
 }
 

@@ -35,7 +35,7 @@
 
     .testimonial {
         position: relative;
-        padding: 0;
+        padding: 3vh 0vw;
         top: 0;
         left: 0;
         height: fit-content;
@@ -113,8 +113,8 @@
 
 #coaching-certification {
     bottom: 10vh;
-    left: 65vw;
-    width: 200px;
+    left: 75vw;
+    width: 20vw;
     opacity: 0.6;
 }
 }
