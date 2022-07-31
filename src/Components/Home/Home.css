@@ -5,6 +5,13 @@
 .home-bg {
 	margin-top: -15vh;
 	height: fit-content;
+
+	background: url(../../Assets/AdobeStock_theater_seats.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+	
+		background-position: center;
+		background-repeat: no-repeat;
 }
 
 .home-box {
@@ -30,13 +37,8 @@
 }
 
 #home-mission-box {
-	background-color: rgba(0,0,0,0);  
-	background: url(../../Assets/AdobeStock_theater_seats.jpg);
-	background-size: cover;
-		background-attachment: fixed;
+	background-color: rgba(0,0,0,0.2);  
 	
-		background-position: center;
-		background-repeat: no-repeat;
 }
 
 #home-mission-copy {

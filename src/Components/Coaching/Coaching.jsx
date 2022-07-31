@@ -70,7 +70,7 @@ const Executives = () => {
         switch (direction) {
             case 'down':
             for(let i = 0; i < rects.length; i++){
-                if(rects[i].y < 530){
+                if(rects[i].y < 600){
                     // if(i === testimonialFocus.active) return;
                     updateFocus(i, -1);
                     setAnimation({
@@ -89,7 +89,13 @@ const Executives = () => {
                         ...display,
                         [testimonialFocus.active]: 'block',
                     });
-                    console.log(testimonialFocus);
+
+                    // setTimeout(() => {
+                    //     setDisplay({
+                    //         ...display,
+                    //         [testimonialFocus.previous]: 'none'
+                    //     });
+                    // }, 4000);
                 }
         }
                 
@@ -97,7 +103,7 @@ const Executives = () => {
         
             case 'up':
                 for(let i = 0; i < rects.length; i++){
-                    if(rects[i].y < 100){
+                    if(rects[i].y < 150){
                     // if(i === testimonialFocus.active) return;
 
                     updateFocus(i, 1);
@@ -119,12 +125,12 @@ const Executives = () => {
                     [testimonialFocus.active]: 'block',
                 });
 
-                setTimeout(() => {
-                    setDisplay({
-                        ...display,
-                        [testimonialFocus.previous]: 'none'
-                });
-                }, 4000);
+                // setTimeout(() => {
+                //     setDisplay({
+                //         ...display,
+                //         [testimonialFocus.previous]: 'none'
+                // });
+                // }, 4000);
             }
         }
                 break;

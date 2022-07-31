@@ -31,7 +31,7 @@
     z-index: 2;
 
     margin-top: -25vh;
-    padding: 25vh 10vw 10vh;
+    padding: 25vh 10vw 35vh;
 
     line-height: 1.6;
     color: antiquewhite;
@@ -81,7 +81,7 @@
 
 .testimonial {
     /* position: fixed; */
-    padding: 20vh 10vw;
+    padding: 25vh 10vw;
     /* padding-right: 30vw; */
     /* margin-left: 5vw; */
     /* margin-top: 19vh; */
