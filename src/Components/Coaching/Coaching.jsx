@@ -105,13 +105,13 @@ const Executives = () => {
                     setAnimation({
                         ...animation, 
                         [testimonialFocus.active]:'coaching-slide-in 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-down 4s'
+                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
                     })
         
                     setAuthorAnimation({
                         ...authorAnimation,
                         [testimonialFocus.active]: 'coaching-appear 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-down 4s'
+                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
                     })
 
                     setDisplay({
@@ -142,7 +142,7 @@ const Executives = () => {
         if(!initiated){
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
             let obj = testimonials.reduce((accum, testimonial, idx) => {
-                return [...accum, accum[idx] = 'none']
+                return {...accum, [idx]: 'none'}
             }, {})
             // if(window.innerWidth >= 1100) setDisplay(obj);
             // else setDisplay( testimonials.reduce((accum, test) => {
@@ -173,12 +173,15 @@ const Executives = () => {
                     <br />
                     <br />
                     It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.
-                    <br/> <br/>
-                    <span>Scroll down to hear from Nicole's clients.</span>
                 </p>
+                <div className='coaching-deco-box'>
+                    <p>Scroll down to hear from Nicole's clients.
+
+                <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
+                </p>
+                </div>
             </div>
 
-            <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
 
             {/* <div id='testimonials-authors-box' onClick={updateFocus}>
                 { testimonials.map(testimonial => {

@@ -31,8 +31,7 @@
     z-index: 2;
 
     margin-top: -25vh;
-    padding-top: 35vh;
-    padding: 30vh 10vw;
+    padding: 25vh 10vw 10vh;
 
     line-height: 1.6;
     color: antiquewhite;
@@ -141,13 +140,25 @@
     font-size: 18px;
 }
 
+.coaching-deco-box{
+    font-family: 'Gruppo', cursive;
+    display: flex;;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.coaching-deco-box p {
+    font-size: 32px;
+}
 
 #coaching-certification {
-    position: fixed;
     z-index: 3;
-    bottom: 5vh;
-    left: 5vw;
-    width: 9vw;
+    bottom: 10vh;
+    margin-left: 15vw;;
+    width: 15vw;
     opacity: 0.8;
 }
 
@@ -178,7 +189,7 @@
     }
 }
 
-@keyframes coaching-slide-down {
+@keyframes coaching-slide-out {
     from {
         opacity: 1;
         transform: translate(0, 0);
@@ -187,7 +198,7 @@
 
     to {
         opacity: 0;
-        transform: translate(0, 100%);
+        transform: translate(-100%, 0);
     }
 }
 
