@@ -48,6 +48,7 @@ function App() {
 		focus5: useRef(null),
 		focus6: useRef(null),
 		focus7: useRef(null),
+		focus8: useRef(null),
 	};
 
 	const chooseFocus = (e) => {
