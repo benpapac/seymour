@@ -27,19 +27,22 @@
     /* top: 19vh; */
     /* right: 5vw; */
     height: 50vh;
-    width: 60vw;
+    width: 80vw;
     z-index: 2;
 
     margin-top: -25vh;
-    padding-top: 35vh;
-    padding: 30vh 10vw;
-    padding-right: 30vw;
+    padding: 25vh 10vw 35vh;
 
     line-height: 1.6;
     color: antiquewhite;
     font-size: 22px;
     font-family: 'Forum', sans-serif ;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+#coaching-blurb span {
+    font-size: 26px;
+    font-family: 'Gruppo', cursive;
 }
 
 #coaching-blurb::first-line {
@@ -78,12 +81,12 @@
 
 .testimonial {
     /* position: fixed; */
-    padding: 20vh 10vw;
-    padding-right: 30vw;
+    padding: 25vh 10vw;
+    /* padding-right: 30vw; */
     /* margin-left: 5vw; */
     /* margin-top: 19vh; */
     height: fit-content;
-    width: 60vw;
+    width: 80vw;
     overflow: auto;;
     background-color: rgba(0, 0, 0, 0.8);
     color: antiquewhite;
@@ -137,13 +140,25 @@
     font-size: 18px;
 }
 
+.coaching-deco-box{
+    font-family: 'Gruppo', cursive;
+    display: flex;;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.coaching-deco-box p {
+    font-size: 32px;
+}
 
 #coaching-certification {
-    position: fixed;
     z-index: 3;
-    bottom: 5vh;
-    left: 5vw;
-    width: 9vw;
+    bottom: 10vh;
+    margin-left: 15vw;;
+    width: 15vw;
     opacity: 0.8;
 }
 
@@ -171,6 +186,19 @@
     to {
         opacity: 0;
         transform: translate(0, -100%);
+    }
+}
+
+@keyframes coaching-slide-out {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-100%, 0);
     }
 }
 

@@ -5,6 +5,13 @@
 .home-bg {
 	margin-top: -15vh;
 	height: fit-content;
+
+	background: url(../../Assets/AdobeStock_theater_seats.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+	
+		background-position: center;
+		background-repeat: no-repeat;
 }
 
 .home-box {
@@ -30,21 +37,16 @@
 }
 
 #home-mission-box {
-	/* background-color: rgba(0,0,0,0);  */
-	background: url(../../Assets/AdobeStock_theater_seats.jpg);
-	background-size: cover;
-		background-attachment: fixed;
+	background-color: rgba(0,0,0,0.2);  
 	
-		background-position: center;
-		background-repeat: no-repeat;
 }
 
 #home-mission-copy {
 	width: 40%;
 	position: absolute;
 	top: 30vh;
-	left: 10vw;
-	color: antiquewhite;
+	right: 10vw;
+	 color: antiquewhite; 
 	transition: ease;
 	animation: home-slide-up 2.5s;
 
@@ -62,15 +64,20 @@
 }
 
 .home-photo {
-	height: 65vh;
+		width: 25vw;
 	margin-top: 10vh;
 	/* width: 35vw; */
 	/* border: solid black 2px; */
 	position: absolute;
-	right: 10vw;
 
 	transition: ease;
 	animation: home-float-up 3.5s;
+
+		z-index: 1;
+		left: 5vw;
+		border: solid black 1px;
+		/* border-radius: 100%; */
+	
 }
 #about {
 	background-color: peachpuff;

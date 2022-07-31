@@ -22,93 +22,149 @@ const Executives = () => {
         active: null, previous: null, newState: false,
     })
 
-    const updateFocus = (e) => {
-        if(e.target.parentElement.id.substring(7) === testimonialFocus.active) return;
-        let prev = testimonialFocus.active;
+    const updateFocus = (idx, value) => {
         setTestimonialFocus({
-            active: e.target.parentElement.id.substring(7),
-            previous: prev,
+            active: idx,
+            previous: idx + value,
             newState: true,
         })
-        setTimeout( () => {
-            chooseFocus(e)
-        }, "500") ;
+        // setTimeout( () => {
+        //     chooseFocus(e)
+        // }, "500") ;
     }
 
     const [initiated, setInitiated] = useState(false);
-    const [testimonialDisplay, setTestimonialDisplay]  = useState({display: 'block'});
     const [blurbDisplay, setBlurbDisplay] = useState({display: 'block'});
 
     //below state is copied from Home.jsx. I should refactor into a custom component. Could be publishable!
-    const [animation, setAnimation] = useState({});
-    const [display, setDisplay] = useState({});
-    const [authorAnimation, setAuthorAnimation] = useState({});
-    const [rects, setRects] = useState({});
+    const [animation, setAnimation] = useState([]);
+    const [display, setDisplay] = useState([]);
+    const [authorAnimation, setAuthorAnimation] = useState([]);
+    const [rects, setRects] = useState([]);
+    const [oldY, setOldY] = useState(0);
 
 
-    const toggleTestimonial = () =>{
-        setBlurbDisplay({display: 'none'});
-        setTestimonialDisplay({display: 'block'})
-    }
+   
 
      const getDivs = () => {
         let array = testimonials.map((test, idx) => {
             let linksBox = document.getElementById(`${test.focus}`) || null;
             
             let coachingRect = linksBox.getBoundingClientRect();
-            return { idx: coachingRect};
+            return coachingRect;
         })
     return array;
      }
 
-    useEffect( () => {
-        // setTestimonial(testimonials[count]);
+     const getScrollDirection = () => {
+
+        if(scrollData.y > oldY) {
+            return 'down';
+        } else if(scrollData.y - oldY < 0) {
+            return 'up'
+        } else return 'neutral';
+     }
+
+     const updateDivs = (direction) => {
+
+        switch (direction) {
+            case 'down':
+            for(let i = 0; i < rects.length; i++){
+                if(rects[i].y < 600){
+                    // if(i === testimonialFocus.active) return;
+                    updateFocus(i, -1);
+                    setAnimation({
+                        ...animation, 
+                        [testimonialFocus.active]:'coaching-slide-in 3s',
+                        [testimonialFocus.previous]: 'coaching-slide-up 4s'
+                    })
+                    
+                    setAuthorAnimation({
+                        ...authorAnimation,
+                        [testimonialFocus.active]: 'coaching-appear 3s',
+                        [testimonialFocus.previous]: 'coaching-slide-up 4s'
+                    })
+                    
+                    setDisplay({
+                        ...display,
+                        [testimonialFocus.active]: 'block',
+                    });
+
+                    // setTimeout(() => {
+                    //     setDisplay({
+                    //         ...display,
+                    //         [testimonialFocus.previous]: 'none'
+                    //     });
+                    // }, 4000);
+                }
+        }
+                
+                break;
         
+            case 'up':
+                for(let i = 0; i < rects.length; i++){
+                    if(rects[i].y < 150){
+                    // if(i === testimonialFocus.active) return;
+
+                    updateFocus(i, 1);
+                        console.log(i === testimonialFocus.active);
+                    setAnimation({
+                        ...animation, 
+                        [testimonialFocus.active]:'coaching-slide-in 3s',
+                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
+                    })
+        
+                    setAuthorAnimation({
+                        ...authorAnimation,
+                        [testimonialFocus.active]: 'coaching-appear 3s',
+                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
+                    })
+
+                    setDisplay({
+                    ...display,
+                    [testimonialFocus.active]: 'block',
+                });
+
+                // setTimeout(() => {
+                //     setDisplay({
+                //         ...display,
+                //         [testimonialFocus.previous]: 'none'
+                // });
+                // }, 4000);
+            }
+        }
+                break;
+            default:
+                break;
+        }
+        
+     }
+
+    useEffect( () => {
+        setOldY(scrollData.y);
         //all rects logic copied from Home.jsx, and should become part of custom component. Could be publishable!
+        let oldY = scrollData.y;
         
         if(!initiated){
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
-            let obj = testimonials.reduce((accum, testimonial) => {
-                return {...accum, [testimonial.focus]: 'none'}
+            let obj = testimonials.reduce((accum, testimonial, idx) => {
+                return {...accum, [idx]: 'none'}
             }, {})
-            if(window.innerWidth >= 1100) setDisplay(obj);
-            else setDisplay( testimonials.reduce((accum, test) => {
-                return {...accum, [test.focus]: 'block'}
-            }, {})
-            )
+            // if(window.innerWidth >= 1100) setDisplay(obj);
+            // else setDisplay( testimonials.reduce((accum, test) => {
+            //     return {...accum, [test.focus]: 'block'}
+            // }, {})
+            // )
+
+            setDisplay(obj);
             setAnimation(obj);
             setAuthorAnimation(obj);
-            setRects(getDivs());
             setInitiated(true);
         }
+            setRects(getDivs());
+            updateDivs(getScrollDirection());
 
-         if(testimonialFocus.newState === true) {
-            setAnimation({
-                ...animation, 
-                [testimonialFocus.active]:'coaching-slide-in 4s',
-                [testimonialFocus.previous]: 'coaching-slide-up 1s'
-            })
-
-            setDisplay({
-                ...display,
-                [testimonialFocus.active]: 'block',
-            });
-
-
-            setAuthorAnimation({
-                ...authorAnimation,
-                [testimonialFocus.active]: 'coaching-appear 3s',
-                [testimonialFocus.previous]: 'coaching-slide-up 1s'
-            })
-
-            setTestimonialFocus({
-                ...testimonialFocus,
-                newState: false
-            })
-            console.log(display);
-        } 
-
-    }, [testimonialFocus.newState]);
+    }, [scrollData.y]);
 
 
 
@@ -123,13 +179,17 @@ const Executives = () => {
                     <br />
                     <br />
                     It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.
-                    <br/> 
                 </p>
+                <div className='coaching-deco-box'>
+                    <p>Scroll down to hear from Nicole's clients.
+
+                <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
+                </p>
+                </div>
             </div>
 
-            <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
 
-            <div id='testimonials-authors-box' onClick={updateFocus}>
+            {/* <div id='testimonials-authors-box' onClick={updateFocus}>
                 { testimonials.map(testimonial => {
                     return (
                         <div className='author' id={`author-${testimonial.focus}`} >
@@ -138,7 +198,7 @@ const Executives = () => {
                         </div>
                     )
                 })}
-            </div>
+            </div> */}
 
             <div className='testimonials-box'>
                 {testimonials.map((testimonial, idx) => {
@@ -147,9 +207,9 @@ const Executives = () => {
                         id={`${testimonial.focus}`}
                         ref={focusPoints[`${testimonial.focus}`]}
                         >
-                            <p style={{ display: `${display[testimonial.focus]}`, animation: `${animation[testimonial.focus]}`}}>{testimonial.copy}</p>
-                            <h4 style={{ display: `${display[testimonial.focus]}`, animation: `${authorAnimation[testimonial.focus]}`}}>{testimonial.name}</h4>
-                            <h6 style={{ display: `${display[testimonial.focus]}`, animation: `${authorAnimation[testimonial.focus]}`}}>- {testimonial.occupation}</h6>
+                            <p style={{ display: `${display[idx]}`, animation: `${animation[idx]}`}}>{testimonial.copy}</p>
+                            <h4 style={{ display:` ${display[idx]}`, animation: `${authorAnimation[idx]}`}}>{testimonial.name}</h4>
+                            <h6 style={{ display: `${display[idx]}`, animation: `${authorAnimation[idx]}`}}>- {testimonial.occupation}</h6>
                         </div>
                     )
 

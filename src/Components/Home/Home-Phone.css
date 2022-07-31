@@ -1,6 +1,6 @@
 @media (max-width: 500px) {
 
-    body:before {
+    /* body:before {
             content: "";
             display: block;
             position: fixed;
@@ -14,7 +14,7 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-        }
+        } */
 
      #home-headline-box {
 			background-attachment: local;
@@ -59,9 +59,9 @@
 
     #home-mission-copy {
         z-index: 2;
-        margin-top: 30vh;
+        top: 20vh;
         font-size: 26px;
-        width: 90vw;
+        width: 85vw;
         color: antiquewhite;
         font-weight: 800;
     }

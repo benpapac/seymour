@@ -61,17 +61,11 @@ const Home = () => {
 
     return (
         <section className='home-bg'>
-            {/* <div className='home-box' id='home-headline-box'>
-                <img id='home-headline' src={logo} style={{}}/>
-            </div> */}
-
-
             <div className='home-box' id='home-mission-box'>
                 {window.innerWidth < 1100 ? <div className='home-mission-filter'/> : null}
                 <img src="https://i.imgur.com/scUZ8l7.jpg" 
                     alt="Nic's headshot" 
                     className='home-photo'
-                    // style={{height: `${photoScale}vh`}} /> 
                     />
                     <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in the world
                     <br/>
