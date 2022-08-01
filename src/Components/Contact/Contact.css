@@ -5,24 +5,24 @@
 	overflow: auto;
 	margin-top: -25vh;
 	padding-top: 25vh;
-	background-color: antiquewhite;
+	background-color: grey;
 
-	/* background-image: url(../../Assets/AdobeStock_LightBulbs.jpeg);
+	background-image: url(../../Assets/AdobeStock_theater_seats.jpg);
 		background-position: top;
 		background-attachment: fixed;
 		background-size: cover;
-		background-repeat: no-repeat; */
+		background-repeat: no-repeat;
 
 }
 
 .contact-block {
 	z-index: 1;
 	position: fixed;
-	top: 22vh;
-	right: 5vw;
-	height: 25vh;
-	width: 45vw;
-	background-color: cornsilk;
+	top: 25vh;
+	left: 13vw;
+	height: 56vh;
+	width: 2vw;
+	background-color: #ca8966;
 }
 
 .contact-filter {
@@ -30,19 +30,22 @@
 	position: fixed;
 	height: 125vh;
 	width: 100vw;
-	background-color: rgba(147, 40, 40, 0.6);
-	background-color: #ca8966;
+	background-color: rgba(0, 0, 0, 0.3);
+	/* background-color: #ca8966; */
+	/* display: none; */
 }
 
 
 .contact-photo {
 	z-index: 2;
 	position: fixed;
-	right: 10vw;
+	right: 15vw;
 	top: 25vh;
 	width: 25vw;
 	/* max-width: 300px; */
 	border-radius: 100%;
+	box-shadow: #ca8966 15px -5px 1px;
+	/* border: solid black 1px; */
 
 	/* animation: expand 3s; */
 }
@@ -59,12 +62,13 @@
 }
 .contact-headline {
 	text-align: right;
-	color: #bb6130;
+	color: black;
 	z-index: 1;
 	font-size: 62px;
 	font-weight: 600;
 
 	font-family: 'Forum', cursive;
+	display: none;
 }
 
 .contact-blurb {
@@ -74,8 +78,8 @@
 		serif;
 		
 	position: fixed;
-	right: 35vw;
-	bottom: -8vh;
+	left: 35vw;
+	bottom: -15vh;
 	height: 35vh;
 	max-width: 25vw;
 	font-size: 28px;
@@ -86,10 +90,10 @@
 	height: fit-content;
 		position: fixed;
 		bottom: 17vh;
-		left: 5vw;
+		left: 15vw;
 		width: 30vw;
 	padding: 1em;
-	background-color: rgba(255,255,255,0.3);
+	/* background-color: rgba(0,0,0,0.5); */
 
 	display: flex;
 	flex-direction: column;

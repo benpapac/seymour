@@ -56,7 +56,7 @@ import puppy from '../../Assets/Nicole_Puppy.jpg';
 
 			<div className='contact-box'>
 			{window.innerWidth >= 1100 ? <div className='contact-background'/> : null}
-				<p className='contact-blurb'>If you'd like to set up a consultation, send Nicole a quick message. </p> 
+				<p className='contact-blurb'>Send Nicole a quick message. </p> 
 			</div>
 			<div className='contact-filter'/>
 			<div className='contact-block' />
