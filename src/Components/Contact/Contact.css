@@ -5,13 +5,13 @@
 	overflow: auto;
 	margin-top: -25vh;
 	padding-top: 25vh;
-	background-color: grey;
+	background-color: black;
 
-	background-image: url(../../Assets/AdobeStock_theater_seats.jpg);
+	/* background-image: url(../../Assets/AdobeStock_theater_seats.jpg);
 		background-position: top;
 		background-attachment: fixed;
 		background-size: cover;
-		background-repeat: no-repeat;
+		background-repeat: no-repeat; */
 
 }
 
@@ -73,7 +73,7 @@
 
 .contact-blurb {
 	z-index: 1;
-	color: antiquewhite;
+	color: #faebd7;
 		font-family: 'Forum',
 		serif;
 		
