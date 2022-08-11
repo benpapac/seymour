@@ -26,7 +26,12 @@
         width: 90vw;
         position: relative;
         color: antiquewhite;
+        font-size: 16px;
         /* background-color: rgba(0,0,0,0.0); */
+    }
+
+    .coaching-deco-box p {
+        font-size: 20px;
     }
 
     #testimonials-authors-box {
