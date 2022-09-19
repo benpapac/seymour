@@ -4,39 +4,57 @@ import './Talent-phone.css';
 import './Actor/Actor.css';
 import './Actor/Actor-phone.css';
 import './LookBook.css';
-import actors from '../../Json/actors.json';
+// import actors from '../../Json/actors.json';
 import {Context} from '../../Util/Context';
+import { useQuery, gql} from '@apollo/client';
 
 import Footer from '../Footer/Footer';
+
+
+
+const ACTORS_QUERY = gql`
+{
+    actors {
+        id
+        name
+        img
+        alt
+        imdb
+        bio
+    }
+}
+`
 
 const Talent = () => {
     // const scrollPosition = useScrollPosition();
     const context = useContext(Context);
     const chooseFocus = context.chooseFocus;
-    const focusPoints = context.focusPoints;
+    // const [focusPoints, setFocusPoints] = useState({});
     const [displays, setDisplays] = useState({});
     const [buttonStyles, setButtonStyles] = useState([]);
+    const data = useQuery(ACTORS_QUERY);
+    const [actors, setActors] = useState([]);
 
-    const displayLookbook = (chooseFocus) => {
-        return (
-            <div className='lookbook'>
-                {actors.map((actor, index) => {
-                    return (
-                        <>
-                            <img
-                                onClick={chooseFocus}
-                                id={`${actor.focus}`}
-                                className={`thumbnail`}
-                                src={`${actor.img}`}
-                                alt={`${actor.alt}`}
-                                style={index === 0 ? { marginTop: '0em' } : null}
-                            />
-                        </>
-                    );
-                })}
-            </div>
-        );
-    };
+    // const displayLookbook = (chooseFocus) => {
+    //     return (
+    //         <div className='lookbook'>
+    //             {actors.map((actor, index) => {
+    //                 return (
+    //                     <>
+    //                         <img
+    //                             onClick={chooseFocus}
+    //                             id={`${actor.id}`}
+    //                             className={`thumbnail`}
+    //                             src={`${actor.img}`}
+    //                             alt={`${actor.alt}`}
+    //                             style={index === 0 ? { marginTop: '0em' } : null}
+    //                         />
+    //                     </>
+    //                 );
+    //             })}
+    //         </div>
+    //     );
+    // };
     const toggleActorBio = (e) => {
         let idx = e.target.id;
         let myArray = buttonStyles;
@@ -51,7 +69,21 @@ const Talent = () => {
     }
 
     useEffect(()=>{
+        // if(data) {
+        //     setActors(data.data.actors);
+        // }
 
+        console.log(data);
+        if(data.data) {
+            setActors(data.data.actors);
+        //     actors.map(actor => {
+
+        //         setFocusPoints({
+        //             ...focusPoints,
+        //             [actor.id]: useRef,
+        //         })
+        //     })
+        }
        
         if(window.innerWidth < 1100){
             if(actors.length){
@@ -63,19 +95,20 @@ const Talent = () => {
             }, {} ) 
             : null);
         }
-    },[]);
+    },[data]);
 
     return (
         <section className='talent-box'>
-            { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null}
+            {/* { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null} */}
 
              
-			{actors.map((actor, idx, arr) => {
+			{actors && actors.map((actor, idx, arr) => {
+
 				return (
                     <div
 							key={`${actor.name}`}
 							className={`actor ${actor.name}`}
-							ref={focusPoints[`${actor.focus}`]}
+							// ref={focusPoints[`focus${actor.id}`]}
                              style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
                     >
 
