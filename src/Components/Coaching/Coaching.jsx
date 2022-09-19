@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useScroll from '../../Hooks/useScrollPosition';
 import {Context} from '../../Util/Context';
 import { useQuery, gql } from '@apollo/client';
+import  data  from '../../Json/testimonials.json';
 
 
 import './Coaching.css';
@@ -21,10 +22,10 @@ import './Coaching-Phone.css';
 
 
 const Executives = () => {
-    const data = useQuery(TESTIMONIALS_QUERY).data;
+    //api request, broken when published, works locally???
+    // const data = useQuery(TESTIMONIALS_QUERY).data;
 
     // const [count, setCount] = useState(0);
-    // console.log(heatMap);
     const scrollData = useScroll();
 
     const context = useContext(Context);
@@ -61,7 +62,10 @@ const Executives = () => {
    
 
      const getDivs = () => {
-        let array = data.testimonials.map((test, idx) => {
+        //for when db is properly connected
+        // let array = data.testimonials.map((test, idx) => {
+            let array = data.map((test, idx) => {
+
             let linksBox = document.getElementById(`${test.id}`) || null;
             
             let coachingRect = linksBox.getBoundingClientRect();
@@ -121,7 +125,6 @@ const Executives = () => {
                     // if(i === testimonialFocus.active) return;
 
                     updateFocus(i, 1);
-                        console.log(i === testimonialFocus.active);
                     setAnimation({
                         ...animation, 
                         [testimonialFocus.active]:'coaching-slide-in 3s',
@@ -161,7 +164,10 @@ const Executives = () => {
         
         if(data && !initiated){
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
-            let obj = data.testimonials.reduce((accum, testimonial, idx) => {
+
+            //for when db is properly connected
+            // let obj = data.testimonials.reduce((accum, testimonial, idx) => {
+                let obj = data.reduce((accum, testimonial, idx) => {
                 return {...accum, [idx]: 'none'}
             }, {})
             if(window.innerWidth >= 1100) setDisplay(obj);
@@ -203,7 +209,9 @@ const Executives = () => {
             </div>
 
             <div className='testimonials-box'>
-                {data && data.testimonials.map((testimonial, idx) => {
+                {/* for when db is properly connected */}
+                {/* {data && data.testimonials.map((testimonial, idx) => { */}
+                {data.map((testimonial, idx) => {
                     return (
                         <div className='testimonial' 
                         id={`${testimonial.id}`}
