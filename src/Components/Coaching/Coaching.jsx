@@ -1,14 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import testimonials from '../../Json/testimonials.json';
-import { heatMap } from '../../Util/heatMap';
 import useScroll from '../../Hooks/useScrollPosition';
 import {Context} from '../../Util/Context';
+import { useQuery, gql } from '@apollo/client';
+
 
 import './Coaching.css';
 import './Coaching-Phone.css';
 
+    const TESTIMONIALS_QUERY = gql`
+        {
+            testimonials {
+                id
+                name
+                occupation
+                testimonial
+            }
+        }
+    `;
+
+
 const Executives = () => {
+    const data = useQuery(TESTIMONIALS_QUERY).data;
+
     // const [count, setCount] = useState(0);
     // console.log(heatMap);
     const scrollData = useScroll();
@@ -47,8 +61,8 @@ const Executives = () => {
    
 
      const getDivs = () => {
-        let array = testimonials.map((test, idx) => {
-            let linksBox = document.getElementById(`${test.focus}`) || null;
+        let array = data.testimonials.map((test, idx) => {
+            let linksBox = document.getElementById(`${test.id}`) || null;
             
             let coachingRect = linksBox.getBoundingClientRect();
             return coachingRect;
@@ -145,26 +159,26 @@ const Executives = () => {
         //all rects logic copied from Home.jsx, and should become part of custom component. Could be publishable!
         let oldY = scrollData.y;
         
-        if(!initiated){
+        if(data && !initiated){
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
-            let obj = testimonials.reduce((accum, testimonial, idx) => {
+            let obj = data.testimonials.reduce((accum, testimonial, idx) => {
                 return {...accum, [idx]: 'none'}
             }, {})
-            // if(window.innerWidth >= 1100) setDisplay(obj);
-            // else setDisplay( testimonials.reduce((accum, test) => {
-            //     return {...accum, [test.focus]: 'block'}
-            // }, {})
-            // )
+            if(window.innerWidth >= 1100) setDisplay(obj);
+            else setDisplay( data.testimonials.reduce((accum, test) => {
+                return {...accum, [test.focus]: 'block'}
+            }, {})
+            )
 
             setDisplay(obj);
             setAnimation(obj);
             setAuthorAnimation(obj);
             setInitiated(true);
         }
-            setRects(getDivs());
+            data && setRects(getDivs());
             updateDivs(getScrollDirection());
 
-    }, [scrollData.y]);
+    }, [scrollData.y, data]);
 
 
 
@@ -188,31 +202,18 @@ const Executives = () => {
                 </div>
             </div>
 
-
-            {/* <div id='testimonials-authors-box' onClick={updateFocus}>
-                { testimonials.map(testimonial => {
-                    return (
-                        <div className='author' id={`author-${testimonial.focus}`} >
-                        <h4 className='testimonial-name'>{testimonial.name}</h4>
-                        <h6 className='testimonial-occupation'>- {testimonial.occupation}</h6>
-                        </div>
-                    )
-                })}
-            </div> */}
-
             <div className='testimonials-box'>
-                {testimonials.map((testimonial, idx) => {
+                {data && data.testimonials.map((testimonial, idx) => {
                     return (
                         <div className='testimonial' 
-                        id={`${testimonial.focus}`}
-                        ref={focusPoints[`${testimonial.focus}`]}
-                        >
-                            <p style={{ display: `${display[idx]}`, animation: `${animation[idx]}`}}>{testimonial.copy}</p>
+                        id={`${testimonial.id}`}
+                        // ref={focusPoints[`${testimonial.focus}`]}
+                    >
+                            <p style={{ display: `${display[idx]}`, animation: `${animation[idx]}`}}>{testimonial.testimonial}</p>
                             <h4 style={{ display:` ${display[idx]}`, animation: `${authorAnimation[idx]}`}}>{testimonial.name}</h4>
                             <h6 style={{ display: `${display[idx]}`, animation: `${authorAnimation[idx]}`}}>- {testimonial.occupation}</h6>
                         </div>
                     )
-
                 })}
             </div>
 
