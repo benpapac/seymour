@@ -7,6 +7,7 @@ import './LookBook.css';
 // import actors from '../../Json/actors.json';
 import {Context} from '../../Util/Context';
 import { useQuery, gql} from '@apollo/client';
+import  data  from '../../Json/actors.json';
 
 import Footer from '../Footer/Footer';
 
@@ -32,7 +33,11 @@ const Talent = () => {
     // const [focusPoints, setFocusPoints] = useState({});
     const [displays, setDisplays] = useState({});
     const [buttonStyles, setButtonStyles] = useState([]);
-    const data = useQuery(ACTORS_QUERY);
+
+    // for when db is properly connected
+    // const data = useQuery(ACTORS_QUERY);
+
+
     const [actors, setActors] = useState([]);
 
     // const displayLookbook = (chooseFocus) => {
@@ -73,9 +78,13 @@ const Talent = () => {
         //     setActors(data.data.actors);
         // }
 
-        console.log(data);
-        if(data.data) {
-            setActors(data.data.actors);
+
+        //for when dp is properly connected
+        // console.log(data);
+        // if(data.data) {
+        //     setActors(data.data.actors);
+
+
         //     actors.map(actor => {
 
         //         setFocusPoints({
@@ -83,8 +92,10 @@ const Talent = () => {
         //             [actor.id]: useRef,
         //         })
         //     })
-        }
+        // }
        
+        setActors(data);
+
         if(window.innerWidth < 1100){
             if(actors.length){
                 setButtonStyles(Array(actors.length).fill({dislay: 'block'}))
