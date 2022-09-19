@@ -15,9 +15,7 @@ const addMap = (testimonial) => {
 };
 export const heatMap = testimonials.reduce((init, testimonial) => {
 	let thisMap = addMap(testimonial);
-	console.log(thisMap);
 	thisMap.map((word) => (myMap[word] ? myMap[word]++ : (myMap[word] = 1)));
-	console.log('myMap: ', myMap);
 
 	return myMap;
 }, myMap);

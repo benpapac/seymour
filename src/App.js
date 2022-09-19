@@ -11,6 +11,9 @@ import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
 import Test from './Components/Test/Test';
 import About from './Components/About/About';
+import Api from './Components/Api/Api';
+import ApiActor from './Components/Api/ApiActor';
+import ApiTestimonial from './Components/Api/ApiTestimonial';
 
 function App() {
 	const width = window.innerWidth;
@@ -93,6 +96,11 @@ function App() {
 						<Route exact path='/talent' element={<Talent />} />
 						<Route exact path='/coaching' element={<Coaching />} />
 						<Route exact path='/about' element={<About />} />
+
+						<Route path="/api" element={<Api />} />
+						<Route exact path="/api/actors" element={<ApiActor />} />
+						<Route exact path="/api/testimonials" element={<ApiTestimonial />} />
+
 					</Routes>
 				</main>
 				<footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer>
