@@ -97,10 +97,13 @@ function App() {
 						<Route exact path='/coaching' element={<Coaching />} />
 						<Route exact path='/about' element={<About />} />
 
-						<Route path="/api" element={<Api />} />
-						<Route exact path="/api/actors" element={<ApiActor />} />
-						<Route exact path="/api/testimonials" element={<ApiTestimonial />} />
-
+						<Route path='/api' element={<Api />} />
+						<Route exact path='/api/actors' element={<ApiActor />} />
+						<Route
+							exact
+							path='/api/testimonials'
+							element={<ApiTestimonial />}
+						/>
 					</Routes>
 				</main>
 				<footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer>
