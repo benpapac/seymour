@@ -63,8 +63,8 @@ const Executives = () => {
 
      const getDivs = () => {
         //for when db is properly connected
-        // let array = data.testimonials.map((test, idx) => {
-            let array = data.map((test, idx) => {
+        let array = data.testimonials.map((test, idx) => {
+            // let array = data.map((test, idx) => {
 
             let linksBox = document.getElementById(`${test.id}`) || null;
             
