@@ -166,8 +166,8 @@ const Executives = () => {
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
 
             //for when db is properly connected
-            // let obj = data.testimonials.reduce((accum, testimonial, idx) => {
-                let obj = data.reduce((accum, testimonial, idx) => {
+            let obj = data.testimonials.reduce((accum, testimonial, idx) => {
+                // let obj = data.reduce((accum, testimonial, idx) => {
                 return {...accum, [idx]: 'none'}
             }, {})
             if(window.innerWidth >= 1100) setDisplay(obj);
@@ -210,8 +210,8 @@ const Executives = () => {
 
             <div className='testimonials-box'>
                 {/* for when db is properly connected */}
-                {/* {data && data.testimonials.map((testimonial, idx) => { */}
-                {data.map((testimonial, idx) => {
+                {data && data.testimonials.map((testimonial, idx) => {
+                // {data.map((testimonial, idx) => {
                     return (
                         <div className='testimonial' 
                         id={`${testimonial.id}`}
