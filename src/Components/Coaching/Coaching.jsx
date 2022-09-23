@@ -23,7 +23,7 @@ import './Coaching-Phone.css';
 
 const Executives = () => {
     //api request, broken when published, works locally???
-    // const data = useQuery(TESTIMONIALS_QUERY).data;
+    const data = useQuery(TESTIMONIALS_QUERY).data;
 
     // const [count, setCount] = useState(0);
     const scrollData = useScroll();
