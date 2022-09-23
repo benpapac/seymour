@@ -7,7 +7,7 @@ import './LookBook.css';
 // import actors from '../../Json/actors.json';
 import {Context} from '../../Util/Context';
 import { useQuery, gql} from '@apollo/client';
-import  data  from '../../Json/actors.json';
+// import  data  from '../../Json/actors.json';
 
 import Footer from '../Footer/Footer';
 
@@ -35,7 +35,7 @@ const Talent = () => {
     const [buttonStyles, setButtonStyles] = useState([]);
 
     // for when db is properly connected
-    // const data = useQuery(ACTORS_QUERY);
+    const data = useQuery(ACTORS_QUERY);
 
 
     const [actors, setActors] = useState([]);
@@ -81,8 +81,8 @@ const Talent = () => {
 
         //for when dp is properly connected
         // console.log(data);
-        // if(data.data) {
-        //     setActors(data.data.actors);
+        if(data.data) {
+            setActors(data.data.actors);
 
 
         //     actors.map(actor => {
@@ -92,9 +92,10 @@ const Talent = () => {
         //             [actor.id]: useRef,
         //         })
         //     })
-        // }
+        }
        
-        setActors(data);
+        //testing
+        // setActors(data);
 
         if(window.innerWidth < 1100){
             if(actors.length){
