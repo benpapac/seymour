@@ -97,11 +97,11 @@ const Talent = () => {
         }
 
          if(window.innerWidth < 1100){
-            if(actors.length){
-                setButtonStyles(Array(actors.length).fill({display: 'block'}))
+            if(data.data){
+                setButtonStyles(Array(data.data.actors.length).fill({display: 'block'}))
             }
-            setDisplays(actors 
-                ? actors.reduce((accum, actor, idx) => {
+            setDisplays(data.data 
+                ? data.data.actors.reduce((accum, actor, idx) => {
                 return {...accum, [idx]: {display: 'none'}}
             }, {} ) 
             : null);
@@ -119,8 +119,7 @@ const Talent = () => {
 
              
 			{actors && actors.map((actor, idx, arr) => {
-
-				return (
+                if(displays) return (
                     <div
 							key={`${actor.name}`}
 							className={`actor ${actor.name}`}
@@ -140,7 +139,7 @@ const Talent = () => {
                                
                                 <span className='actor-bio-copy' 
                                     id = {idx}
-                                    style={displays[idx] ? displays[idx] : defaultStyle}
+                                    style={displays[idx]}
                                 >
                                     {actor.bio}
                                 </span>
