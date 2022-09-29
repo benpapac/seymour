@@ -66,7 +66,7 @@ const Home = () => {
                     alt="Nic's headshot" 
                     className='home-photo'
                     />
-                    <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in the world
+                    <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
                     <br/>
                     <br/>
                 <Link to='/about' style={{textDecoration: 'none'}}><span className='homePage-link' id='about'>Meet Nicole.</span></Link>
