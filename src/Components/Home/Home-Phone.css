@@ -39,32 +39,51 @@
     }
 
     .home-photo {
+            
+                animation: none;
+            
+                z-index: 1;
+                border: none;
         margin: 0;
+        left: 0;
         height: 100vh;
-        display: none;
-        /* width: 100vw; */
+        width: fit-content;
+        position: relative;
     }
 
     #home-mission-box {
        background-color: rgba(0,0,0,0);
     }
 
-
-    .home-mission-filter {
-        width: 100vw;
-        height: 100vh;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
     #home-mission-copy {
         z-index: 2;
-        top: 20vh;
-        font-size: 26px;
-        width: 85vw;
+        top: 50vh;
+        left: 0;
+        padding: 0.5em;
+        font-size: 24px;
+        height: 45vh;
+        width: 95vw;
+        background-color: rgba(0,0,0,0.5);
         color: antiquewhite;
         font-weight: 800;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+
+    .homePage-link {
+        margin: 0;
+        width: fit-content;
+        padding: 0.1em;
+
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+        font-family: 'Forum', serif;
+    }
+
+
+
 
         #home-links-box {
             background: url(../../Assets/AdobeStock_LightBulbs.jpg);
