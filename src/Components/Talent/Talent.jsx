@@ -32,7 +32,7 @@ const Talent = () => {
     const chooseFocus = context.chooseFocus;
     // const [focusPoints, setFocusPoints] = useState({});
     const [displays, setDisplays] = useState({});
-    const [buttonStyles, setButtonStyles] = useState([]);
+    const [buttonStyles, setButtonStyles] = useState({});
 
     // for when db is properly connected
     const data = useQuery(ACTORS_QUERY);
@@ -61,12 +61,11 @@ const Talent = () => {
     //     );
     // };
     const toggleActorBio = (e) => {
-        let idx = e.target.id;
-        let myArray = buttonStyles;
-        myArray[idx] = {display: 'none'};
-        setButtonStyles(myArray);
-
         let key = e.target.id;
+        let myObj = buttonStyles;
+        myObj[key] = {display: 'none'};
+        setButtonStyles(myObj);
+
         setDisplays({
             ...displays,
             [key]: displays[key]['display'] === 'none' ? {display: 'block'} : {display: 'none'}
