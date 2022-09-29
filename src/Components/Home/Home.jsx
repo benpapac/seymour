@@ -62,7 +62,6 @@ const Home = () => {
     return (
         <section className='home-bg'>
             <div className='home-box' id='home-mission-box'>
-                {window.innerWidth < 1100 ? <div className='home-mission-filter'/> : null}
                 <img src="https://i.imgur.com/scUZ8l7.jpg" 
                     alt="Nic's headshot" 
                     className='home-photo'

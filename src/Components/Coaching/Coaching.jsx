@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import useScroll from '../../Hooks/useScrollPosition';
 import {Context} from '../../Util/Context';
 import { useQuery, gql } from '@apollo/client';
-import  data  from '../../Json/testimonials.json';
 
 
 import './Coaching.css';

@@ -1,6 +1,5 @@
 import {useState, useReducer, useEffect} from 'react';
 import useScrollPosition from '../../Hooks/useScrollPosition';
-import useTextWheel from '../../Hooks/ScrollingText';
 import portrait from '../../Assets/Nicole_Portrait.jpeg'
 import './About.css';
 import './About-phone.css';
