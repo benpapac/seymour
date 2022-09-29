@@ -32,6 +32,7 @@ const Talent = () => {
     const chooseFocus = context.chooseFocus;
     // const [focusPoints, setFocusPoints] = useState({});
     const [displays, setDisplays] = useState({});
+    const defaultStyle = {display: 'none'};
     const [buttonStyles, setButtonStyles] = useState({});
 
     // for when db is properly connected
@@ -91,14 +92,13 @@ const Talent = () => {
         //             [actor.id]: useRef,
         //         })
         //     })
-        }
-       
-        //testing
-        // setActors(data);
 
-        if(window.innerWidth < 1100){
+       
+        }
+
+         if(window.innerWidth < 1100){
             if(actors.length){
-                setButtonStyles(Array(actors.length).fill({dislay: 'block'}))
+                setButtonStyles(Array(actors.length).fill({display: 'block'}))
             }
             setDisplays(actors 
                 ? actors.reduce((accum, actor, idx) => {
@@ -106,6 +106,11 @@ const Talent = () => {
             }, {} ) 
             : null);
         }
+       
+        //testing
+        // setActors(data);
+
+        
     },[data]);
 
     return (
@@ -135,7 +140,7 @@ const Talent = () => {
                                
                                 <span className='actor-bio-copy' 
                                     id = {idx}
-                                    style={displays[idx]}
+                                    style={displays[idx] ? displays[idx] : defaultStyle}
                                 >
                                     {actor.bio}
                                 </span>
