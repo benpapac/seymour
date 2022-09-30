@@ -43,10 +43,11 @@ const Api = () => {
 
         else try {
             const res = await login({variables: {email: formState.email, password: formState.password} });
-            console.log(data);
+
             sessionStorage.setItem("token", res.data.login.token);
             setFormState({email: '', password: ''});
             setLoginMessage("Log Out");
+            
         } catch(error) {
             console.error(error);
         }
