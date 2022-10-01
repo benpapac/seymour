@@ -68,15 +68,15 @@ if (error) return `Submission error! ${error.message}`;
             </button>
 
 
-    <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit}>
 
-            <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
-            <label htmlFor="email">email </label>
-            <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
-            <label htmlFor="password">password </label>
+                    <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
+                    <label htmlFor="email">email </label>
+                    <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
+                    <label htmlFor="password">password </label>
 
-            <button type="submit" style={{marginTop: "20vh"}}> {loginMessage}</button>
-    </form>
+                    <button type="submit" style={{marginTop: "20vh"}}> {loginMessage}</button>
+            </form>
         </div>
     );
 };
