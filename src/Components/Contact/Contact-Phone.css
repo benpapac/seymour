@@ -19,6 +19,7 @@
         }
     
         .contact-button {
+            z-index: 3;
             font-size: x-large;
             font-family: 'Forum', Courier, monospace;
             margin-top: 10vh;
@@ -32,8 +33,17 @@
             color: black;
             margin: 2vh;
         }
+
+        .contact-photo {
+                position: fixed;
+                top: 70vh;
+                right: 60vw;
+                height: 35vw;
+                width: 35vw;
+                border: 1px solid black;
+                box-shadow: none;
+        }
     
-        .contact-photo,
         .contact-block,
         .contact-blurb,
         .contact-filter,

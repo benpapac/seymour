@@ -99,12 +99,12 @@ const Talent = () => {
          if(window.innerWidth < 1100){
             if(data.data){
                 setButtonStyles(Array(data.data.actors.length).fill({display: 'block'}))
-            }
-            setDisplays(data.data 
-                ? data.data.actors.reduce((accum, actor, idx) => {
-                return {...accum, [idx]: {display: 'none'}}
-            }, {} ) 
-            : null);
+                setDisplays(data.data 
+                    ? data.data.actors.reduce((accum, actor, idx) => {
+                        return {...accum, [idx]: {display: 'none'}}
+                    }, {} ) 
+                    : null);
+                }
         }
        
         //testing
@@ -117,48 +117,56 @@ const Talent = () => {
         <section className='talent-box'>
             {/* { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null} */}
 
-             
-			{actors && actors.map((actor, idx, arr) => {
-                if(displays) return (
-                    <div
-							key={`${actor.name}`}
-							className={`actor ${actor.name}`}
-							// ref={focusPoints[`focus${actor.id}`]}
-                             style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
-                    >
+            {/* conditional loading page does not appear! Why is that? */}
+			{!(actors && displays) 
+                ? (
+                <>
+                <div className='loading-page'>
+                    <h1 className='loading-message'>Loading...</h1>
+                </div>
+                </>
+                )
+                : actors.map((actor, idx, arr) => (
+                    <>
+                            <div
+                                    key={`${actor.name}`}
+                                    className={`actor ${actor.name}`}
+                                    // ref={focusPoints[`focus${actor.id}`]}
+                                    style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
+                                    >
 
-                        <div className="actor-box" >
-                            { window.innerWidth > 1099 ? <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} /> : null}
-                            <p className="actor-bio"> 
-                            { window.innerWidth > 1099? 
-                            <>
-                                <span className='actor-name'>{actor.name}</span>
-                            </>
-                            : null}
-                           <br/>
-                               
-                                <span className='actor-bio-copy' 
-                                    id = {idx}
-                                    style={displays[idx]}
-                                >
-                                    {actor.bio}
-                                </span>
+                                <div className="actor-box" >
+                                    { window.innerWidth > 1099 ? <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} /> : null}
+                                    <p className="actor-bio"> 
+                                    { window.innerWidth > 1099? 
+                                    <>
+                                        <span className='actor-name'>{actor.name}</span>
+                                    </>
+                                    : null}
                                 <br/>
-                            { window.innerWidth < 1100?
-                            <div className='actor-name-phone-box'>
-                             <span className='actor-name'>{actor.name} </span>
-                             <button className='actor-button' id={idx} onClick={toggleActorBio} style={buttonStyles[idx]}>Meet the actor.</button>
-                             <br/>
+                                    
+                                        <span className='actor-bio-copy' 
+                                            id = {idx}
+                                            style={displays[idx]}
+                                            >
+                                            {actor.bio}
+                                        </span>
+                                        <br/>
+                                    { window.innerWidth < 1100?
+                                    <div className='actor-name-phone-box'>
+                                    <span className='actor-name'>{actor.name} </span>
+                                    <button className='actor-button' id={idx} onClick={toggleActorBio} style={buttonStyles[idx]}>Meet the actor.</button>
+                                    <br/>
+                                    </div>
+                                    : null}
+                                    
+                                        <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
+                                    </p>
+                                </div>
                             </div>
-                             : null}
-                             
-                                <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
-                            </p>
-                        </div>
-                    </div>
-				);
-			})}
-
+                    </>
+                )) 
+            }
             <Footer />
         </section>
     );
