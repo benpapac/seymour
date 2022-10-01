@@ -31,3 +31,15 @@
 .a-tag {
 	grid-column: 2;
 }
+
+.loading-page {
+	height: 100vh;
+	justify-content: center;
+}
+
+.loading-message{
+	width: 25vw;
+	margin: 20vh auto;
+	color: antiquewhite;
+	font-size: 50px;
+}
