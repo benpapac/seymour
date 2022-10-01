@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import TestimonialApiForm from './TestimonialApiForm';
+import AddNewForm from './AddNewForm';
 
     const TESTIMONIALS_QUERY = gql`
         {
@@ -20,6 +21,8 @@ const ApiTestimonial = () => {
 
     const [message, setMessage] = useState("Update Testimonial");
     const queryData = useQuery(TESTIMONIALS_QUERY).data;
+    const [newItem, setNewItem] = useState(false);
+
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -39,6 +42,8 @@ const ApiTestimonial = () => {
 
     return (
         <>
+        <button onClick={()=> setNewItem(true)}>Create new Actor. </button>
+        {!newItem ? null : <AddNewForm itemType="actor" />}
         {editing 
         ? (
             <TestimonialApiForm testimonialId={testimonialId} handleClick={handleClick} message={message} />

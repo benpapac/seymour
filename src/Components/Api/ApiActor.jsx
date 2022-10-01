@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useQuery, useLazyQuery, useMutation, gql } from '@apollo/client';
 import ActorApiForm from './ActorApiForm';
 import './Api.css';
+import AddNewForm from './AddNewForm';
 
 
 
@@ -27,6 +28,7 @@ const ApiActor = () => {
     const [editing, setEditing] = useState(false);
     const queryData = useQuery(ACTORS_QUERY).data;
     const [actorId, setActorId] = useState('');
+    const [newItem, setNewItem] = useState(false);
 
     const [message, setMessage] = useState("Update Actor");
 
@@ -57,14 +59,16 @@ const ApiActor = () => {
 
     return (
         <>
+        <button onClick={()=> setNewItem(true)}>Create new Actor. </button>
         {queryData && (
             <>
+                    {!newItem ? null : <AddNewForm itemType="actor" />}
                     { editing 
                     
                         ? (
                           <ActorApiForm actorId={actorId} handleClick={handleClick} message={message} />
                         )
-                        : queryData.actors.map(actor => (
+                        :  queryData.actors.map(actor => (
                             <>
                                     <div key={actor.id}>
                                         <h2>{actor.name}</h2>
@@ -75,6 +79,7 @@ const ApiActor = () => {
                                     </div>
                             </>
                     ))}
+
             </>
         )}
         </>

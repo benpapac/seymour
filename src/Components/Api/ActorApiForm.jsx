@@ -99,19 +99,19 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
           <form key={actor.id} className="api-form" onSubmit={handleSubmit}>
 
                     <label htmlFor="name">Name</label > 
-                <input id="name" type="text" onChange={handleChange} placeholder={actor.name} value={formState["actor-form-name"]} />
+                <input id="name" type="text" onChange={handleChange} placeholder={actor.name} value={formState.name} />
 
                     <label htmlFor="img">Image Url</label> 
-                <textarea id="img" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState["actor-form-image"] } />
+                <textarea id="img" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState.img } />
 
                     <label htmlFor="alt">Alt</label>  
-                <input id="alt" type="text" onChange={handleChange} placeholder="If the pic didn't load." value={formState["actor-form-alt"]} />
+                <input id="alt" type="text" onChange={handleChange} placeholder="If the pic didn't load." value={formState.alt} />
 
                 <label htmlFor="imdb">IMDB Link</label> 
-                <textarea id="imdb" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState["actor-form-image"] } />
+                <textarea id="imdb" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState.imdb } />
 
                 <label htmlFor="bio"></label> 
-                <textarea id="bio" type="text" cols="50" rows="10" onChange={handleChange} placeholder={actor.bio}value={ formState["actor-form-bio"]} />
+                <textarea id="bio" type="text" cols="50" rows="10" onChange={handleChange} placeholder={actor.bio}value={ formState.bio} />
                 
                 <button type="submit" >Submit</button> 
                 <button id={actor.id} onClick={handleClick}>{message}</button>
