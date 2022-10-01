@@ -42,8 +42,8 @@ const ApiTestimonial = () => {
 
     return (
         <>
-        <button onClick={()=> setNewItem(true)}>Create new Actor. </button>
-        {!newItem ? null : <AddNewForm itemType="actor" />}
+        <button onClick={()=> setNewItem(true)}>Create new Testimonial. </button>
+        {!newItem ? null : <AddNewForm itemType="testimonial" />}
         {editing 
         ? (
             <TestimonialApiForm testimonialId={testimonialId} handleClick={handleClick} message={message} />
