@@ -1,38 +1,83 @@
 import { useState, useEffect } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, useLazyQuery, useMutation, gql } from '@apollo/client';
+import ActorApiForm from './ActorApiForm';
+import './Api.css';
 
-    const ACTORS_QUERY = gql`
-        {
-            actors {
-                id
-                name
-                img
-                alt
-                imdb
-                bio
-            }
+
+
+    const ACTORS_QUERY = gql `
+    {
+        actors {
+             id
+            name
+            img
+            alt
+            imdb
+            bio
         }
+    }
     `;
 
+
+
+
+
+
 const ApiActor = () => {
-    const data = useQuery(ACTORS_QUERY).data;
+    const [editing, setEditing] = useState(false);
+    const queryData = useQuery(ACTORS_QUERY).data;
+    const [actorId, setActorId] = useState('');
+
+    const [message, setMessage] = useState("Update Actor");
+
+
+  
+
+    const handleClick = async (e) => {
+    e.preventDefault();
+
+    await setActorId(e.target.id);
+
+    if(!editing){
+        setEditing(true);
+        setMessage("Cancel");
+
+     
+    } else {
+         setEditing(false);
+        setMessage("Update Actor");
+    }
+}
+
+
+
+
+
+
 
     return (
         <>
-        {data && (
+        {queryData && (
             <>
-            {data.actors.map(actor => (
-                <>
-                <h3>{actor.name}</h3>
-                <p>image: {actor.image}, alt: {actor.alt}, imdb: {actor.imdb} </p>
-                <h4>Bio</h4>
-                <p>{actor.bio}</p>
-                </>
-            ))}
+                    { editing 
+                    
+                        ? (
+                          <ActorApiForm actorId={actorId} handleClick={handleClick} message={message} />
+                        )
+                        : queryData.actors.map(actor => (
+                            <>
+                                    <div key={actor.id}>
+                                        <h2>{actor.name}</h2>
+                                        <h4>image url: </h4> <p>{actor.img}</p>
+                                        <h4>image alt: </h4> <p>{actor.alt}</p>
+                                        <h4>bio: </h4><p>{actor.bio}</p>
+                                        <button id={actor.id} onClick={handleClick}>{message}</button>
+                                    </div>
+                            </>
+                    ))}
             </>
         )}
         </>
-        
     );
 };
 

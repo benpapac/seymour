@@ -1,0 +1,15 @@
+.api-actor-form {
+    margin: 1em;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.api-actor-form input, textarea {
+    max-width: 80vw;;
+}
+
+.api-actor-form button {
+    width: 160px;
+}
