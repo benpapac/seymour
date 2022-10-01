@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
 import { useQuery, useMutation, gql} from '@apollo/client';
+import {client} from '../../index';
+import { assertCompositeType } from 'graphql';
 // import './Api.css';
 
     const ACTOR_QUERY = gql`
@@ -16,9 +18,8 @@ import { useQuery, useMutation, gql} from '@apollo/client';
     `;
 
         const UPDATE_ACTOR = gql `
-        mutation updateActor($updateActorId: ID!, $name: String, $image: String, $alt: String, $imdb: String, $bio: String){
-            mutation(id: $updateActorId, name: $name, img: $img, alt: $alt, imdb: $imdb, bio: $bio){
-                id
+        mutation updateActor(  $oldName: String! $name: String, $img: String, $alt: String, $imdb: String, $bio: String){
+            updateActor( oldName: $oldName, name: $name, img: $img, alt: $alt, imdb: $imdb, bio: $bio){
                 name
                 img
                 alt
@@ -33,7 +34,10 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
     const queryData = useQuery(ACTOR_QUERY, {variables: {actorId: actorId} } );
     const [actor, setActor] = useState({});
     const [updateActor, {data, loading, error}] = useMutation(UPDATE_ACTOR);
-    const [formState, setFormState] = useState({name: "", image: "", alt: "", imdb: "", bio: ""});
+    const [formState, setFormState] = useState({});
+
+
+
 
       const handleChange = (e) => {
         e.preventDefault();
@@ -50,20 +54,43 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    const res = updateActor({ variables: {...formState} }, {Headers: {Authorization: `Bearer ${sessionStorage.getItem('token')}`} } );
+    console.log(formState);
+    const res = updateActor(
+        {
+         variables: {
+            oldName: formState.oldName,
+            name: formState.name,
+            img: formState.img,
+            alt: formState.alt,
+            imdb: formState.imdb,
+            bio: formState.bio,
+         } ,
+            headers: {
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+            } 
+        }
+         );
 
     console.log(res);
 
-}
+    }
 
+    useEffect( ()=>{
+        if(queryData.data){
+            setActor(queryData.data.actor);
+            setFormState({
+                oldName: queryData.data.actor.name,
+                name: queryData.data.actor.name,
+                img: queryData.data.actor.img,
+                alt: queryData.data.actor.alt,
+                imdb: queryData.data.actor.imdb,
+                bio: queryData.data.actor.bio,
+            })
+        }
+    }, [queryData])
 
-
-useEffect(async ()=>{
-    await queryData && setActor(queryData.data.actor);
-}, [queryData])
-
-if (loading) return 'Submitting...';
-if (error) return `Submission error! ${error.message}`;
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error.message}`;
 
     return (
         <>
@@ -75,8 +102,8 @@ if (error) return `Submission error! ${error.message}`;
                     <label htmlFor="name">Name</label > 
                 <input id="name" type="text" onChange={handleChange} placeholder={actor.name} value={formState["actor-form-name"]} />
 
-                    <label htmlFor="image">Image Url</label> 
-                <textarea id="image" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState["actor-form-image"] } />
+                    <label htmlFor="img">Image Url</label> 
+                <textarea id="img" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState["actor-form-image"] } />
 
                     <label htmlFor="alt">Alt</label>  
                 <input id="alt" type="text" onChange={handleChange} placeholder="If the pic didn't load." value={formState["actor-form-alt"]} />
