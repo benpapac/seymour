@@ -1,4 +1,4 @@
-.api-actor-form {
+.api-form {
     margin: 1em;
     width: 100vw;
     display: flex;
@@ -6,10 +6,10 @@
     justify-content: center;
 }
 
-.api-actor-form input, textarea {
+.api-form input, textarea {
     max-width: 80vw;;
 }
 
-.api-actor-form button {
+.api-form button {
     width: 160px;
 }
