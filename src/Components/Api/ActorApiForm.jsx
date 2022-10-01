@@ -71,8 +71,7 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
         }
          );
 
-    console.log(res);
-
+        return res;
     }
 
     useEffect( ()=>{
@@ -97,7 +96,7 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
         {actor &&
         <>
         <h2>{ actor.name}</h2>
-          <form key={actor.id} className="api-actor-form" onSubmit={handleSubmit}>
+          <form key={actor.id} className="api-form" onSubmit={handleSubmit}>
 
                     <label htmlFor="name">Name</label > 
                 <input id="name" type="text" onChange={handleChange} placeholder={actor.name} value={formState["actor-form-name"]} />

@@ -14,36 +14,34 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const httpLink = createHttpLink({
-	 uri: process.env.REACT_APP_API,
- });
+	uri: process.env.REACT_APP_API,
+});
 
- const authLink = setContext((_, { headers }) => {
-   // get the authentication token from local storage if it exists
-   const token = sessionStorage.getItem('token');
-//    const id = sessionStorage.getItem('id');
-   // return the headers to the context so httpLink can read them
-   return {
-	 headers: {
-	   ...headers,
-	   authorization: token ? `Bearer ${token}` : "",
-	//    id: id ? id : "",
-	 }
-   }
- });
+const authLink = setContext((_, { headers }) => {
+	// get the authentication token from local storage if it exists
+	const token = sessionStorage.getItem('token');
+	//    const id = sessionStorage.getItem('id');
+	// return the headers to the context so httpLink can read them
+	return {
+		headers: {
+			...headers,
+			authorization: token ? `Bearer ${token}` : '',
+			//    id: id ? id : "",
+		},
+	};
+});
 
 export const client = new ApolloClient({
 	link: authLink.concat(httpLink),
 	cache: new InMemoryCache(),
 });
 
-
-
 ReactDOM.render(
 	<ApolloProvider client={client}>
-			<Router>
-				<App />
-			</Router>
-		</ApolloProvider>,
+		<Router>
+			<App />
+		</Router>
+	</ApolloProvider>,
 	document.getElementById('root')
 );
 

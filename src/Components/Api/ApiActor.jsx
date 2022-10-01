@@ -34,20 +34,20 @@ const ApiActor = () => {
   
 
     const handleClick = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    await setActorId(e.target.id);
+        await setActorId(e.target.id);
 
-    if(!editing){
-        setEditing(true);
-        setMessage("Cancel");
+        if(!editing){
+            setEditing(true);
+            setMessage("Cancel");
 
-     
-    } else {
-         setEditing(false);
-        setMessage("Update Actor");
+        
+        } else {
+            setEditing(false);
+            setMessage("Update Actor");
+        }
     }
-}
 
 
 
