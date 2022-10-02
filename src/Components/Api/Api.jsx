@@ -33,14 +33,18 @@ const Api = () => {
         setFormState({...formState, [key]: val});
     }
 
+    const logOut = ()=>{
+        client.clearStore();
+            sessionStorage.clear();
+            setLoginMessage("Log In");
+            setLoggedIn(false);
+    }
+
     const  handleSubmit = async (e) => {
         e.preventDefault();
 
         if(sessionStorage.getItem("token")) {
-            client.clearStore();
-            sessionStorage.clear();
-            setLoginMessage("Log In");
-            setLoggedIn(false);
+            logOut();
         }
 
         else try {
@@ -58,7 +62,11 @@ const Api = () => {
 
     useEffect(()=>{
         if(sessionStorage.getItem('token')) setLoggedIn(true);
-    }, []);
+
+        if(loggedIn) setTimeout(()=> {
+            logOut();
+        }, 1200000);
+    }, [loggedIn]);
 
     // add a logout that deletes session token, and tell backend to delete its token as well.
 
@@ -69,10 +77,10 @@ if (error) return `Submission error! ${error.message}`;
         <div>
             <div className='api-links-box' style={loggedIn ? {display: 'flex'} : {display: 'none'} }>
 
-            <Link className="api-link" to="/api/actors">
+            <Link  className="api-link" to={loggedIn ? "/api/actors" : '/api'}>
                 Review Actors
             </Link>
-            <Link className="api-link" to='/api/testimonials'>
+            <Link className="api-link" to={loggedIn ? '/api/testimonials' : '/api/'}>
                 Review Testimonials
             </Link>
             </div>
@@ -89,7 +97,9 @@ if (error) return `Submission error! ${error.message}`;
                         </>
                     }
 
+                    <div className='api-div-buttons'>
                     <button type="submit" style={{marginTop: "20vh"}}> {loginMessage}</button>
+                    </div>
             </form>
         </div>
     );
