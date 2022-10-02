@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import TestimonialApiForm from './TestimonialApiForm';
 import AddNewForm from './AddNewForm';
 
@@ -15,9 +15,21 @@ import AddNewForm from './AddNewForm';
         }
     `;
 
+      const DEL_TESTIMONIAL = gql `
+    mutation deleteTestimonial($testimonialName: String!){
+        deleteActor(name: $testimonialName){
+            id
+            name
+            occupation
+            testimonial
+        }
+    }
+    `;
+
 const ApiTestimonial = () => {
     const [editing, setEditing] = useState(false);
      const [testimonialId, setTestimonialId] = useState('');
+     const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
 
     const [message, setMessage] = useState("Update Testimonial");
     const queryData = useQuery(TESTIMONIALS_QUERY).data;
@@ -40,6 +52,12 @@ const ApiTestimonial = () => {
         }
     }
 
+       const handleDelete= (id) => {
+
+        const res = deleteTestimonial({variables: {actorId: id}});
+        console.log(res);
+    }
+
     return (
         <>
         <button onClick={()=> setNewItem(true)}>Create new Testimonial. </button>
@@ -57,6 +75,8 @@ const ApiTestimonial = () => {
                 <h4>Testimonial</h4>
                 <p>{testimonial.testimonial}</p>
                 <button id={testimonial.id} onClick={handleClick}>{message}</button>
+                 <button onClick={() => handleDelete(testimonial.name)}>Delete this Actor</button>
+
                 </>
             ))}
             </>
