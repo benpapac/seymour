@@ -16,8 +16,8 @@ import AddNewForm from './AddNewForm';
     `;
 
       const DEL_TESTIMONIAL = gql `
-    mutation deleteTestimonial($testimonialName: String!){
-        deleteActor(name: $testimonialName){
+    mutation deleteTestimonial($name: String!){
+        deleteTestimonial(name: $name){
             id
             name
             occupation
@@ -52,11 +52,14 @@ const ApiTestimonial = () => {
         }
     }
 
-       const handleDelete= (id) => {
+       const handleDelete= (name) => {
 
-        const res = deleteTestimonial({variables: {actorId: id}});
+        const res = deleteTestimonial({variables: {name: name}});
         console.log(res);
     }
+
+    if(loading) return 'Submitting...';
+    if(error) return `Error: ${error.message}`;
 
     return (
         <>
@@ -75,7 +78,7 @@ const ApiTestimonial = () => {
                 <h4>Testimonial</h4>
                 <p>{testimonial.testimonial}</p>
                 <button id={testimonial.id} onClick={handleClick}>{message}</button>
-                 <button onClick={() => handleDelete(testimonial.name)}>Delete this Actor</button>
+                 <button onClick={() => handleDelete(testimonial.name)}>Delete this Testimonial</button>
 
                 </>
             ))}
