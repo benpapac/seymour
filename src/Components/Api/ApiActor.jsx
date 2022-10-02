@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useQuery, useLazyQuery, useMutation, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import ActorApiForm from './ActorApiForm';
 import './Api.css';
 import AddNewForm from './AddNewForm';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -36,6 +37,7 @@ import AddNewForm from './AddNewForm';
 
 
 const ApiActor = () => {
+    const navigate = useNavigate();
     const [editing, setEditing] = useState(false);
     const queryData = useQuery(ACTORS_QUERY).data;
     const [deleteActor, {data, loading, error}] = useMutation(DEL_ACTOR);
@@ -69,9 +71,13 @@ const ApiActor = () => {
         console.log(res);
     }
 
+    useEffect(()=>{
+        if( !sessionStorage.getItem('token') ) navigate('/api');
+    }, []);
 
 if(loading) return 'submitting...';
 if(error) return `Error: ${error}`;
+
 
 
     return (

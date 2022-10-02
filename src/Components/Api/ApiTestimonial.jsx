@@ -1,8 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import TestimonialApiForm from './TestimonialApiForm';
 import AddNewForm from './AddNewForm';
+import { useNavigate } from 'react-router-dom';
 
     const TESTIMONIALS_QUERY = gql`
         {
@@ -27,6 +28,7 @@ import AddNewForm from './AddNewForm';
     `;
 
 const ApiTestimonial = () => {
+    const navigate = useNavigate();
     const [editing, setEditing] = useState(false);
      const [testimonialId, setTestimonialId] = useState('');
      const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
@@ -57,6 +59,10 @@ const ApiTestimonial = () => {
         const res = deleteTestimonial({variables: {name: name}});
         console.log(res);
     }
+
+    useEffect(()=>{
+    if( !sessionStorage.getItem('token') ) navigate('/api');
+})
 
     if(loading) return 'Submitting...';
     if(error) return `Error: ${error.message}`;
