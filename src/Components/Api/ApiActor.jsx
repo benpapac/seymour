@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useQuery, useLazyQuery, useMutation, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import ActorApiForm from './ActorApiForm';
 import './Api.css';
 import AddNewForm from './AddNewForm';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -36,13 +37,14 @@ import AddNewForm from './AddNewForm';
 
 
 const ApiActor = () => {
+    const navigate = useNavigate();
     const [editing, setEditing] = useState(false);
     const queryData = useQuery(ACTORS_QUERY).data;
     const [deleteActor, {data, loading, error}] = useMutation(DEL_ACTOR);
     const [actorId, setActorId] = useState('');
     const [newItem, setNewItem] = useState(false);
 
-    const [message, setMessage] = useState("Update Actor");
+    const [message, setMessage] = useState("Update this Actor");
 
 
   
@@ -69,16 +71,18 @@ const ApiActor = () => {
         console.log(res);
     }
 
-
-
+    useEffect(()=>{
+        if( !sessionStorage.getItem('token') ) navigate('/api');
+    }, []);
 
 if(loading) return 'submitting...';
 if(error) return `Error: ${error}`;
 
 
+
     return (
         <>
-        <button onClick={()=> setNewItem(true)}>Create new Actor. </button>
+        <button className="api-create-button" onClick={()=> setNewItem(true)}>Create new Actor. </button>
         {queryData && (
             <>
                     {!newItem ? null : <AddNewForm itemType="actor" />}
@@ -87,13 +91,15 @@ if(error) return `Error: ${error}`;
 
                        {queryData && queryData.actors.map(actor => (
                             <>
-                                    <div key={actor.id}>
+                                    <div key={actor.id} className="api-div">
                                         <h2>{actor.name}</h2>
                                         <h4>image url: </h4> <p>{actor.img}</p>
                                         <h4>image alt: </h4> <p>{actor.alt}</p>
                                         <h4>bio: </h4><p>{actor.bio}</p>
+                                        <div className='api-div-buttons'>
                                         <button  id={actor.id} onClick={handleClick}>{message}</button>
                                         <button onClick={() => handleDelete(actor.name)}>Delete this Actor</button>
+                                        </div>
                                     </div>
                             </>
                     ))

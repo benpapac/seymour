@@ -1,0 +1,39 @@
+#github-link{
+    z-index: 2;
+    margin-left: 1em;
+    height: 32px;
+    width: 32px;
+    background: url(../../Assets/GitHub-Mark-Light-32px.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+
+.footer-content {
+    height: 6vh;
+    padding: 3vh 0;
+    padding-right: 5vw;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    background: rgba(0,0,0,0.9);
+
+    color: white;
+    line-height: 1.5em;
+}
+
+@media(max-width: 1099px) {
+    .footer-content {
+        grid-row: 1;
+        flex-direction: row;
+        margin-bottom: 8vh;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #designer-links {
+        width: 30vw;
+    }
+}
