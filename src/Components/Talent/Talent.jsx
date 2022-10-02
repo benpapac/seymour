@@ -118,7 +118,7 @@ const Talent = () => {
             {/* { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null} */}
 
             {/* conditional loading page does not appear! Why is that? */}
-			{!(actors && displays) 
+			{!(actors.length && displays) 
                 ? (
                 <>
                 <div className='loading-page'>
