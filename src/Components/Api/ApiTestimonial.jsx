@@ -31,7 +31,7 @@ const ApiTestimonial = () => {
      const [testimonialId, setTestimonialId] = useState('');
      const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
 
-    const [message, setMessage] = useState("Update Testimonial");
+    const [message, setMessage] = useState("Update this Testimonial");
     const queryData = useQuery(TESTIMONIALS_QUERY).data;
     const [newItem, setNewItem] = useState(false);
 
@@ -63,7 +63,7 @@ const ApiTestimonial = () => {
 
     return (
         <>
-        <button onClick={()=> setNewItem(true)}>Create new Testimonial. </button>
+        <button className="api-create-button" onClick={()=> setNewItem(true)}>Create new Testimonial. </button>
         {!newItem ? null : <AddNewForm itemType="testimonial" />}
         {editing 
         ? (
@@ -72,15 +72,18 @@ const ApiTestimonial = () => {
         : queryData && (
             <>
             {queryData.testimonials.map(testimonial => (
-                <>
+                <div className='api-div'>
                 <h3>{testimonial.name}</h3>
                 <h3>{testimonial.occupation} </h3>
                 <h4>Testimonial</h4>
                 <p>{testimonial.testimonial}</p>
+                
+                <div className="api-div-buttons" >
                 <button id={testimonial.id} onClick={handleClick}>{message}</button>
                  <button onClick={() => handleDelete(testimonial.name)}>Delete this Testimonial</button>
+                </div>
 
-                </>
+                </div>
             ))}
             </>
         )

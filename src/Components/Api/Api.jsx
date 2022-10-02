@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useNavigate, Link} from 'react-router-dom';
 import { useMutation, gql } from '@apollo/client';
 import {client} from '../../index';
 const Api = () => {
@@ -18,6 +18,7 @@ const Api = () => {
     const [login, {data, loading, error}] = useMutation(LOGIN);
     const [loginMessage, setLoginMessage] = useState( !sessionStorage.getItem("token") ? "Log In" : "Log Out");
     const [formState, setFormState] = useState({ email: '', password: ''});
+    const [loggedIn, setLoggedIn] = useState(false);
 
 
     /// we're going to create a login form, that sends a login request when submitted.
@@ -39,6 +40,7 @@ const Api = () => {
             client.clearStore();
             sessionStorage.clear();
             setLoginMessage("Log In");
+            setLoggedIn(false);
         }
 
         else try {
@@ -47,11 +49,16 @@ const Api = () => {
             sessionStorage.setItem("token", res.data.login.token);
             setFormState({email: '', password: ''});
             setLoginMessage("Log Out");
+            setLoggedIn(true);
             
         } catch(error) {
             console.error(error);
         }
     };
+
+    useEffect(()=>{
+        if(sessionStorage.getItem('token')) setLoggedIn(true);
+    }, []);
 
     // add a logout that deletes session token, and tell backend to delete its token as well.
 
@@ -60,20 +67,27 @@ if (error) return `Submission error! ${error.message}`;
 
     return (
         <div>
-            <button onClick={()=> navigate('/api/actors')}>
-                review actors
-            </button>
-            <button onClick={()=> navigate('/api/testimonials')}>
-                review testimonials
-            </button>
+            <div className='api-links-box' style={loggedIn ? {display: 'flex'} : {display: 'none'} }>
+
+            <Link className="api-link" to="/api/actors">
+                Review Actors
+            </Link>
+            <Link className="api-link" to='/api/testimonials'>
+                Review Testimonials
+            </Link>
+            </div>
 
 
-            <form action="" onSubmit={handleSubmit}>
+            <form action="submit" className="api-form" onSubmit={handleSubmit}>
 
-                    <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
+                    { !loggedIn &&
+                        <>
+                        <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
                     <label htmlFor="email">email </label>
                     <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
                     <label htmlFor="password">password </label>
+                        </>
+                    }
 
                     <button type="submit" style={{marginTop: "20vh"}}> {loginMessage}</button>
             </form>

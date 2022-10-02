@@ -42,7 +42,7 @@ const ApiActor = () => {
     const [actorId, setActorId] = useState('');
     const [newItem, setNewItem] = useState(false);
 
-    const [message, setMessage] = useState("Update Actor");
+    const [message, setMessage] = useState("Update this Actor");
 
 
   
@@ -70,15 +70,13 @@ const ApiActor = () => {
     }
 
 
-
-
 if(loading) return 'submitting...';
 if(error) return `Error: ${error}`;
 
 
     return (
         <>
-        <button onClick={()=> setNewItem(true)}>Create new Actor. </button>
+        <button className="api-create-button" onClick={()=> setNewItem(true)}>Create new Actor. </button>
         {queryData && (
             <>
                     {!newItem ? null : <AddNewForm itemType="actor" />}
@@ -87,13 +85,15 @@ if(error) return `Error: ${error}`;
 
                        {queryData && queryData.actors.map(actor => (
                             <>
-                                    <div key={actor.id}>
+                                    <div key={actor.id} className="api-div">
                                         <h2>{actor.name}</h2>
                                         <h4>image url: </h4> <p>{actor.img}</p>
                                         <h4>image alt: </h4> <p>{actor.alt}</p>
                                         <h4>bio: </h4><p>{actor.bio}</p>
+                                        <div className='api-div-buttons'>
                                         <button  id={actor.id} onClick={handleClick}>{message}</button>
                                         <button onClick={() => handleDelete(actor.name)}>Delete this Actor</button>
+                                        </div>
                                     </div>
                             </>
                     ))
