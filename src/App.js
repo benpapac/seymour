@@ -11,11 +11,9 @@ import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
 import About from './Components/About/About';
 
-
 import Api from './Components/Api/Api';
 import ApiActor from './Components/Api/ApiActor/ApiActor';
 import ApiTestimonial from './Components/Api/ApiTestimonial/ApiTestimonial';
-
 
 import { useQuery } from '@apollo/client';
 import { ACTORS_QUERY } from './Util/GraphQL';
@@ -28,14 +26,13 @@ function App() {
 	const [animation, setAnimation] = useState([]);
 	const [authorAnimation, setAuthorAnimation] = useState([]);
 	const [rects, setRects] = useState([]);
-    const [display, setDisplay] = useState([]);
+	const [display, setDisplay] = useState([]);
 
-	    
-    const [testimonialFocus, setTestimonialFocus] = useState({
-			active: null,
-			previous: null,
-			newState: false,
-		});
+	const [testimonialFocus, setTestimonialFocus] = useState({
+		active: null,
+		previous: null,
+		newState: false,
+	});
 
 	// const chooseFocus = (e) => {
 	// 	e.preventDefault();

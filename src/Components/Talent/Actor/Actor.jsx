@@ -2,16 +2,14 @@ import {useEffect, useRef} from 'react';
 import './Actor.css';
 import './Actor-phone.css';
 
-const Actor = ({actor, focusPoints, idx, displays, toggleActorBio, buttonStyles, setFocusPoints}) => {
+const Actor = ({actor, idx, displays, toggleActorBio, buttonStyles}) => {
     const ref = useRef(null);
 
-
-
     useEffect(()=>{
-        setFocusPoints({
-            ...focusPoints,
-            [actor.id]: ref,
-        })
+        // setFocusPoints({
+        //     ...focusPoints,
+        //     [actor.id]: ref,
+        // })
     },[])
     return (
         <div

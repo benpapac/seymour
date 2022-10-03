@@ -23,32 +23,33 @@ const Talent = () => {
     const defaultStyle = {display: 'none'};
     const [buttonStyles, setButtonStyles] = useState({});
 
+    const [idx, setIdx] = useState(1);
+
     const data = useQuery(ACTORS_QUERY);
 
 
     const [actors, setActors] = useState([]);
 
-    // const displayLookbook = (chooseFocus) => {
-    //                 console.log(focusPoints);
-    //     return (
-    //         <div className='lookbook'>
-    //             {actors.map((actor, index) => {
-    //                 return (
-    //                     <>
-    //                         <img
-    //                             onClick={()=> focusPoints[actor.id].current.scrollIntoView()}
-    //                             id={`${actor.id}`}
-    //                             className={`thumbnail`}
-    //                             src={`${actor.img}`}
-    //                             alt={`${actor.alt}`}
-    //                             style={index === 0 ? { marginTop: '0em' } : null}
-    //                         />
-    //                     </>
-    //                 );
-    //             })}
-    //         </div>
-    //     );
-    // };
+    const displayLookbook = (chooseFocus) => {
+        return (
+            <div className='lookbook'>
+                {actors.map((actor, index) => {
+                    return (
+                        <>
+                            <img
+                                onClick={()=> setIdx(index)}
+                                id={`${actor.id}`}
+                                className={`thumbnail`}
+                                src={`${actor.img}`}
+                                alt={`${actor.alt}`}
+                                style={index === 0 ? { marginTop: '0em' } : null}
+                            />
+                        </>
+                    );
+                })}
+            </div>
+        );
+    };
     const toggleActorBio = (e) => {
         let key = e.target.id;
         let myObj = buttonStyles;
@@ -94,23 +95,32 @@ const Talent = () => {
         // setActors(data);
 
         
-    },[data]);
+    },[data, idx]);
 
     return (
         <section className='talent-box'>
-            {/* { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null} */}
+            { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null}
 
-			{!(actors.length && displays) 
+			 {!(actors.length && displays) 
                 ? (
-                <div className='loading-page'>
-                    <h1 id='loading-message'>Loading...</h1>
-                </div>
-                )
-                : actors.map((actor, idx, arr) => (
-                    <Actor actor={actor} focusPoints={focusPoints} idx={idx} displays={displays} toggleActorBio={toggleActorBio} buttonStyles={buttonStyles} setFocusPoints={setFocusPoints}/>
-                )) 
-            }
-            <Footer />
+                    <div className='loading-page'>
+                        <h1 id='loading-message'>Loading...</h1>
+                    </div>
+                    )
+                    
+                    : (
+                        <>
+                    <Actor actor={actors[idx]} idx={idx} displays={displays} toggleActorBio={toggleActorBio} buttonStyles={buttonStyles} />
+                    <Footer />
+                    </>
+                    )
+                }
+                
+                {/*
+                        : actors.map((actor, idx, arr) => (
+                            <Actor actor={actor} focusPoints={focusPoints} idx={idx} displays={displays} toggleActorBio={toggleActorBio} buttonStyles={buttonStyles} setFocusPoints={setFocusPoints}/>
+                        )) 
+                    } */}
         </section>
     );
 };
