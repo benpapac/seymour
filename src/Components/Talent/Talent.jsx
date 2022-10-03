@@ -10,13 +10,11 @@ import { useQuery, gql} from '@apollo/client';
 import Footer from '../Footer/Footer';
 
 import {ACTORS_QUERY} from '../../Util/GraphQL';
+import LookBook from './Actor/LookBook';
 
 
 
 const Talent = () => {
-    // const scrollPosition = useScrollPosition();
-    const context = useContext(Context);
-    const chooseFocus = context.chooseFocus;
     const [displays, setDisplays] = useState({});
     const [buttonStyles, setButtonStyles] = useState({});
     const [initiated, setInitiated] = useState(false);
@@ -28,41 +26,8 @@ const Talent = () => {
 
     const [actors, setActors] = useState([]);
 
+ 
 
-    const updateIndexes = async (e) => {
-        e.preventDefault();
-
-        context.setDivAnimation({
-            ...context.divAnimation,
-            [e.target.id]: 'actor-slide-up 2s',
-            [idx]: 'actor-slide-out 2s',
-        })
-
-        setTimeout(() => {
-            setIdx(e.target.id);
-        }, 1090);
-    }
-
-    const displayLookbook = (chooseFocus) => {
-        return (
-            <div className='lookbook'>
-                {actors.map((actor, index) => {
-                    return (
-                        <>
-                            <img
-                                onClick={updateIndexes}
-                                id={index}
-                                className={`thumbnail`}
-                                src={`${actor.img}`}
-                                alt={`${actor.alt}`}
-                                style={index === 0 ? { marginTop: '0em' } : null}
-                            />
-                        </>
-                    );
-                })}
-            </div>
-        );
-    };
     const toggleActorBio = (e) => {
         let key = e.target.id;
         let myObj = buttonStyles;
@@ -98,7 +63,7 @@ const Talent = () => {
 
     return (
         <section className='talent-box'>
-            { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null}
+            { window.innerWidth > 1099 ? <LookBook idx={idx} setIdx={setIdx} /> : null}
 
 			 {!(actors.length && displays) 
                 ? (
