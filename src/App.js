@@ -25,6 +25,18 @@ function App() {
 	const testimonialsData = useQuery(TESTIMONIALS_QUERY).data;
 	const actorsData = useQuery(ACTORS_QUERY).data;
 
+	const [animation, setAnimation] = useState([]);
+	const [authorAnimation, setAuthorAnimation] = useState([]);
+	const [rects, setRects] = useState([]);
+    const [display, setDisplay] = useState([]);
+
+	    
+    const [testimonialFocus, setTestimonialFocus] = useState({
+			active: null,
+			previous: null,
+			newState: false,
+		});
+
 	// const chooseFocus = (e) => {
 	// 	e.preventDefault();
 	// 	let id;
@@ -52,6 +64,16 @@ function App() {
 				// chooseFocus: chooseFocus,
 				testimonialsData: testimonialsData,
 				actorsData: actorsData,
+				animation: animation,
+				setAnimation: setAnimation,
+				authorAnimation: authorAnimation,
+				setAuthorAnimation: setAuthorAnimation,
+				rects: rects,
+				setRects: setRects,
+				testimonialFocus: testimonialFocus,
+				setTestimonialFocus: setTestimonialFocus,
+				display: display,
+				setDisplay: setDisplay,
 			}}>
 			<div className='App'>
 				<header>{window.innerWidth >= 1100 ? <Nav /> : null}</header>

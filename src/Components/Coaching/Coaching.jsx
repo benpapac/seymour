@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScroll from '../../Hooks/useScrollPosition';
 import {Context} from '../../Util/Context';
-import { useQuery, gql } from '@apollo/client';
+import { scrollDown, scrollUp } from '../../Util/Callbacks';
 
 
 import './Coaching.css';
@@ -12,49 +12,22 @@ import './Coaching-Phone.css';
 
 
 const Executives = () => {
-    //api request, broken when published, works locally???
-
     // const [count, setCount] = useState(0);
     const scrollData = useScroll();
+    const context = useContext(Context);
+    const {setTestimonialFocus, testimonialsData, setRects, animation, setAnimation, authorAnimation, setAuthorAnimation, display, setDisplay} = useContext(Context);
 
-    const {testimonialsData} = useContext(Context);
-    // const focusPoints = context.focusPoints;
-    // const chooseFocus = context.chooseFocus;
-
-    
-    const [testimonialFocus, setTestimonialFocus] = useState({
-        active: null, previous: null, newState: false,
-    })
-
-    const updateFocus = (idx, value) => {
-        setTestimonialFocus({
-            active: idx,
-            previous: idx + value,
-            newState: true,
-        })
-        // setTimeout( () => {
-        //     chooseFocus(e)
-        // }, "500") ;
-    }
 
     const [initiated, setInitiated] = useState(false);
     const [blurbDisplay, setBlurbDisplay] = useState({display: 'block'});
-
-    //below state is copied from Home.jsx. I should refactor into a custom component. Could be publishable!
-    const [display, setDisplay] = useState([]);
-    const [animation, setAnimation] = useState([]);
-    const [authorAnimation, setAuthorAnimation] = useState([]);
-    const [rects, setRects] = useState([]);
+    
     const [oldY, setOldY] = useState(0);
 
 
    
 
      const getDivs = () => {
-        //for when db is properly connected
         let array = testimonialsData.testimonials.map((test, idx) => {
-            // let array = data.map((test, idx) => {
-
             let linksBox = document.getElementById(`${test.id}`) || null;
             
             let coachingRect = linksBox.getBoundingClientRect();
@@ -72,65 +45,14 @@ const Executives = () => {
         } else return 'neutral';
      }
 
-     const updateDivs = (direction) => {
 
+     const updateDivs = (direction) => {
         switch (direction) {
             case 'down':
-            for(let i = 0; i < rects.length; i++){
-                if(rects[i].y < 600){
-                    updateFocus(i, -1);
-                    setAnimation({
-                        ...animation, 
-                        [testimonialFocus.active]:'coaching-slide-in 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-up 4s'
-                    })
-                    
-                    setAuthorAnimation({
-                        ...authorAnimation,
-                        [testimonialFocus.active]: 'coaching-appear 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-up 4s'
-                    })
-                    
-                    setDisplay({
-                        ...display,
-                        [testimonialFocus.active]: 'block',
-                    });
-                }
-        }
-                
-                break;
-        
+                 scrollDown(context);
+                 break;
             case 'up':
-                for(let i = 0; i < rects.length; i++){
-                    if(rects[i].y < 150){
-                    // if(i === testimonialFocus.active) return;
-
-                    updateFocus(i, 1);
-                    setAnimation({
-                        ...animation, 
-                        [testimonialFocus.active]:'coaching-slide-in 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
-                    })
-        
-                    setAuthorAnimation({
-                        ...authorAnimation,
-                        [testimonialFocus.active]: 'coaching-appear 3s',
-                        [testimonialFocus.previous]: 'coaching-slide-out 4s'
-                    })
-
-                    setDisplay({
-                    ...display,
-                    [testimonialFocus.active]: 'block',
-                });
-
-                // setTimeout(() => {
-                //     setDisplay({
-                //         ...display,
-                //         [testimonialFocus.previous]: 'none'
-                // });
-                // }, 4000);
-            }
-        }
+               scrollUp(context);
                 break;
             default:
                 break;
@@ -140,15 +62,10 @@ const Executives = () => {
 
     useEffect( () => {
         setOldY(scrollData.y);
-        //all rects logic copied from Home.jsx, and should become part of custom component. Could be publishable!
-        let oldY = scrollData.y;
         
         if(testimonialsData && !initiated){
-            // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
 
-            //for when db is properly connected
             let obj = testimonialsData.testimonials.reduce((accum, testimonial, idx) => {
-                // let obj = data.reduce((accum, testimonial, idx) => {
                 return {...accum, [idx]: 'none'}
             }, {})
             if(window.innerWidth >= 1100) setDisplay(obj);
@@ -166,7 +83,6 @@ const Executives = () => {
             updateDivs(getScrollDirection());
 
     }, [scrollData.y, testimonialsData]);
-
 
 
     return (
@@ -190,9 +106,7 @@ const Executives = () => {
             </div>
 
             <div className='testimonials-box'>
-                {/* for when db is properly connected */}
                 {testimonialsData && testimonialsData.testimonials.map((testimonial, idx) => {
-                // {data.map((testimonial, idx) => {
                     return (
                         <div className='testimonial' 
                         id={`${testimonial.id}`}
