@@ -14,7 +14,7 @@ export const scrollDown = (context) => {
 		authorAnimation,
 		setAuthorAnimation,
 		testimonialFocus,
-        setTestimonialFocus,
+		setTestimonialFocus,
 		display,
 		setDisplay,
 	} = context;
@@ -49,7 +49,7 @@ export const scrollUp = (context) => {
 		authorAnimation,
 		setAuthorAnimation,
 		testimonialFocus,
-        setTestimonialFocus,
+		setTestimonialFocus,
 		display,
 		setDisplay,
 	} = context;

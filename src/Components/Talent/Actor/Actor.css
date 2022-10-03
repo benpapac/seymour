@@ -78,11 +78,26 @@
 
 	.empty {
 		height: 0;
+	}	
+}
+
+@keyframes actor-slide-up {
+	from {
+		transform: translate(0,100%);
+	}
+	to {
+		transform: translate(0, 0);
+	}
+}
+
+
+@keyframes actor-slide-out {
+	from {
+		transform: translate(0, 0);
 	}
 
-
-
-	
-
+	to {
+		transform: translate(0, -150%);
+	}
 	
 }

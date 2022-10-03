@@ -1,24 +1,23 @@
-import {useEffect, useRef} from 'react';
+import {useContext, useEffect, useRef} from 'react';
 import './Actor.css';
 import './Actor-phone.css';
+import {Context} from '../../../Util/Context';
 
-const Actor = ({actor, focusPoints, idx, displays, toggleActorBio, buttonStyles, setFocusPoints}) => {
+const Actor = ({actor, idx, displays, toggleActorBio, buttonStyles}) => {
+    const {divAnimation} = useContext(Context);
     const ref = useRef(null);
 
-
-
     useEffect(()=>{
-        setFocusPoints({
-            ...focusPoints,
-            [actor.id]: ref,
-        })
+        // setFocusPoints({
+        //     ...focusPoints,
+        //     [actor.id]: ref,
+        // })
     },[])
     return (
         <div
             key={`${actor.name}`}
             className={`actor ${actor.name}`}
-            ref={ref}
-            style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
+            style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : {animation: divAnimation[idx]}}
             >
 
             <div className="actor-box" >
