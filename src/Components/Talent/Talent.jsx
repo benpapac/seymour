@@ -16,19 +16,32 @@ import {ACTORS_QUERY} from '../../Util/GraphQL';
 const Talent = () => {
     // const scrollPosition = useScrollPosition();
     const context = useContext(Context);
-    const ref = useRef(null);
     const chooseFocus = context.chooseFocus;
-    const [focusPoints, setFocusPoints] = useState([]);
     const [displays, setDisplays] = useState({});
-    const defaultStyle = {display: 'none'};
     const [buttonStyles, setButtonStyles] = useState({});
+    const [initiated, setInitiated] = useState(false);
+
 
     const [idx, setIdx] = useState(1);
-
     const data = useQuery(ACTORS_QUERY);
 
 
     const [actors, setActors] = useState([]);
+
+
+    const updateIndexes = async (e) => {
+        e.preventDefault();
+
+        context.setDivAnimation({
+            ...context.divAnimation,
+            [e.target.id]: 'actor-slide-up 2s',
+            [idx]: 'actor-slide-out 2s',
+        })
+
+        setTimeout(() => {
+            setIdx(e.target.id);
+        }, 1090);
+    }
 
     const displayLookbook = (chooseFocus) => {
         return (
@@ -37,8 +50,8 @@ const Talent = () => {
                     return (
                         <>
                             <img
-                                onClick={()=> setIdx(index)}
-                                id={`${actor.id}`}
+                                onClick={updateIndexes}
+                                id={index}
                                 className={`thumbnail`}
                                 src={`${actor.img}`}
                                 alt={`${actor.alt}`}
@@ -62,40 +75,26 @@ const Talent = () => {
         });
     }
 
+    const initiate = () => {
+        setActors(data.data.actors);
+            
+            if(window.innerWidth < 1100){
+                    setButtonStyles(Array(data.data.actors.length).fill({display: 'block'}))
+                    setDisplays(data.data 
+                        ? data.data.actors.reduce((accum, actor, idx) => {
+                            return {...accum, [idx]: {display: 'none'}}
+                        }, {} ) 
+                        : null);
+                    }
+        setInitiated(true);
+    }
+
     useEffect(()=>{
-        if(data.data) {
-            setActors(data.data.actors);
-            // setFocusPoints(Array(data.data.actors.length).fill(ref));
-
-            // let myObj = data.data.actors.reduce((obj, actor) => {
-            //     obj = {
-            //         ...obj,
-            //         [actor.id]: ref,
-            //     };
-            //     return obj;
-            // },{})
-
-            // setFocusPoints({
-            //     ...myObj
-            // });
-        }
-
-         if(window.innerWidth < 1100){
-            if(data.data){
-                setButtonStyles(Array(data.data.actors.length).fill({display: 'block'}))
-                setDisplays(data.data 
-                    ? data.data.actors.reduce((accum, actor, idx) => {
-                        return {...accum, [idx]: {display: 'none'}}
-                    }, {} ) 
-                    : null);
-                }
-        }
+        if(data.data && !initiated) initiate();
        
-        //testing
-        // setActors(data);
-
+ 
         
-    },[data, idx]);
+    },[data.data]);
 
     return (
         <section className='talent-box'>

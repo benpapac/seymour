@@ -1,8 +1,10 @@
-import {useEffect, useRef} from 'react';
+import {useContext, useEffect, useRef} from 'react';
 import './Actor.css';
 import './Actor-phone.css';
+import {Context} from '../../../Util/Context';
 
 const Actor = ({actor, idx, displays, toggleActorBio, buttonStyles}) => {
+    const {divAnimation} = useContext(Context);
     const ref = useRef(null);
 
     useEffect(()=>{
@@ -15,8 +17,7 @@ const Actor = ({actor, idx, displays, toggleActorBio, buttonStyles}) => {
         <div
             key={`${actor.name}`}
             className={`actor ${actor.name}`}
-            ref={ref}
-            style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
+            style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : {animation: divAnimation[idx]}}
             >
 
             <div className="actor-box" >

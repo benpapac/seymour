@@ -24,6 +24,7 @@ function App() {
 	const actorsData = useQuery(ACTORS_QUERY).data;
 
 	const [animation, setAnimation] = useState([]);
+	const [divAnimation, setDivAnimation] = useState([]);
 	const [authorAnimation, setAuthorAnimation] = useState([]);
 	const [rects, setRects] = useState([]);
 	const [display, setDisplay] = useState([]);
@@ -33,27 +34,6 @@ function App() {
 		previous: null,
 		newState: false,
 	});
-
-	// const chooseFocus = (e) => {
-	// 	e.preventDefault();
-	// 	let id;
-
-	// 	if (e.target.id.length) {
-	// 		console.log('checking for author');
-	// 		id =
-	// 			e.target.id.substring(0, 6) === 'author'
-	// 				? e.target.id.substring(7)
-	// 				: e.target.id;
-	// 	} else {
-	// 		id = e.target.parentElement.id.substring(7);
-	// 	}
-	// 	console.log('id: ', id);
-	// 	let blockFocus = e.target.id ? 'end' : 'start';
-	// 	focusPoints[id].current.scrollIntoView({
-	// 		behavior: 'smooth',
-	// 		block: blockFocus,
-	// 	});
-	// };
 
 	return (
 		<Context.Provider
@@ -65,6 +45,8 @@ function App() {
 				setAnimation: setAnimation,
 				authorAnimation: authorAnimation,
 				setAuthorAnimation: setAuthorAnimation,
+				divAnimation: divAnimation,
+				setDivAnimation: setDivAnimation,
 				rects: rects,
 				setRects: setRects,
 				testimonialFocus: testimonialFocus,
