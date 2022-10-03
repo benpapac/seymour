@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import { useQuery, useMutation, gql} from '@apollo/client';
-import {client} from '../../index';
+import {client} from '../../../index';
 import { assertCompositeType } from 'graphql';
 // import './Api.css';
 

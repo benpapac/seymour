@@ -8,28 +8,18 @@ import { useQuery, gql } from '@apollo/client';
 import './Coaching.css';
 import './Coaching-Phone.css';
 
-    const TESTIMONIALS_QUERY = gql`
-        {
-            testimonials {
-                id
-                name
-                occupation
-                testimonial
-            }
-        }
-    `;
+
 
 
 const Executives = () => {
     //api request, broken when published, works locally???
-    const data = useQuery(TESTIMONIALS_QUERY).data;
 
     // const [count, setCount] = useState(0);
     const scrollData = useScroll();
 
-    const context = useContext(Context);
-    const focusPoints = context.focusPoints;
-    const chooseFocus = context.chooseFocus;
+    const {testimonialsData} = useContext(Context);
+    // const focusPoints = context.focusPoints;
+    // const chooseFocus = context.chooseFocus;
 
     
     const [testimonialFocus, setTestimonialFocus] = useState({
@@ -51,8 +41,8 @@ const Executives = () => {
     const [blurbDisplay, setBlurbDisplay] = useState({display: 'block'});
 
     //below state is copied from Home.jsx. I should refactor into a custom component. Could be publishable!
-    const [animation, setAnimation] = useState([]);
     const [display, setDisplay] = useState([]);
+    const [animation, setAnimation] = useState([]);
     const [authorAnimation, setAuthorAnimation] = useState([]);
     const [rects, setRects] = useState([]);
     const [oldY, setOldY] = useState(0);
@@ -62,7 +52,7 @@ const Executives = () => {
 
      const getDivs = () => {
         //for when db is properly connected
-        let array = data.testimonials.map((test, idx) => {
+        let array = testimonialsData.testimonials.map((test, idx) => {
             // let array = data.map((test, idx) => {
 
             let linksBox = document.getElementById(`${test.id}`) || null;
@@ -88,7 +78,6 @@ const Executives = () => {
             case 'down':
             for(let i = 0; i < rects.length; i++){
                 if(rects[i].y < 600){
-                    // if(i === testimonialFocus.active) return;
                     updateFocus(i, -1);
                     setAnimation({
                         ...animation, 
@@ -106,13 +95,6 @@ const Executives = () => {
                         ...display,
                         [testimonialFocus.active]: 'block',
                     });
-
-                    // setTimeout(() => {
-                    //     setDisplay({
-                    //         ...display,
-                    //         [testimonialFocus.previous]: 'none'
-                    //     });
-                    // }, 4000);
                 }
         }
                 
@@ -161,16 +143,16 @@ const Executives = () => {
         //all rects logic copied from Home.jsx, and should become part of custom component. Could be publishable!
         let oldY = scrollData.y;
         
-        if(data && !initiated){
+        if(testimonialsData && !initiated){
             // if(window.innerWidth < 1100 && blurbDisplay.display === 'block' ) setTestimonialDisplay({display: 'none'})
 
             //for when db is properly connected
-            let obj = data.testimonials.reduce((accum, testimonial, idx) => {
+            let obj = testimonialsData.testimonials.reduce((accum, testimonial, idx) => {
                 // let obj = data.reduce((accum, testimonial, idx) => {
                 return {...accum, [idx]: 'none'}
             }, {})
             if(window.innerWidth >= 1100) setDisplay(obj);
-            else setDisplay( data.testimonials.reduce((accum, test) => {
+            else setDisplay( testimonialsData.testimonials.reduce((accum, test) => {
                 return {...accum, [test.focus]: 'block'}
             }, {})
             )
@@ -180,10 +162,10 @@ const Executives = () => {
             setAuthorAnimation(obj);
             setInitiated(true);
         }
-            data && setRects(getDivs());
+            testimonialsData && setRects(getDivs());
             updateDivs(getScrollDirection());
 
-    }, [scrollData.y, data]);
+    }, [scrollData.y, testimonialsData]);
 
 
 
@@ -209,7 +191,7 @@ const Executives = () => {
 
             <div className='testimonials-box'>
                 {/* for when db is properly connected */}
-                {data && data.testimonials.map((testimonial, idx) => {
+                {testimonialsData && testimonialsData.testimonials.map((testimonial, idx) => {
                 // {data.map((testimonial, idx) => {
                     return (
                         <div className='testimonial' 

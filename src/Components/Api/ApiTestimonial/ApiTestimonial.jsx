@@ -1,31 +1,12 @@
 
-import { useState, useEffect } from 'react';
-import { useQuery, useMutation, gql } from '@apollo/client';
+import { useState, useEffect, useContext } from 'react';
+import { Context } from '../../../Util/Context';
+import { useMutation } from '@apollo/client';
 import TestimonialApiForm from './TestimonialApiForm';
-import AddNewForm from './AddNewForm';
+import AddNewForm from '../AddNewForm';
 import { useNavigate } from 'react-router-dom';
+import { DEL_TESTIMONIAL } from '../../../Util/GraphQL';
 
-    const TESTIMONIALS_QUERY = gql`
-        {
-            testimonials {
-                id
-                name
-                occupation
-                testimonial
-            }
-        }
-    `;
-
-      const DEL_TESTIMONIAL = gql `
-    mutation deleteTestimonial($name: String!){
-        deleteTestimonial(name: $name){
-            id
-            name
-            occupation
-            testimonial
-        }
-    }
-    `;
 
 const ApiTestimonial = () => {
     const navigate = useNavigate();
@@ -34,7 +15,8 @@ const ApiTestimonial = () => {
      const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
 
     const [message, setMessage] = useState("Update this Testimonial");
-    const queryData = useQuery(TESTIMONIALS_QUERY).data;
+    // const queryData = useQuery(TESTIMONIALS_QUERY).data;
+    const {testimonialsData} = useContext(Context);
     const [newItem, setNewItem] = useState(false);
 
 
@@ -75,9 +57,9 @@ const ApiTestimonial = () => {
         ? (
             <TestimonialApiForm testimonialId={testimonialId} handleClick={handleClick} message={message} />
         )
-        : queryData && (
+        : testimonialsData && (
             <>
-            {queryData.testimonials.map(testimonial => (
+            {testimonialsData.testimonials.map(testimonial => (
                 <div className='api-div'>
                 <h3>{testimonial.name}</h3>
                 <h3>{testimonial.occupation} </h3>

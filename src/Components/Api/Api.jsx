@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
-import {useNavigate, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useMutation, gql } from '@apollo/client';
 import {client} from '../../index';
+
+import './Api.css';
 const Api = () => {
-    const navigate = useNavigate();
      const LOGIN = gql`
        mutation login($email: String!, $password: String!) {
             login(email: $email, password: $password) {
@@ -20,9 +21,6 @@ const Api = () => {
     const [formState, setFormState] = useState({ email: '', password: ''});
     const [loggedIn, setLoggedIn] = useState(false);
 
-
-    /// we're going to create a login form, that sends a login request when submitted.
-    // we're also going to... 
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -75,6 +73,7 @@ if (error) return `Submission error! ${error.message}`;
 
     return (
         <div>
+
             <div className='api-links-box' style={loggedIn ? {display: 'flex'} : {display: 'none'} }>
 
             <Link  className="api-link" to={loggedIn ? "/api/actors" : '/api'}>
@@ -84,7 +83,6 @@ if (error) return `Submission error! ${error.message}`;
                 Review Testimonials
             </Link>
             </div>
-
 
             <form action="submit" className="api-form" onSubmit={handleSubmit}>
 

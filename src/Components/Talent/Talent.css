@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
 .talent-box {
 	margin-top: -25vh;
@@ -37,9 +39,10 @@
 	justify-content: center;
 }
 
-.loading-message{
+#loading-message{
 	width: 25vw;
 	margin: 20vh auto;
 	color: antiquewhite;
 	font-size: 50px;
+	font-family: 'Forum', cursive;
 }
