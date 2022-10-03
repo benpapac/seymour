@@ -1,54 +1,42 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import Actor from './Actor/Actor';
 import './Talent.css';
 import './Talent-phone.css';
-import './Actor/Actor.css';
-import './Actor/Actor-phone.css';
+
 import './LookBook.css';
-// import actors from '../../Json/actors.json';
 import {Context} from '../../Util/Context';
 import { useQuery, gql} from '@apollo/client';
-// import  data  from '../../Json/actors.json';
 
 import Footer from '../Footer/Footer';
 
+import {ACTORS_QUERY} from '../../Util/GraphQL';
 
 
-const ACTORS_QUERY = gql`
-{
-    actors {
-        id
-        name
-        img
-        alt
-        imdb
-        bio
-    }
-}
-`
 
 const Talent = () => {
     // const scrollPosition = useScrollPosition();
     const context = useContext(Context);
+    const ref = useRef(null);
     const chooseFocus = context.chooseFocus;
-    // const [focusPoints, setFocusPoints] = useState({});
+    const [focusPoints, setFocusPoints] = useState([]);
     const [displays, setDisplays] = useState({});
     const defaultStyle = {display: 'none'};
     const [buttonStyles, setButtonStyles] = useState({});
 
-    // for when db is properly connected
     const data = useQuery(ACTORS_QUERY);
 
 
     const [actors, setActors] = useState([]);
 
     // const displayLookbook = (chooseFocus) => {
+    //                 console.log(focusPoints);
     //     return (
     //         <div className='lookbook'>
     //             {actors.map((actor, index) => {
     //                 return (
     //                     <>
     //                         <img
-    //                             onClick={chooseFocus}
+    //                             onClick={()=> focusPoints[actor.id].current.scrollIntoView()}
     //                             id={`${actor.id}`}
     //                             className={`thumbnail`}
     //                             src={`${actor.img}`}
@@ -74,26 +62,21 @@ const Talent = () => {
     }
 
     useEffect(()=>{
-        // if(data) {
-        //     setActors(data.data.actors);
-        // }
-
-
-        //for when dp is properly connected
-        // console.log(data);
         if(data.data) {
             setActors(data.data.actors);
+            // setFocusPoints(Array(data.data.actors.length).fill(ref));
 
+            // let myObj = data.data.actors.reduce((obj, actor) => {
+            //     obj = {
+            //         ...obj,
+            //         [actor.id]: ref,
+            //     };
+            //     return obj;
+            // },{})
 
-        //     actors.map(actor => {
-
-        //         setFocusPoints({
-        //             ...focusPoints,
-        //             [actor.id]: useRef,
-        //         })
-        //     })
-
-       
+            // setFocusPoints({
+            //     ...myObj
+            // });
         }
 
          if(window.innerWidth < 1100){
@@ -117,54 +100,14 @@ const Talent = () => {
         <section className='talent-box'>
             {/* { window.innerWidth > 1099 ? displayLookbook(chooseFocus) : null} */}
 
-            {/* conditional loading page does not appear! Why is that? */}
 			{!(actors.length && displays) 
                 ? (
-                <>
                 <div className='loading-page'>
-                    <h1 className='loading-message'>Loading...</h1>
+                    <h1 id='loading-message'>Loading...</h1>
                 </div>
-                </>
                 )
                 : actors.map((actor, idx, arr) => (
-                    <>
-                            <div
-                                    key={`${actor.name}`}
-                                    className={`actor ${actor.name}`}
-                                    // ref={focusPoints[`focus${actor.id}`]}
-                                    style={window.innerWidth < 1099 ?{backgroundImage: `url(${actor.img})`} : null}
-                                    >
-
-                                <div className="actor-box" >
-                                    { window.innerWidth > 1099 ? <img className="actor-photo" src={`${actor.img}`} alt={`${actor.alt}`} /> : null}
-                                    <p className="actor-bio"> 
-                                    { window.innerWidth > 1099? 
-                                    <>
-                                        <span className='actor-name'>{actor.name}</span>
-                                    </>
-                                    : null}
-                                <br/>
-                                    
-                                        <span className='actor-bio-copy' 
-                                            id = {idx}
-                                            style={displays[idx]}
-                                            >
-                                            {actor.bio}
-                                        </span>
-                                        <br/>
-                                    { window.innerWidth < 1100?
-                                    <div className='actor-name-phone-box'>
-                                    <span className='actor-name'>{actor.name} </span>
-                                    <button className='actor-button' id={idx} onClick={toggleActorBio} style={buttonStyles[idx]}>Meet the actor.</button>
-                                    <br/>
-                                    </div>
-                                    : null}
-                                    
-                                        <a href={`${actor.imdb}`} target='_blank' rel='noreferrer'><img className='actor-a-tag' src='https://i.imgur.com/lTL68KV.png' alt='IMDb'/></a>
-                                    </p>
-                                </div>
-                            </div>
-                    </>
+                    <Actor actor={actor} focusPoints={focusPoints} idx={idx} displays={displays} toggleActorBio={toggleActorBio} buttonStyles={buttonStyles} setFocusPoints={setFocusPoints}/>
                 )) 
             }
             <Footer />

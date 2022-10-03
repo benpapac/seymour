@@ -1,45 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useQuery, useMutation, gql } from '@apollo/client';
+import { useState, useEffect, useContext } from 'react';
+import { useMutation } from '@apollo/client';
 import ActorApiForm from './ActorApiForm';
-import './Api.css';
-import AddNewForm from './AddNewForm';
+import '../Api';
+import AddNewForm from '../AddNewForm';
 import { useNavigate } from 'react-router-dom';
-
-
-
-    const ACTORS_QUERY = gql `
-    {
-        actors {
-             id
-            name
-            img
-            alt
-            imdb
-            bio
-        }
-    }
-    `;
-
-    const DEL_ACTOR = gql `
-    mutation deleteActor($name: String!){
-        deleteActor(name: $name){
-            id
-            name
-            img
-            alt
-            imdb
-            bio
-        }
-    }
-    `;
-
-
-
+import { Context } from '../../../Util/Context';
+import { DEL_ACTOR } from '../../../Util/GraphQL';
 
 const ApiActor = () => {
     const navigate = useNavigate();
     const [editing, setEditing] = useState(false);
-    const queryData = useQuery(ACTORS_QUERY).data;
+    const {actorsData} = useContext(Context);
     const [deleteActor, {data, loading, error}] = useMutation(DEL_ACTOR);
     const [actorId, setActorId] = useState('');
     const [newItem, setNewItem] = useState(false);
@@ -83,13 +54,13 @@ if(error) return `Error: ${error}`;
     return (
         <>
         <button className="api-create-button" onClick={()=> setNewItem(true)}>Create new Actor. </button>
-        {queryData && (
+        {actorsData && (
             <>
                     {!newItem ? null : <AddNewForm itemType="actor" />}
                     { 
                     editing && <ActorApiForm actorId={actorId} handleClick={handleClick} message={message} />}
 
-                       {queryData && queryData.actors.map(actor => (
+                       {actorsData && actorsData.actors.map(actor => (
                             <>
                                     <div key={actor.id} className="api-div">
                                         <h2>{actor.name}</h2>
