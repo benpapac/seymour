@@ -58,9 +58,9 @@ if(error) return `Error: ${error}`;
             <>
                     {!newItem ? null : <AddNewForm itemType="actor" />}
                     { 
-                    editing && <ActorApiForm actorId={actorId} handleClick={handleClick} message={message} />}
+                    editing ? <ActorApiForm actorId={actorId} handleClick={handleClick} message={message} />
 
-                       {actorsData && actorsData.actors.map(actor => (
+                       : actorsData && actorsData.actors.map(actor => (
                             <>
                                     <div key={actor.id} className="api-div">
                                         <h2>{actor.name}</h2>

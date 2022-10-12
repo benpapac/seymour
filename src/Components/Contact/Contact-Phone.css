@@ -9,7 +9,7 @@
             left: 0vw;
             position: relative;
             width: 92vw;
-            padding-top: 5vh;
+            padding-top: 20vh;
             background-color: rgba(255, 255, 255, 0);
     
             display: flex;
@@ -17,27 +17,32 @@
             align-items: start;
             justify-content: start;
         }
+
+        .label {
+            color: black;
+            margin: 1vh;
+            font-size: 18px;
+        }
+        .input {
+            margin: 0;
+        }
     
         .contact-button {
-            z-index: 3;
             font-size: x-large;
             font-family: 'Forum', Courier, monospace;
-            margin-top: 10vh;
-            margin-bottom: -40vh;
+            margin-top: 1vh;
+            /* margin-bottom: -40vh; */
             align-self: end;
     
             box-shadow: 1px 1px 1px black;        
         }
     
-        .label {
-            color: black;
-            margin: 2vh;
-        }
 
         .contact-photo {
+            z-index: 0;
                 position: fixed;
-                top: 70vh;
-                right: 60vw;
+                top: 5vh;
+                right: 5vw;
                 height: 35vw;
                 width: 35vw;
                 border: 1px solid black;

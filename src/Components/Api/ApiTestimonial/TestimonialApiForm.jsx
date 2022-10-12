@@ -95,14 +95,14 @@ const TestimonialApiForm = ({ testimonialId, handleClick, message }) => {
           <form key={testimonial.id} className="api-form" onSubmit={handleSubmit}>
 
                     <label htmlFor="name">Name</label > 
-                <input id="name" type="text" onChange={handleChange} placeholder={testimonial.name} value={formState["testimonial-form-name"]} />
+                <input id="name" type="text" onChange={handleChange} placeholder={testimonial.name} value={formState.name} />
 
 
                 <label htmlFor="occupation">Occupation</label> 
-                <input id="occupation" type="text" cols="40" onChange={handleChange} placeholder={testimonial.occupation} value={ formState["testimonial-form-occupation"] } />
+                <input id="occupation" type="text" cols="40" onChange={handleChange} placeholder={testimonial.occupation} value={ formState.occupation } />
 
                 <label htmlFor="testimonial">Testimonial</label> 
-                <textarea id="testimonial" type="text" cols="50" rows="10" onChange={handleChange} placeholder={testimonial.testimonial}value={ formState["testimonial-form-testimonial"]} />
+                <textarea id="testimonial" type="text" cols="50" rows="10" onChange={handleChange} placeholder={testimonial.testimonial}value={ formState.testimonial} />
                 
                 <button type="submit" >Submit</button> 
                 <button id={testimonial.id} onClick={handleClick}>{message}</button>
