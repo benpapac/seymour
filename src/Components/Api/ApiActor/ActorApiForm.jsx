@@ -108,7 +108,7 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
                 <input id="alt" type="text" onChange={handleChange} placeholder="If the pic didn't load." value={formState.alt} />
 
                 <label htmlFor="imdb">IMDB Link</label> 
-                <textarea id="imdb" type="url" cols="40" onChange={handleChange} placeholder={actor.img} value={ formState.imdb } />
+                <textarea id="imdb" type="url" cols="40" onChange={handleChange} placeholder={actor.imdb} value={ formState.imdb } />
 
                 <label htmlFor="bio"></label> 
                 <textarea id="bio" type="text" cols="50" rows="10" onChange={handleChange} placeholder={actor.bio}value={ formState.bio} />
