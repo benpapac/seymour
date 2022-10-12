@@ -7,13 +7,6 @@
         background-color: rgb(239, 177, 177);
     }
 
-    .contact-blurb {
-        position: fixed;
-        top: 2vh;
-        font-size: 20px;
-        left: 5vw;
-        width: 60vw;
-    }
     .contact-form {
         margin-top: 0;
             height: fit-content;
@@ -21,7 +14,7 @@
             left: 0vw;
             position: fixed;
             width: 92vw;
-            padding-top: 10vh;
+            padding-top: 5vh;
             padding-bottom: 10vh;
             background-color: rgba(255, 255, 255, 0);
     
