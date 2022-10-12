@@ -17,7 +17,7 @@
     .contact-form {
         margin-top: 0;
             height: fit-content;
-            top: 10vh;
+            top: 1vh;
             left: 0vw;
             position: fixed;
             width: 92vw;
@@ -62,6 +62,7 @@
                 box-shadow: none;
         }
     
+        .contact-photo,
         .contact-box,
         .contact-block,
         .contact-filter{
