@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Context } from '../../../Util/Context';
 import {} from '../../../Util/Callbacks';
 
-const LookBook = ({ idx, setIdx}) => {
-    const {actorsData, divAnimation, setDivAnimation} = useContext(Context);
+const LookBook = ({ actors, idx, setIdx}) => {
+    const { divAnimation, setDivAnimation} = useContext(Context);
 
        const updateIndexes = async (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const LookBook = ({ idx, setIdx}) => {
     }
     return (
             <div className='lookbook'>
-                {actorsData && actorsData.actors.map((actor, index) => {
+                {actors.map((actor, index) => {
                     return (
                         <>
                             <img

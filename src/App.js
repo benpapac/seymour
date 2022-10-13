@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
-import { useState, useRef, createContext, useContext } from 'react';
+import { useState, useRef, createContext, useContext, useEffect } from 'react';
 import { Context } from './Util/Context';
 
 import Nav from './Components/Nav/Nav';
@@ -16,8 +16,7 @@ import ApiActor from './Components/Api/ApiActor/ApiActor';
 import ApiTestimonial from './Components/Api/ApiTestimonial/ApiTestimonial';
 
 import { useQuery } from '@apollo/client';
-import { ACTORS_QUERY } from './Util/GraphQL';
-import { TESTIMONIALS_QUERY } from './Util/GraphQL';
+import { ACTORS_QUERY, TESTIMONIALS_QUERY } from './Util/GraphQL';
 
 function App() {
 	const testimonialsData = useQuery(TESTIMONIALS_QUERY).data;
@@ -34,6 +33,7 @@ function App() {
 		previous: null,
 		newState: false,
 	});
+
 
 	return (
 		<Context.Provider
