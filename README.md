@@ -13,17 +13,17 @@ To see the back end API for this project, [visit this repo](https://github.com/b
 
 The app components are structured in a nested hierarchy.
 
--App
-    -About
-    -Talent
-        -Actor
-        -Lookbook
-        -Actor(phone)
-    -Coaching
-    -Contact
-    -API
-        -actorApi
-        -testimonialApi
+- App
+    - About
+    - Talent
+        - Actor
+        - Lookbook
+        - Actor(phone)
+    - Coaching
+    - Contact
+    - API
+        - actorApi
+        - testimonialApi
 
 App contains routes to About, Talent, Coaching, and Contact.
 
@@ -34,4 +34,3 @@ API is a "secret," page, protected by a login, and must be visited directly by t
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
