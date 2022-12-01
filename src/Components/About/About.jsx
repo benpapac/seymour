@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import useScrollPosition from '../../Hooks/useScrollPosition';
 import portrait from '../../Assets/Nicole_Portrait.jpeg'
 import './About.css';
-import './About-phone.css';
+import './PhoneAbout.css';
 import aboutMe from '../../Json/aboutMe.json';
 
 
@@ -20,7 +20,7 @@ const About = () => {
                             return  <p className='about-blurb'>
                                 {graf}
                                 <br/>
-                                <NavLink to='/' > <span className='about-link' style={{textDecoration: 'none'}}>Back</span></NavLink>
+                                <NavLink to='/' className='about-link' > <span style={{textDecoration: 'none'}}>Back</span></NavLink>
                             </p>
                         }
                     )
