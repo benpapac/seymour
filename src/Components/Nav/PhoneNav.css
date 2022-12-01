@@ -1,11 +1,11 @@
 #hidden {
     left: 100vw;
-    animation: slide-right 0.8s;
+    animation: slide-right 1s;
 }
 
 #visible {
     left: 0;
-    animation: slide-left 0.8s;
+    animation: slide-left 2s;
 }
 
 #hamburger {
@@ -60,12 +60,12 @@
     text-align: center;
     text-decoration: none;
     font-size: 20px;
-
+    color: black;
     font-family: 'Forum', serif;
 }
 
 .link:hover {
-    color: antiquewhite;
+    color: #c9a227;
 }
     
 .home-link {

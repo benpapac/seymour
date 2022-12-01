@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../Assets/Naomi_Logo.png';
-import './Nav-phone.css';
+import './PhoneNav.css';
 
 
 
 const PhoneNav = () => {
-    const activeStyle = {color: '#c4b728'}
+    const activeStyle = {color: '#c9a227'}
 
     const [navId, setNavId] = useState('hidden');
     const [navButtonId, setNavButtonId] = useState('hamburger');
@@ -14,11 +14,11 @@ const PhoneNav = () => {
 	const toggleNav = (e) => {
 		e.preventDefault();
     setTimeout(() => {
-      setNavId( navId === 'visible' ? 'hidden' : 'visible');
       setNavButtonAnimation('appear 3s');
       setNavButtonId( navButtonId === 'exit' ? 'hamburger' : 'exit');
     }, 800) ;
     setNavButtonAnimation( 'rollout 1.5s' );
+    setNavId( navId === 'visible' ? 'hidden' : 'visible');
 	}
 
     return (
