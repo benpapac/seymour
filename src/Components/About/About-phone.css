@@ -1,4 +1,9 @@
 @media(max-width: 500px){
+
+    .about-bg {
+        margin-top: 15vh;
+        padding-top: 10vh;
+    }
    
     
         .about-photo {
@@ -22,25 +27,31 @@
             /* position: fixed; */
             /* left: 50vw; */
             height: fit-content;
-            width: 90vw;
+            width: 80vw;
     
             line-height: 2;
             font-size: 20px;
             font-weight: 800;
         }
     
-        .about-blurb p {
-            z-index: 2;
-        }
+       
     
         .about-blurb::first-line {
             font-family: 'Forum', serif;
         }
     
         .about-link {
-            position: fixed;
-            left: 15vw;
-            bottom: 10vh;
+            left: 0;
+            bottom: 0;
+            position: relative;
+
+            background-color: peachpuff;
+            padding: 0.1em;
+            text-align: center;
+            text-decoration: none;  
+            height: 40px;
+            width: 200px;
+
             text-decoration: none;
             font-size: 30px;
             font-family: 'Forum', sans-serif;

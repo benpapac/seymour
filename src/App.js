@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import { useState, useRef, createContext, useContext, useEffect } from 'react';
+import logo from './Assets/Naomi_Logo.png';
+
 import { Context } from './Util/Context';
 
+import PhoneNav from './Components/Nav/PhoneNav';
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
+import HomePhone from './Components/Home/HomePhone';
 import ContactUs from './Components/Contact/emailJS';
 import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
@@ -34,7 +37,6 @@ function App() {
 		newState: false,
 	});
 
-
 	return (
 		<Context.Provider
 			value={{
@@ -55,10 +57,13 @@ function App() {
 				setDisplay: setDisplay,
 			}}>
 			<div className='App'>
-				<header>{window.innerWidth >= 1100 ? <Nav /> : null}</header>
+				<header>{window.innerWidth >= 1100 ? <Nav /> : <PhoneNav />}</header>
 				<main>
 					<Routes>
-						<Route path='/' element={<Home />} />
+						<Route
+							path='/'
+							element={window.innerWidth >= 1100 ? <Home /> : <HomePhone />}
+						/>
 
 						<Route exact path='/contact' element={<ContactUs />} />
 						<Route exact path='/talent' element={<Talent />} />
@@ -74,7 +79,7 @@ function App() {
 						/>
 					</Routes>
 				</main>
-				<footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer>
+				{/* <footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer> */}
 			</div>
 		</Context.Provider>
 	);

@@ -1,4 +1,5 @@
 import {useState, useReducer, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
 import useScrollPosition from '../../Hooks/useScrollPosition';
 import portrait from '../../Assets/Nicole_Portrait.jpeg'
 import './About.css';
@@ -18,6 +19,8 @@ const About = () => {
                 {  grafs.map((graf, idx) => {
                             return  <p className='about-blurb'>
                                 {graf}
+                                <br/>
+                                <NavLink to='/' > <span className='about-link' style={{textDecoration: 'none'}}>Back</span></NavLink>
                             </p>
                         }
                     )

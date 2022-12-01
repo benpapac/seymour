@@ -2,7 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import logo from '../../Assets/Naomi_Vector.png';
 import './Nav.css';
-import './Nav-phone.css';
 const Nav = () => {
     const activeStyle = {color: '#c4b728'}
     return (

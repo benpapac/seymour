@@ -95,8 +95,6 @@ const Home = () => {
                     </div>
                     
             </section>
-
-                    {window.innerWidth < 1100 ? null : <Footer />}
         </section>
     );
 };

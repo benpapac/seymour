@@ -1,7 +1,11 @@
 /* @import-normalize; */
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Forum&display=swap');
+
+
 header {
 	height: 15vh;
+	background-color: peachpuff;
+	width: 100vw;
 }
 
 main {
@@ -19,4 +23,11 @@ main {
 	justify-content: space-around;
 }
 
+@media(max-width: 1099px) {
+	header {
+		position: fixed;
+		top: 0;
+		z-index: 2;
+	}
 
+}

@@ -1,24 +1,8 @@
-@media (max-width: 500px) {
+@media (max-width: 1099px) {
 
-    /* body:before {
-            content: "";
-            display: block;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -10;
-            background: url(../../Assets/Nicole_Portrait.jpeg) no-repeat center center;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        } */
-
-     #home-headline-box {
-			background-attachment: local;
-        }
+#home-headline-box {
+    background-attachment: local;
+}
 
 #home-headline {
     margin-top: 0;
@@ -28,7 +12,6 @@
 }
 
 .home-filter {
-    z-index: 1;
         height: 100vh;
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.7);
@@ -39,31 +22,39 @@
     }
 
     .home-photo {
-            
-                animation: none;
-            
-                z-index: 1;
-                border: none;
-        margin: 0;
-        left: 0;
-        height: 100vh;
-        width: auto ;
         position: relative;
+        animation: none;
+            
+        border: none;
+        border-radius: 100%;
+        margin: 1em;
+        top: 0;
+        left: 0;
+        height: 20vh;
+        width: 20vh ;
+        position: relative;
+
+        background-image: url(https://i.imgur.com/scUZ8l7.jpg);
+        background-size: cover;
     }
 
     #home-mission-box {
+       height: 100vh;
+       width: 100vw;
+       margin-top: 0;
        background-color: rgba(0,0,0,0);
     }
 
     #home-mission-copy {
-        z-index: 2;
-        top: 50vh;
-        left: 0;
-        padding: 0.5em;
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 1em;
+        padding: 0;
         font-size: 24px;
-        height: 45vh;
+        height: fit-content;
         width: 95vw;
-        background-color: rgba(0,0,0,0.5);
+        /* background-color: rgba(0,0,0,0.5); */
         color: antiquewhite;
         font-weight: 800;
         display: flex;
@@ -82,9 +73,6 @@
         font-family: 'Forum', serif;
     }
 
-
-
-
         #home-links-box {
             background: url(../../Assets/AdobeStock_LightBulbs.jpg);
             background-attachment:local;
@@ -96,7 +84,6 @@
 
 
     #home-talent-box, #home-coaching-box{
-        z-index: 2;
         margin: -0.01em;
             position: relative;
             height: 50vh;
