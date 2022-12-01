@@ -23,24 +23,22 @@ const Talent = () => {
         actorsData && setActors(actorsData.actors);
     }, [actorsData]);
 
-    return (
-        <section className='talent-box'>
-            { !actors[0] 
-                ? (
-                    <div className='loading-page'>
+
+    if(!actors[0]){
+        return  <div className='loading-page'>
                         <h1 id='loading-message'>Loading...</h1>
                     </div>
-                    )
-                    
-                    : ( actors &&
-                        window.innerWidth > 1099 
+    }
+
+    return (
+        <section className='talent-box'>
+                       { window.innerWidth > 1099 
                         ?   <>
                                 <LookBook actors={actors} idx={idx} setIdx={setIdx} /> 
                                 <Actor actor={actors[idx]} idx={idx} />
                                 <Footer />
                             </> 
                         : <ActorPhone  actors={actors}/>
-                        )
             }
                 
         </section>

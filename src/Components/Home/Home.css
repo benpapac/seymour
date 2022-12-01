@@ -73,7 +73,6 @@
 	transition: ease;
 	animation: home-float-up 3.5s;
 
-		z-index: 1;
 		left: 5vw;
 		border: solid black 1px;
 		/* border-radius: 100%; */
@@ -83,6 +82,8 @@
 	background-color: peachpuff;
 	padding: 0.5em;
 	color: black;
+	text-align: center;
+	font-family: 'Forum', serif;
 }
 
 

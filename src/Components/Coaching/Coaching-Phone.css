@@ -1,9 +1,12 @@
 @media(max-width: 500px){
     .coaching-bg {
         /* height:85vh; */
+        /* height: 100vh; */
+        height: fit-content;
         display: flex;
         flex-direction: column;
         overflow: auto;
+        margin-top: 15vh;
 
         padding-top: 0;
     }
@@ -19,6 +22,7 @@
     }
 
     #coaching-blurb {
+        z-index: 0;
         margin: 0;
         padding: 0;
         padding: 5vh 5vw;
@@ -66,7 +70,7 @@
 
         #testimonial-name {
             color: antiquewhite;
-            z-index: 1;
+            /* z-index: 1; */
             position: fixed;
             left: 5vw;
             bottom: 25vh;
@@ -77,7 +81,7 @@
     
         #testimonial-occupation {
             color: antiquewhite;
-            z-index: 1;
+            /* z-index: 1; */
             position: fixed;
             left: 5vw;
             bottom: 21vh;
@@ -102,7 +106,7 @@
 
         #testimonial-toggle-button {
             padding: 0.1em;
-            z-index: 3;
+            /* z-index: 3; */
             position: fixed;
             bottom: 10vh;
             left: 50vw;
