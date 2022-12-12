@@ -1,5 +1,7 @@
 @media (max-width: 1099px) {
 
+
+
 #home-headline-box {
     background-attachment: local;
 }
@@ -21,40 +23,35 @@
         display: none;
     }
 
-    .home-photo {
-        position: relative;
-        animation: none;
-            
-        border: none;
-        border-radius: 100%;
-        margin: 1em;
-        top: 0;
-        left: 0;
-        height: 20vh;
-        width: 20vh ;
-        position: relative;
-
-        background-image: url(https://i.imgur.com/scUZ8l7.jpg);
-        background-size: cover;
-    }
 
     #home-mission-box {
        height: 100vh;
        width: 100vw;
-       margin-top: 0;
-       background-color: rgba(0,0,0,0);
+       margin-top: 10vh;
+        background-image: url(https://i.imgur.com/scUZ8l7.jpg);
+        background-size: cover;
+        background-position: -20vw;
+    }
+
+    #home-mission-filter {
+       background-color: rgba(0, 0, 0, 0.5);
+       margin-top: 45vh;
+       width: 100vw;
+       height: 65vh;
+       padding: 1em;
+       align-items: start;
     }
 
     #home-mission-copy {
         position: relative;
+        margin: 0;
+        justify-self: end;
         top: 0;
         right: 0;
-        margin: 1em;
-        padding: 0;
+        padding: 0.5em;
         font-size: 24px;
-        height: fit-content;
+        height: 35vh;
         width: 95vw;
-        /* background-color: rgba(0,0,0,0.5); */
         color: antiquewhite;
         font-weight: 800;
         display: flex;
@@ -62,8 +59,11 @@
         justify-content: center;
     }
 
+    #about {
+        margin-left: 5vw;
+    }
+
     .homePage-link {
-        margin: 0;
         width: fit-content;
         padding: 0.1em;
 

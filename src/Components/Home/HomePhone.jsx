@@ -6,13 +6,14 @@ const HomePhone = () => {
     return (
         <>
          <div className='home-box' id='home-mission-box'>
-            <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
-            </p>
-            <Link to='/about'  style={{textDecoration: 'none'}}>
-                <div className='home-photo'></div>
-                <p id='about'>Meet Nicole.</p>
-            </Link>
+            <div id='home-mission-filter'>
 
+                <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
+                </p>
+                <Link to='/about'  style={{textDecoration: 'none'}}>
+                    <span id='about'>Meet Nicole.</span>
+                </Link>
+            </div>
             </div>
              <section className='home-box' id='home-links-box' >
                 <div className='home-filter' />
