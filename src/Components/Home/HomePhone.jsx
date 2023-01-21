@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home-Phone.css'
 
 const HomePhone = () => {
+
+    useEffect(()=>{
+        window.scroll(0,0);
+    },[]);
     return (
         <>
          <div className='home-box' id='home-mission-box'>

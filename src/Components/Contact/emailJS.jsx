@@ -13,6 +13,7 @@ import puppy from '../../Assets/Nicole_Puppy.jpg';
 
 	useEffect(() => {
 		setSent('');
+		window.scroll(0,0);
 	}, [])
 
 	const sendEmail = (e) => {

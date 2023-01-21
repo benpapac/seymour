@@ -23,6 +23,10 @@ const Talent = () => {
         actorsData && setActors(actorsData.actors);
     }, [actorsData]);
 
+    useEffect(()=>{
+        window.scroll(0,0);
+    },[]);
+
 
     if(!actors[0]){
         return  <div className='loading-page'>

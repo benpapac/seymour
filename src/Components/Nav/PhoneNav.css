@@ -1,128 +1,125 @@
 #hidden {
-    left: 100vw;
-    animation: slide-right 1s;
+	left: 100vw;
+	transition: ease 1s;
 }
 
 #visible {
-    left: 0;
-    animation: slide-left 2s;
+	left: 0;
+	transition: ease 1s;
 }
 
 #hamburger {
-    position: fixed;
-    top: 1vh;
-    right: 10vw;
-    border-radius: 100%;
-    height: 10vh;
-    width: 10vh;
-    z-index: 1;
-    
-    border: none;
-    background-color: peachpuff;
-    background-image: url(https://i.imgur.com/EhNVG75.png);
-    background-size: cover;
+	position: fixed;
+	top: 1vh;
+	right: 10vw;
+	border-radius: 100%;
+	height: 10vh;
+	width: 10vh;
+	z-index: 1;
+
+	border: none;
+	background-color: peachpuff;
+	background-image: url(https://i.imgur.com/EhNVG75.png);
+	background-size: cover;
 }
 
 #exit {
-    position: fixed;
-    z-index: 3;
-        top: 1vh;
-        right: 10vw;
-        border: none;
-        border-radius: 100%;
-        height: 10vh;
-        width: 10vh;
+	position: fixed;
+	z-index: 3;
+	top: 1vh;
+	right: 10vw;
+	border: none;
+	border-radius: 100%;
+	height: 10vh;
+	width: 10vh;
 
-        background-color: antiquewhite;
-        background-image: url(https://i.imgur.com/e9P28SI.png);
-        background-size: cover;
+	background-color: antiquewhite;
+	background-image: url(https://i.imgur.com/e9P28SI.png);
+	background-size: cover;
 }
 
 .nav-screen {
-    z-index: 2;
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: antiquewhite;
-    }
-    
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: antiquewhite;
+}
+
 .phone-link {
-    margin: 0;
-    height: 70px;
-    width: 100px;
+	margin: 0;
+	height: 70px;
+	width: 100px;
 
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    font-family: 'Forum', serif;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+	font-family: 'Forum', serif;
 }
 
 .link:hover {
-    color: #c9a227;
-}
-    
-.home-link {
-    margin-top: 0vh;
-    height: 7vh;
-    width: 9vh;
-    align-self: center;
-    justify-self: center;
+	color: #c9a227;
 }
 
+.home-link {
+	margin-top: 0vh;
+	height: 7vh;
+	width: 9vh;
+	align-self: center;
+	justify-self: center;
+}
 
 @keyframes slide-left {
-    from {
-        left: 100vw;
-    }
+	from {
+		left: 100vw;
+	}
 
-    to {
-        width: 100vw;
-    }
-    
+	to {
+		width: 100vw;
+	}
 }
 
 @keyframes slide-right {
-    from{
-        left: 0;
-    }
+	from {
+		left: 0;
+	}
 
-    to {
-        left: 100vw;
-    }
+	to {
+		left: 100vw;
+	}
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-    }
+	from {
+		opacity: 0;
+	}
 
-    20% {
-        opacity: 0;
-    }
+	20% {
+		opacity: 0;
+	}
 
-    to {
-        opacity: 1;
-    }
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes rollout {
-    from {
-        transform: rotate(0);
+	from {
+		transform: rotate(0);
+	}
 
-    }
+	50% {
+		transform: translate(150px) rotate(180deg);
+	}
 
-    50%{
-        transform: translate(150px) rotate(180deg);
-    }
-
-    to {
-        transform: translate(150px) rotate(180deg);
-    }
+	to {
+		transform: translate(150px) rotate(180deg);
+	}
 }
