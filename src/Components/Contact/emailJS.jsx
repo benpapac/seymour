@@ -66,7 +66,7 @@ import './Contact-Phone.css';
 				<label className='label'>Name</label>
 				<input type="hidden" name='to_name' value="Nic"/>
 				<input className='input' type='text' placeholder='e.g. Nicole Seymour' name='name' />
-
+				<label className='label'>Email Address</label>
 				<input className='input' type='email' placeholder='username@email.com' name='email' />
 				<label className='label'>Subject</label>
 				<input className='input' type="text" placeholder="What's on your mind?" name='subject'/>

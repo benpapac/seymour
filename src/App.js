@@ -36,10 +36,7 @@ function App() {
 				<header>{window.innerWidth >= 1100 ? <Nav /> : <PhoneNav />}</header>
 				<main>
 					<Routes>
-						<Route
-							path='/'
-							element={<Home />}
-						/>
+						<Route path='/' element={<Home />} />
 
 						<Route exact path='/contact' element={<ContactUs />} />
 						<Route exact path='/talent' element={<Talent />} />
