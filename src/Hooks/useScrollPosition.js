@@ -7,7 +7,11 @@ const useScrollPosition = () => {
 	const handleScroll = (e) => {
 		if (e.path)
 			setScrollPosition({ x: e.path[1].scrollX, y: e.path[1].scrollY });
-		else setScrollPosition({ x: e.target.scrollingElement.scrollLeft, y: e.target.scrollingElement.scrollTop });
+		else
+			setScrollPosition({
+				x: e.target.scrollingElement.scrollLeft,
+				y: e.target.scrollingElement.scrollTop,
+			});
 	};
 
 	useEffect(() => {

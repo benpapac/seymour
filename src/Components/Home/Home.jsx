@@ -1,71 +1,42 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import { Context } from '../../Util/Context';
-import Footer from '../Footer/Footer';
 import './Home.css';
 import './Home-Phone.css';
-import useScroll from '../../Hooks/useScrollPosition';
-import logo from '../../Assets/Naomi_Vector.png';
+
+import useIntersectionObserver from '../../Hooks/useIntersectionObserver';
 
 const Home = () => {
-    /*
-    I'd like to have a scroll-down icon that lets the user know there's more to see. 
-        I'd also like that icon to be clickable, so if the user clicks it, they will be scrolled to the next section.
-    
-    I'd like to add an animation to the Mission Statement, so the portrat
-    */
-
-    const scrollData = useScroll();
-    const [scroll, setScroll] = useState(110);
-    const [oldHeight, setOldHeight] = useState(0);
-    const [scrollDirection, setScrollDirection] = useState('neutral');
-    const [delay, setDelay] = useState(0);
-    const [opacity, setOpacity] = useState(0);
-    const [count, setCount] = useState(0);
-    const [animation, setAnimation] = useState('none');
-    const [display, setDisplay] = useState('none');
-    const [rects, setRects] = useState({});
-
-
-    const showScrollDown = () => {
-        setTimeout(()=> {
-            if(delay < 300) setDelay(delay+1);
-            else setOpacity(opacity >= 1? 1: opacity + 0.01)
-        }, 10)
-    }
-
-    const getDiv = () => {
-        let linksBox = document.getElementById('home-links-box') || null;
-
-        let coachingRect = linksBox.getBoundingClientRect();
-        return coachingRect;
-    }
+    const LIGHTBULBS = `url(${process.env.REACT_APP_AWS}AdobeStock_LightBulbs.jpg)`
+    const [linksStyle, setLinksStyle] = useState({
+        display: 'none',
+        animation: 'none',
+    });
+    const [ref, entry] = useIntersectionObserver({
+        threshold: Array.from( Array(100), (_,idx) => idx*0.01+.01)
+    });
 
     useEffect( () => {
-        setOldHeight(scrollData.y);
-        setRects(getDiv());
-
-        if(scrollData.y > oldHeight) {
-            setScrollDirection('down');
-        } else if(scrollData.y - oldHeight < 0) {
-            setScrollDirection('up');
-        } else setScrollDirection('neutral');
-         if(rects.y < 200 ) {
-            setAnimation('home-slide-up 2s');
-            setDisplay('flex');
-            setCount(0);
-        } 
-        showScrollDown();
-    }, [scrollData.y, opacity])
-
+        if(entry.intersectionRatio > 0.5){
+            setLinksStyle({
+                display: 'block',
+                animation: 'home-slide-up 2s'
+            })
+        }
+        
+    }, [entry.intersectionRatio])
 
     return (
         <section className='home-bg'>
-            <div className='home-box' id='home-mission-box'>
-                <img src="https://i.imgur.com/scUZ8l7.jpg" 
+            <div className='home-box' id='home-mission-box'
+                style={ window.innerWidth < 1101 ? {
+                    backgroundImage: `url(${process.env.REACT_APP_AWS}Nicole_Portrait.jpg)`,
+                    margintTop: '10vh',
+                } : null}
+                >
+               {window.innerWidth >1100 ? <img src={process.env.REACT_APP_AWS+"Nicole_Portrait.jpg"}
                     alt="Nic's headshot" 
                     className='home-photo'
-                    />
+                    /> : null}
                     <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
                     <br/>
                     <br/>
@@ -73,9 +44,11 @@ const Home = () => {
                 </p>
             </div>
 
-            <section className='home-box' id='home-links-box' >
+            <section className='home-box' id='home-links-box'
+                ref={ref}
+            style={{backgroundImage: LIGHTBULBS}} >
                 <div className='home-filter' />
-                    <div id='home-talent-box' style={{display: `${display}`, animation: `${animation}`,}}>
+                    <div id='home-talent-box' style={linksStyle}>
                         <p id="home-talent-copy"><span className='headline'>Artists</span>
                         <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
                         <Link to="/talent" style={{textDecoration: 'none'}}>
@@ -85,7 +58,7 @@ const Home = () => {
                         </p>
                     </div>
                     
-                    <div id='home-coaching-box' style={{display: `${display}`, animation: `${animation}`,}}>
+                    <div id='home-coaching-box' style={linksStyle}>
                     <p id='home-coaching-copy'><span className='headline'>Coaching</span>
                         <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
                     <Link to='/coaching' style={{textDecoration: 'none'}}>

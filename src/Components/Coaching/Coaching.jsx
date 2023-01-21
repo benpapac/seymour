@@ -1,89 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useScroll from '../../Hooks/useScrollPosition';
+import React, { useContext, useRef } from 'react';
 import {Context} from '../../Util/Context';
-import { scrollDown, scrollUp } from '../../Util/Callbacks';
 
 
 import './Coaching.css';
 import './Coaching-Phone.css';
-
-
-
+import Testimonial from './Testimonial';
 
 const Executives = () => {
-    // const [count, setCount] = useState(0);
-    const scrollData = useScroll();
-    const context = useContext(Context);
-    const {setTestimonialFocus, testimonialsData, setRects, animation, setAnimation, authorAnimation, setAuthorAnimation, display, setDisplay} = useContext(Context);
+    const itemsRef = useRef(null);
+    const {testimonialsData} = useContext(Context);
 
+    const blurbDisplay = {display: 'block'};
 
-    const [initiated, setInitiated] = useState(false);
-    const [blurbDisplay, setBlurbDisplay] = useState({display: 'block'});
-    
-    const [oldY, setOldY] = useState(0);
-
-
-   
-
-     const getDivs = () => {
-        let array = testimonialsData.testimonials.map((test, idx) => {
-            let linksBox = document.getElementById(`${test.id}`) || null;
-            
-            let coachingRect = linksBox.getBoundingClientRect();
-            return coachingRect;
-        })
-    return array;
-     }
-
-     const getScrollDirection = () => {
-
-        if(scrollData.y > oldY) {
-            return 'down';
-        } else if(scrollData.y - oldY < 0) {
-            return 'up'
-        } else return 'neutral';
-     }
-
-
-     const updateDivs = (direction) => {
-        switch (direction) {
-            case 'down':
-                 scrollDown(context);
-                 break;
-            case 'up':
-               scrollUp(context);
-                break;
-            default:
-                break;
+    const getMap = () => {
+        if(!itemsRef.current) {
+            itemsRef.current = new Map();
         }
-        
-     }
-
-    useEffect( () => {
-        setOldY(scrollData.y);
-        
-        if(testimonialsData && !initiated){
-
-            let obj = testimonialsData.testimonials.reduce((accum, testimonial, idx) => {
-                return {...accum, [idx]: 'none'}
-            }, {})
-            if(window.innerWidth >= 1100) setDisplay(obj);
-            else setDisplay( testimonialsData.testimonials.reduce((accum, test) => {
-                return {...accum, [test.focus]: 'block'}
-            }, {})
-            )
-
-            setDisplay(obj);
-            setAnimation(obj);
-            setAuthorAnimation(obj);
-            setInitiated(true);
-        }
-            testimonialsData && setRects(getDivs());
-            updateDivs(getScrollDirection());
-
-    }, [scrollData.y, testimonialsData]);
-
+        return itemsRef.current;
+    }
 
     return (
         <section className='coaching-bg'>
@@ -107,15 +41,24 @@ const Executives = () => {
 
             <div className='testimonials-box'>
                 {testimonialsData && testimonialsData.testimonials.map((testimonial, idx) => {
+        
                     return (
-                        <div className='testimonial' 
+                        <Testimonial className='testimonial' 
                         id={`${testimonial.id}`}
-                        // ref={focusPoints[`${testimonial.focus}`]}
-                    >
-                            <p style={{ display: `${display[idx]}`, animation: `${animation[idx]}`}}>{testimonial.testimonial}</p>
-                            <h4 style={{ display:` ${display[idx]}`, animation: `${authorAnimation[idx]}`}}>{testimonial.name}</h4>
-                            <h6 style={{ display: `${display[idx]}`, animation: `${authorAnimation[idx]}`}}>- {testimonial.occupation}</h6>
-                        </div>
+                        key={`${testimonial.id}`}
+
+                        // https://beta.reactjs.org/learn/manipulating-the-dom-with-refs
+                        ref={(node) => {
+                            const map = getMap();
+                            if(node){
+                                map.set(testimonial.id, node);
+                            } else {
+                                map.delete(testimonial.id);
+                            };
+                        }}
+
+                        testimonial={testimonial}
+                    />
                     )
                 })}
             </div>

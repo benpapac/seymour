@@ -9,6 +9,11 @@ import aboutMe from '../../Json/aboutMe.json';
 
 const About = () => {
    const grafs = aboutMe[0].grafs;
+
+
+   useEffect(()=>{
+    window.scroll(0,0);
+   },[]);
  
     return (
         <section className='about-bg'>

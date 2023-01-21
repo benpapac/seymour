@@ -25,12 +25,14 @@
 
 
     #home-mission-box {
-       height: 100vh;
+        align-self: center;
+        justify-self: center;
+       height: 90vh;
        width: 100vw;
-       margin-top: 10vh;
-        background-image: url(https://i.imgur.com/scUZ8l7.jpg);
+       margin-top: 25vh;
+        /* background-image: url(https://i.imgur.com/scUZ8l7.jpg); */
         background-size: cover;
-        background-position: -20vw;
+        background-position: 35%, 100%;
     }
 
     #home-mission-filter {
@@ -38,21 +40,22 @@
        margin-top: 45vh;
        width: 100vw;
        height: 65vh;
-       padding: 1em;
+       padding: 0.1em;
        align-items: start;
     }
 
     #home-mission-copy {
         position: relative;
         margin: 0;
+        margin-left: 5vw;
         justify-self: end;
-        top: 0;
+        top: 25vh;
         right: 0;
-        padding: 0.5em;
+        padding: 0.1em;
         font-size: 24px;
-        height: 35vh;
+        height: 50vh;
         width: 95vw;
-        color: antiquewhite;
+        color: black;
         font-weight: 800;
         display: flex;
         flex-direction: column;
@@ -74,19 +77,18 @@
     }
 
         #home-links-box {
-            background: url(../../Assets/AdobeStock_LightBulbs.jpg);
+            height: 90vh;
             background-attachment:local;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* left: 5vw; */
         }
 
 
     #home-talent-box, #home-coaching-box{
         margin: -0.01em;
             position: relative;
-            height: 50vh;
+            height: 45vh;
             width: 100vw;
             align-items: center;
             justify-content: center;

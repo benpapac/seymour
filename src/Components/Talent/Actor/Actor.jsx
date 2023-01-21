@@ -4,16 +4,8 @@ import './Actor-phone.css';
 import {Context} from '../../../Util/Context';
 
 const Actor = ({ actor, idx }) => {
-    const {actors, divAnimation} = useContext(Context);
-    // const [actor, setActor] = useState({});
+    const { divAnimation} = useContext(Context);
 
-    // self documenting code >> self explanatory functions.
-    //TS would add type safety, which would be useful for in-Return functions.
-
-    // useEffect(()=>{
-    //     setActor(actors[idx]);
-    //     console.log(actors);
-    // }, [actors, idx])
     return (
         <div
             className={`actor ${actor.name}`}
