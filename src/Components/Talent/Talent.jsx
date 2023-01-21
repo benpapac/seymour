@@ -1,18 +1,15 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Actor from './Actor/Actor';
 import './Talent.css';
 import './Talent-phone.css';
 import './LookBook.css';
 
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { ACTORS_QUERY } from '../../Util/GraphQL';
-
 
 import Footer from '../Footer/Footer';
 import LookBook from './Actor/LookBook';
 import ActorPhone from './Actor/ActorPhone';
-
-
 
 const Talent = () => {
     const actorsData = useQuery(ACTORS_QUERY).data;
@@ -26,7 +23,6 @@ const Talent = () => {
     useEffect(()=>{
         window.scroll(0,0);
     },[]);
-
 
     if(!actors[0]){
         return  <div className='loading-page'>

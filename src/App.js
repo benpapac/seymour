@@ -1,14 +1,12 @@
 import './App.css';
-import { NavLink, Routes, Route } from 'react-router-dom';
-import { useState, useRef, createContext, useContext, useEffect } from 'react';
-import logo from './Assets/Naomi_Logo.png';
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 import { Context } from './Util/Context';
 
 import PhoneNav from './Components/Nav/PhoneNav';
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
-import HomePhone from './Components/Home/HomePhone';
 import ContactUs from './Components/Contact/emailJS';
 import Coaching from './Components/Coaching/Coaching';
 import Talent from './Components/Talent/Talent';
@@ -25,36 +23,14 @@ function App() {
 	const testimonialsData = useQuery(TESTIMONIALS_QUERY).data;
 	const actorsData = useQuery(ACTORS_QUERY).data;
 
-	const [animation, setAnimation] = useState([]);
 	const [divAnimation, setDivAnimation] = useState([]);
-	const [authorAnimation, setAuthorAnimation] = useState([]);
-	const [rects, setRects] = useState([]);
-	const [display, setDisplay] = useState([]);
-
-	const [testimonialFocus, setTestimonialFocus] = useState({
-		active: null,
-		previous: null,
-		newState: false,
-	});
-
 	return (
 		<Context.Provider
 			value={{
-				// chooseFocus: chooseFocus,
 				testimonialsData: testimonialsData,
 				actorsData: actorsData,
-				animation: animation,
-				setAnimation: setAnimation,
-				authorAnimation: authorAnimation,
-				setAuthorAnimation: setAuthorAnimation,
 				divAnimation: divAnimation,
 				setDivAnimation: setDivAnimation,
-				rects: rects,
-				setRects: setRects,
-				testimonialFocus: testimonialFocus,
-				setTestimonialFocus: setTestimonialFocus,
-				display: display,
-				setDisplay: setDisplay,
 			}}>
 			<div className='App'>
 				<header>{window.innerWidth >= 1100 ? <Nav /> : <PhoneNav />}</header>
@@ -62,7 +38,7 @@ function App() {
 					<Routes>
 						<Route
 							path='/'
-							element={window.innerWidth >= 1100 ? <Home /> : <HomePhone />}
+							element={<Home />}
 						/>
 
 						<Route exact path='/contact' element={<ContactUs />} />
@@ -79,7 +55,6 @@ function App() {
 						/>
 					</Routes>
 				</main>
-				{/* <footer>{window.innerWidth < 1100 ? <Nav /> : null}</footer> */}
 			</div>
 		</Context.Provider>
 	);

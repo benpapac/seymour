@@ -108,7 +108,7 @@
 }
 
 #home-links-box {
-	background: url(../../Assets/AdobeStock_LightBulbs.jpg);
+	/* background: url(../../Assets/AdobeStock_LightBulbs.jpg); */
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;

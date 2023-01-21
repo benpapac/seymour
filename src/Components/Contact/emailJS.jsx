@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 import './Contact-Phone.css';
-import puppy from '../../Assets/Nicole_Puppy.jpg';
 
  const ContactUs = () => {
 	const form = useRef();
     const user_id = process.env.REACT_APP_USER_ID;
     const service_id = process.env.REACT_APP_SERVICE_ID;
+	const PUPPY = process.env.REACT_APP_AWS+'Nicole_Puppy.jpg'
 
 	const [sent, setSent] = useState('');
 
@@ -43,7 +43,7 @@ import puppy from '../../Assets/Nicole_Puppy.jpg';
 
 	return (
 		<div className='contact' >
-				<img className='contact-photo' src={puppy} alt="Nicole and her dog, Seymour Seymour" />
+				<img className='contact-photo' src={PUPPY} alt="Nicole and her dog, Seymour Seymour" />
 		{sent === 'pass' ? 
 		<>
 		<h4>Your message was successfully sent!</h4> 

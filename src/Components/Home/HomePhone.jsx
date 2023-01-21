@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home-Phone.css'
 
 const HomePhone = () => {
+    const LIGHTBULBS = `url(${process.env.REACT_APP_AWS}AdobeStock_LightBulbs.jpg)`
 
     useEffect(()=>{
         window.scroll(0,0);
