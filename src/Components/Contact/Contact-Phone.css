@@ -7,7 +7,7 @@
     }
 
     .contact-form {
-        margin-top: 10vh;
+        margin-top: 20vh;
             height: fit-content;
             top: 1vh;
             left: 0vw;
@@ -45,16 +45,15 @@
 
         .contact-photo {
             z-index: 0;
-                top: 10vh;
-                position: relative;
-                margin-left: 75vw;
-                height: 30vw;
-                width: 30vw;
+                position: fixed;
+                top: 16vh;
+                left: 64vw;
+                height: 35vw;
+                width: 35vw;
                 border: 1px solid black;
                 box-shadow: none;
         }
     
-        .contact-photo,
         .contact-box,
         .contact-block,
         .contact-filter{
