@@ -1,42 +1,46 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '../../../Util/Context';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { ACTORS_QUERY } from '../../../Util/GraphQL';
+import { Context } from '../../../Util/Context';
 
-const ActorPhone = ({actors}) => {
-        const [displays, setDisplays] = useState({});
-    const [buttonStyles, setButtonStyles] = useState({});
+const ActorPhone = () => {
+    // const actorsData = useQuery(ACTORS_QUERY).data?.actors;
+    const {actorsData} = useContext(Context);
+    const [displays, setDisplays] = useState(
+        actorsData ?
+            actorsData.reduce(
+                (accum, actor, idx) => {
+                    return {...accum, [idx]: {display: 'none'}}
+                },
+            {} ) :
+        {}
+    );
+    const [buttonStyles, setButtonStyles] = useState(
+        Array(actorsData ? Number(actorsData.length): 0)
+            .fill({display: 'block'})
+    );
 
-      const toggleActorBio = (e) => {
-        let key = e.target.id;
-        let myObj = buttonStyles;
-        myObj[key] = {display: 'none'};
-        setButtonStyles(myObj);
+    const toggleActorBio = (e) => {
+    let key = e.target.id;
+    let myObj = buttonStyles;
+    myObj[key] = {display: 'none'};
+    setButtonStyles(myObj);
 
-        setDisplays({
-            ...displays,
-            [key]: displays[key]['display'] === 'none' ? {display: 'block'} : {display: 'none'}
-        });
-    }
+    setDisplays({
+        ...displays,
+        [key]: displays[key]['display'] === 'none' ? {display: 'block'} : {display: 'none'}
+    });
+};
 
-       const initiate = () => {
-            
-            if(window.innerWidth < 1100){
-                    setButtonStyles(Array(actors.length).fill({display: 'block'}))
-                    setDisplays(actors.reduce((accum, actor, idx) => {
-                            return {...accum, [idx]: {display: 'none'}}
-                        }, {} ));
-                    }
-    }
-
-    useEffect(()=>{
-        initiate();
-    },[]);
-
+    if(!actorsData || !actorsData.length){
+        return  <div className='loading-page'>
+                    <h1 id='loading-message'>Loading...</h1>
+                </div>
+    };
 
     return (
         <>
-        {actors[0] && actors.map((actor, idx) => (
+        {actorsData.map((actor, idx) => (
             <div key={`${actor.name}`}
                 className={`actor`}
                 style={{backgroundImage: `url(${actor.img})` }}>

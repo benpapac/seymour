@@ -5,10 +5,12 @@ import {Context} from '../../Util/Context';
 import './Coaching.css';
 import './Coaching-Phone.css';
 import Testimonial from './Testimonial';
+import { useQuery } from '@apollo/client';
+import {TESTIMONIALS_QUERY} from '../../Util/GraphQL';
 
 const Executives = () => {
     const itemsRef = useRef(null);
-    const {testimonialsData} = useContext(Context);
+    const testimonialsData = useQuery(TESTIMONIALS_QUERY).data?.testimonials;
 
     const blurbDisplay = {display: 'block'};
 
@@ -40,7 +42,7 @@ const Executives = () => {
             </div>
 
             <div className='testimonials-box'>
-                {testimonialsData && testimonialsData.testimonials.map((testimonial, idx) => {
+                {testimonialsData && testimonialsData.map((testimonial, idx) => {
         
                     return (
                         <Testimonial className='testimonial' 
