@@ -17,8 +17,6 @@ const ApiTestimonial = () => {
     const [message, setMessage] = useState("Update this Testimonial");
     // const queryData = useQuery(TESTIMONIALS_QUERY).data;
     const {testimonialsData} = useContext(Context);
-    const [newItem, setNewItem] = useState(false);
-
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -51,8 +49,7 @@ const ApiTestimonial = () => {
 
     return (
         <>
-        <button className="api-create-button" onClick={()=> setNewItem(true)}>Create new Testimonial. </button>
-        {!newItem ? null : <AddNewForm itemType="testimonial" />}
+        <button className="api-create-button" onClick={()=> navigate('/api/testimonials/create')}>Create new Testimonial. </button>
         {editing 
         ? (
             <TestimonialApiForm testimonialId={testimonialId} handleClick={handleClick} message={message} />
