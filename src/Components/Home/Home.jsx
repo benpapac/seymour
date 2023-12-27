@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './Home.css';
 import './Home-Phone.css';
@@ -27,21 +27,28 @@ const Home = () => {
 
     return (
         <section className='home-bg'>
-            <div className='home-box' id='home-mission-box'
-                style={ window.innerWidth < 1101 ? {
-                    backgroundImage: `url(${process.env.REACT_APP_AWS}Nicole_Portrait.jpg)`,
-                    margintTop: '10vh',
-                } : null}
-                >
-               {window.innerWidth >1100 ? <img src={process.env.REACT_APP_AWS+"Nicole_Portrait.jpg"}
-                    alt="Nic's headshot" 
-                    className='home-photo'
-                    /> : null}
-                    <p id='home-mission-copy'>LG Management serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
+            <div id='home-mission-box'>
+               {window.innerWidth > 1100 ?
+               <React.Fragment>
+                    <img src={process.env.REACT_APP_AWS+"Nicole_Portrait.jpg"}
+                        alt="Nic's headshot" 
+                        className='home-photo'
+                    />
+                    <p id='home-mission-copy'><span>LG Management</span> serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
                     <br/>
                     <br/>
-                <Link to='/about' style={{textDecoration: 'none'}}><span className='homePage-link' id='about'>Meet Nicole.</span></Link>
-                </p>
+                    <Link to='/about' style={{textDecoration: 'none'}}><span className='homePage-link' id='about'>Meet Nicole.</span></Link>
+                    </p> 
+                </React.Fragment>
+                 : 
+                 <React.Fragment>
+                    <p id='home-mission-copy'><span id={'lg-management'}>LG Management</span> serves to amplify people’s creativity, resourcefulness, and value by helping to shape not only what they want to do in the world but how they want to exist in it.
+                     <br/>
+                    <br/>
+                    <Link to='/about' style={{textDecoration: 'none'}}><span className='homePage-link' id='about'>Meet Nicole.</span></Link>
+                    </p>
+                </React.Fragment>
+                }
             </div>
 
             <section className='home-box' id='home-links-box'
@@ -51,20 +58,18 @@ const Home = () => {
                     <div id='home-talent-box' style={linksStyle}>
                         <p id="home-talent-copy"><span className='headline'>Artists</span>
                         <br/> Nicole's clients grace the screen for CBS, Netflix, and NBC.
+                        </p>
                         <Link to="/talent" style={{textDecoration: 'none'}}>
-                        <br/>
                         <span className='homePage-link' id='home-talent-link'>
                             Meet the artists.</span></Link>
-                        </p>
                     </div>
                     
                     <div id='home-coaching-box' style={linksStyle}>
-                    <p id='home-coaching-copy'><span className='headline'>Coaching</span>
-                        <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
-                    <Link to='/coaching' style={{textDecoration: 'none'}}>
-                        <br/>
+                        <p id='home-coaching-copy'><span className='headline'>Coaching</span>
+                            <br /> Nicole offers one-on-one services to executives and entrepreneurs in all fields.
+                        </p>
+                        <Link to='/coaching' style={{textDecoration: 'none'}}>
                         <span className='homePage-link' id='home-coaching-link'>Learn about coaching.</span></Link>  
-                    </p>
                     </div>
                     
             </section>

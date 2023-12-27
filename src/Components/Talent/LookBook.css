@@ -1,7 +1,4 @@
 .lookbook {
-	/* background-color: rgba(230, 204, 178, 0.6); */
-	background-color: rgba(237, 235, 235, 0.5);
-
 	position: fixed;
 	z-index: 2;
 	left: 5vw;
@@ -28,10 +25,6 @@
 	transition: ease-in-out 400ms;
 }
 
-.lookbook:hover > .thumbnail {
-	display: inline;
-	opacity: 0.8;
-}
 .lookbook:hover > .thumbnail:hover {
 	transform: scale(1.2, 1.2);
 	opacity: 1;
@@ -56,12 +49,6 @@
 }
 
 @media (min-width: 1100px) {
-
-
-	.lookbook:hover {
-		background-color: rgba(0, 0, 0, 0.7);
-	}
-
 	.lookbook-title {
 		display: flex;
 	}

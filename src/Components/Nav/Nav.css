@@ -5,34 +5,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-}
-
-.nav-filter {
-	height: 20vh;
-	width: 100vw;
-	z-index: 1;
-	position: fixed;
-	/* background-color: rgba(0, 0, 0, 0.4); */
+	background-color: black;
 }
 
 .link {
 	z-index: 2;
-	/* height: 70px; */
 	width: 100px;
-
-	/* 
-	sliding underline, from nerdCowboy: 
-	https: //nerdcowboy.com/blog/sliding-underlined-links/ 
-	*/
 	background-size: 0% 0.1em;
-	background-image: linear-gradient(black, antiquewhite);
-	background-position-y: 10%;
-		background-position-x: 50%;
-		background-repeat: no-repeat;
 	text-decoration: none;
 	text-align: center;
 	transition:  0.2s ease-in-out;
-	/* transition: color 0.2s ease-in-out; */
 
 	font-size: x-large;
 	color: antiquewhite;

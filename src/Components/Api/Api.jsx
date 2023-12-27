@@ -74,29 +74,45 @@ if (error) return `Submission error! ${error.message}`;
     return (
         <div>
 
-            <div className='api-links-box' style={loggedIn ? {display: 'flex'} : {display: 'none'} }>
-
-            <Link  className="api-link" to={loggedIn ? "/api/actors" : '/api'}>
-                Review Actors
-            </Link>
-            <Link className="api-link" to={loggedIn ? '/api/testimonials' : '/api/'}>
-                Review Testimonials
-            </Link>
+            <div 
+                className='api-links-box' 
+                style={loggedIn ? 
+                    {display: 'flex'} : 
+                    {display: 'none'} 
+                }
+            >
+                <Link  className="api-link" to={loggedIn ? "/api/actors" : '/api'}>
+                    Review Actors
+                </Link>
+                <Link  className="api-link" to={loggedIn ? "/api/blogs" : '/api'}>
+                    Review Blogs
+                </Link>
+                <Link className="api-link" to={loggedIn ? '/api/testimonials' : '/api/'}>
+                    Review Testimonials
+                </Link>
             </div>
 
-            <form action="submit" className="api-form" onSubmit={handleSubmit}>
-
+            <form 
+                action="submit" 
+                className="api-form" 
+                onSubmit={handleSubmit}
+            >
                     { !loggedIn &&
                         <>
-                        <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
-                    <label htmlFor="email">email </label>
-                    <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
-                    <label htmlFor="password">password </label>
+                            <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
+                            <label htmlFor="email">email </label>
+                            <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
+                            <label htmlFor="password">password </label>
                         </>
                     }
 
                     <div className='api-div-buttons'>
-                    <button type="submit" style={{marginTop: "20vh"}}> {loginMessage}</button>
+                        <button 
+                            type="submit" 
+                            style={{marginTop: "20vh"}}
+                        > 
+                            {loginMessage}
+                        </button>
                     </div>
             </form>
         </div>

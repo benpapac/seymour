@@ -54,7 +54,6 @@ const ActorApiForm = ({ actorId, handleClick, message }) => {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
     const res = updateActor(
         {
          variables: {

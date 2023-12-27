@@ -1,25 +1,11 @@
 
 .contact {
-	/* padding: 1em; */
-	height: 125vh;
+	height: 100vh;
 	overflow: auto;
-	margin-top: -25vh;
-	padding-top: 25vh;
-	background-color: #ca8966;
-
-	/* background-image: url(../../Assets/AdobeStock_theater_seats.jpg);
-		background-position: top;
-		background-attachment: fixed;
-		background-size: cover;
-		background-repeat: no-repeat; */
-
 }
 
 .contact-block {
 	z-index: 1;
-	position: fixed;
-	top: 25vh;
-	left: 13vw;
 	height: 56vh;
 	width: 2vw;
 	background-color: antiquewhite;
@@ -30,11 +16,7 @@
 	position: fixed;
 	height: 125vh;
 	width: 100vw;
-	/* background-color: rgba(0, 0, 0, 0.3); */
-	/* background-color: #ca8966; */
-	/* display: none; */
 }
-
 
 .contact-photo {
 	z-index: 2;
@@ -42,16 +24,11 @@
 	right: 15vw;
 	top: 25vh;
 	width: 25vw;
-	/* max-width: 300px; */
 	border-radius: 100%;
 	box-shadow: antiquewhite 15px -5px 1px;
-	/* border: solid black 1px; */
-
-	/* animation: expand 3s; */
 }
 
 .contact-box {
-	/* background-image: url("https://i.imgur.com/drgFS8B.jpg"); */
 	background-size: cover;
 	height: 85vh;
 	max-width: 400px;
@@ -74,7 +51,7 @@
 .contact-blurb {
 	z-index: 1;
 	color: #faebd7;
-		font-family: 'Forum',
+	font-family: 'Forum',
 		serif;
 		
 	position: fixed;
@@ -83,17 +60,15 @@
 	height: 35vh;
 	max-width: 25vw;
 	font-size: 28px;
-				/* background-color: rgba(0,0,0,0.3); */
 }
 
 .contact-form {
 	height: fit-content;
-		position: fixed;
-		bottom: 17vh;
-		left: 15vw;
-		width: 30vw;
+	width: 30vw;
+	margin-left: 15vw;
 	padding: 1em;
-	/* background-color: rgba(0,0,0,0.5); */
+	background-color: white;
+	border-radius: 1rem;
 
 	display: flex;
 	flex-direction: column;
@@ -103,14 +78,15 @@
 }
 
 .input {
-	/* padding: 1em; */
 	height: 40px;
 	width: 80%;
+	border: 0.1em solid gray;
 }
 
 .label {
-	font-size: x-large;
-	color: whitesmoke;
+	font-size: large;
+	line-height: 1.5;
+	color: black;
 	font-family: 'Forum', serif;
 }
 .message {
@@ -124,6 +100,8 @@
 	height: 60px;
 	width: 200px;
 	font-family: 'Forum', serif;
+	border: none;
+	border-radius: 0.5em;
 
 	padding: 0.5em;
 		text-decoration: none;
@@ -145,13 +123,6 @@
 		position: fixed;
 		left: 5vw;
 		top: 10vh;
-	}
-
-
-	.label {
-		height: 30px;
-		margin: 0.1em;
-		color: whitesmoke;
 	}
 
 	.input {

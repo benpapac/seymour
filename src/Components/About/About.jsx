@@ -10,28 +10,33 @@ import aboutMe from '../../Json/aboutMe.json';
 const About = () => {
    const grafs = aboutMe[0].grafs;
 
+   const scrollHeight = useScrollPosition();
 
    useEffect(()=>{
     window.scroll(0,0);
    },[]);
  
     return (
-        <section className='about-bg'>
+        <>
 
+            <div className='about-bg' />
             <img className='about-photo' src={portrait} alt="Nicole in her sitting room" />
-
-            <div className='about-copy-box' >
-                {  grafs.map((graf, idx) => {
-                            return  <p className='about-blurb'>
-                                {graf}
-                                <br/>
-                                <NavLink to='/' className='about-link' > <span style={{textDecoration: 'none'}}>Back</span></NavLink>
-                            </p>
-                        }
-                    )
-                }
-        </div>
-            </section>
+            {grafs.map((graf, idx) => (
+                <div key={idx} className={'about-blurb'} >
+                    <p>{graf}</p>
+                </div>
+            ))}
+        
+            <div 
+                id={scrollHeight.y < 300 ? 'invisible' : null}
+                className={'about-link'} 
+                onClick={() => {
+                    window.scrollTo({top: -100, behavior: 'smooth'});
+                }} 
+                > 
+                    {'Back'}
+            </div>
+        </>
     );
 };
 

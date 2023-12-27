@@ -1,22 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
-
-.home-bg {
-	margin-top: -15vh;
-	height: fit-content;
-
-	background: url(../../Assets/AdobeStock_theater_seats.jpg);
-		background-size: cover;
-		background-attachment: fixed;
-	
-		background-position: center;
-		background-repeat: no-repeat;
-}
-
 .home-box {
 	height: 100vh;
 	width: 100vw;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -31,95 +19,81 @@
 	background-repeat: no-repeat;
 }
 
-#home-headline{
-	width: 40vw;
-	margin-top: 20vh;
-}
-
 #home-mission-box {
-	background-color: rgba(0,0,0,0.2);  
-	
+	height: 100vh;
+	width: 100vw;
+
+	display: flex;
+	flex-direction: column;
 }
 
 #home-mission-copy {
 	width: 40%;
 	position: absolute;
-	top: 30vh;
+	margin: 0;
 	right: 10vw;
 	 color: antiquewhite; 
 	transition: ease;
 	animation: home-slide-up 2.5s;
 
 	font-size: 30px;
-	font-weight: 500;
-}
 
-#home-mission-copy span {
-	animation: home-slide-up 2.5s;
-}
-
-
-#home-mission-copy::first-line {
 	font-family: 'Forum', serif;
 }
 
+#lg-management {
+	animation: home-slide-up 2.5s;
+	font-family: 'Forum', serif;
+
+}
+
 .home-photo {
-		width: 25vw;
-	margin-top: 10vh;
-	/* width: 35vw; */
-	/* border: solid black 2px; */
+	width: 25vw;
 	position: absolute;
 
 	transition: ease;
 	animation: home-float-up 3.5s;
 
 		left: 5vw;
-		border: solid black 1px;
-		/* border-radius: 100%; */
+		border: solid black 2px;
+		border-radius: 3%;
 	
 }
+
 #about {
 	background-color: peachpuff;
 	padding: 0.5em;
 	color: black;
 	text-align: center;
 	font-family: 'Forum', serif;
+	font-size: 26px;
 }
-
-
 
 #scroll-down {
 	position: fixed;
 	top: 80vh;
 	left: 5vw;
 
-	/* background-color: #3a38bb; */
 	width: 6vw;
 	height: 5vw;
-	/* border-radius: 100%; */
+
 	text-align: center;
 
 	animation: bounce 2s infinite;
 }
 
-#home-mission-box {
-	font-size: 24px;
-	font-family: 'Gruppo';
-}
 
 #home-links-box {
-	/* background: url(../../Assets/AdobeStock_LightBulbs.jpg); */
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	/* left: 5vw; */
 }
 
 .home-filter {
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.9);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -141,6 +115,7 @@
 #home-talent-copy,
 #home-coaching-copy {
 	font-size: 30px;
+	margin-bottom: 20px;
 	height: fit-content;
 	color: antiquewhite;
 	font-family: 'Forum';
@@ -181,6 +156,7 @@
 .homePage-link {
 	width: fit-content;
 	padding: 0.1em;
+	border-radius: 0.5em;
 
 	font-size: 20px;
 	color: black;

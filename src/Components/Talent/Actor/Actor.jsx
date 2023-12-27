@@ -1,10 +1,19 @@
-import {useContext, useEffect, useState } from 'react';
+import {useContext} from 'react';
 import './Actor.css';
 import './Actor-phone.css';
 import {Context} from '../../../Util/Context';
 
-const Actor = ({ actor, idx }) => {
+const Actor = ({ idx }) => {
+    const {actorsData} = useContext(Context);
     const { divAnimation} = useContext(Context);
+
+    if(!actorsData){
+        return  <div className='loading-page'>
+                    <h1 id='loading-message'>Loading...</h1>
+                </div>
+    };
+
+    const actor = actorsData[idx];
 
     return (
         <div

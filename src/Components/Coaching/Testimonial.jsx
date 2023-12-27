@@ -16,7 +16,7 @@ const Testimonial = forwardRef((props, ref) => {
 
    useEffect(()=>{
         
-        if(entry.intersectionRatio > 0.6){
+        if(entry.intersectionRatio > 0.7){
             setStyle('appear');
         } else if(style === 'dissolve'){
             return;

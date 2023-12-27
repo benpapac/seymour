@@ -70,7 +70,6 @@ const TestimonialApiForm = ({ testimonialId, handleClick, message }) => {
 
     useEffect(()=>{
         if(queryData.data){
-            console.log(queryData);
             setTestimonial(queryData.data.testimonial);
 
             setFormState({
@@ -80,7 +79,6 @@ const TestimonialApiForm = ({ testimonialId, handleClick, message }) => {
                 testimonial: queryData.data.testimonial.testimonial,
             })
         }
-        else console.log('no queryData', testimonialId);
     }, [queryData])
 
        if (loading) return 'Submitting...';
