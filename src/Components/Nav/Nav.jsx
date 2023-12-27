@@ -24,11 +24,11 @@ const Nav = () => {
         }>
           <h4>Coaching</h4>
         </NavLink>
-        <NavLink className="link" to='/blog' style={({ isActive }) =>
+        {/* <NavLink className="link" to='/blog' style={({ isActive }) =>
           isActive ? activeStyle : undefined
         }>
           <h4>Blog</h4>
-        </NavLink>
+        </NavLink> */}
         <NavLink  className="link" to='/contact' style={({ isActive }) =>
           isActive ? activeStyle : undefined
         }>
