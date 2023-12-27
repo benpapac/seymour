@@ -26,8 +26,9 @@ const Executives = () => {
     }
 
     return (
-        <section className='coaching-bg'>
-
+        <React.Fragment>
+            <div className='coaching-bg' />
+            <div className='coaching-filter'/>
             <div id='coaching-blurb' style={window.innerWidth < 1100 ? blurbDisplay : null}>
                 <p>
                     {'Coaching feeds my soul.'}
@@ -47,7 +48,6 @@ const Executives = () => {
 
             <div className='testimonials-box'>
                 {testimonialsData && testimonialsData.map((testimonial, idx) => {
-        
                     return (
                         <Testimonial className='testimonial' 
                         id={`${testimonial.id}`}
@@ -68,8 +68,7 @@ const Executives = () => {
                     )
                 })}
             </div>
-
-        </section>
+        </React.Fragment>
     )
 };
 
