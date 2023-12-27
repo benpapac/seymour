@@ -4,12 +4,9 @@ import './Talent.css';
 import './Talent-phone.css';
 import './LookBook.css';
 
-import { useQuery } from '@apollo/client';
-import { ACTORS_QUERY } from '../../Util/GraphQL';
-
 import Footer from '../Footer/Footer';
 import LookBook from './Actor/LookBook';
-import ActorPhone from './Actor/ActorPhone';
+import ActorsPhone from './Actor/ActorsPhone';
 
 const Talent = () => {
     const [idx, setIdx] = useState(1);
@@ -19,17 +16,16 @@ const Talent = () => {
     },[]);
 
     return (
-        <section className='talent-box'>
-                       { window.innerWidth > 1099 
-                        ?   <>
-                                <LookBook idx={idx} setIdx={setIdx} /> 
-                                <Actor idx={idx} />
-                                <Footer />
-                            </> 
-                        : <ActorPhone/>
+        <React.Fragment>
+            { window.innerWidth > 1099 ?
+                <React.Fragment>
+                    <LookBook idx={idx} setIdx={setIdx} /> 
+                    <Actor idx={idx} />
+                    <Footer />
+                </React.Fragment> :
+                <ActorsPhone/>
             }
-                
-        </section>
+        </React.Fragment>
     );
 };
 

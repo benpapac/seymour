@@ -4,9 +4,7 @@
 
 .coaching-bg {
     z-index: -2;
-    margin-top: -15vh;
-    padding-top: 25vh;
-     height: fit-content;
+    height: fit-content;
     width: 100vw;
     background-image: url(../../Assets/AdobeStock_LightBulbs.jpg);
     background-position: top;
@@ -36,13 +34,15 @@
 }
 
 .testimonial {
-    padding: 15vh 10vw;
+    padding: 5vh 5vw;
     height: fit-content;
-    width: 80vw;
-    overflow: auto;;
     background-color: rgba(0, 0, 0, 0.8);
     color: antiquewhite;
     transition: ease;
+}
+
+.testimonial p {
+    width: 90%;
 }
 
 .testimonial::-webkit-scrollbar {
@@ -69,24 +69,23 @@
 }
 
 .testimonial h6 {
-    transition: ease 2s;
+    transition: ease 1.35s;
 }
 
 .testimonial h4 {
     font-size: 26px;
-    transition: ease 1.75s;
+    transition: ease 1.25s;
 }
 
 .testimonial p {
     margin-bottom: 3vh;
-    transition: ease 1.5s;
+    transition: ease 1.2s;
 }
 
 .coaching-deco-box{
     font-family: 'Gruppo', cursive;
     display: flex;;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     height: fit-content;
     align-items: center;
     justify-content: space-between;
@@ -106,15 +105,14 @@
 
 
 .dissolvedown{
-    transform: translateY(100%);
+    transform: translateY(50%);
     opacity: 0;
 }
 
 .dissolveup{
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     opacity: 0;
 }
-
 
 .appearup {
     opacity: 1;

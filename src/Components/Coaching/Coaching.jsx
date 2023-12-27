@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import {Context} from '../../Util/Context';
 
 
@@ -14,6 +14,10 @@ const Executives = () => {
 
     const blurbDisplay = {display: 'block'};
 
+    useEffect(() => {
+        window.scroll(0,0);
+    })
+
     const getMap = () => {
         if(!itemsRef.current) {
             itemsRef.current = new Map();
@@ -26,15 +30,15 @@ const Executives = () => {
 
             <div id='coaching-blurb' style={window.innerWidth < 1100 ? blurbDisplay : null}>
                 <p>
-                    Coaching feeds my soul.
+                    {'Coaching feeds my soul.'}
                     <br/>
-                    When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.
+                    {'When people ask me to explain coaching, I tell them it’s like seeing someone who is trapped in a room discover different ways to get out- they open doors they knew were there but were afraid to open, and discover doors they never knew existed.'}
                     <br />
                     <br />
-                    It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.
+                    {'It’s a collaborative and transformational process that involves broadening perspectives, sitting in both familiar and unfamiliar feelings and exploring possibilities.'}
                 </p>
                 <div className='coaching-deco-box'>
-                    <p>Scroll down to hear from Nicole's clients.
+                    <p>{'Scroll down to hear from Nicole\'s clients.'}
 
                 <img id='coaching-certification' src="https://i.imgur.com/OMdE9uv.png" alt="Nicole's certification" />
                 </p>

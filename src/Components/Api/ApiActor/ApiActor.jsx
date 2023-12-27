@@ -9,6 +9,9 @@ import { ACTORS_QUERY, DEL_ACTOR } from '../../../Util/GraphQL';
 
 const ApiActor = () => {
     const navigate = useNavigate();
+    useEffect(()=>{
+        if( !sessionStorage.getItem('token') ) navigate('/api');
+    }, []);
     const [editing, setEditing] = useState(false);
     // const {actorsData} = useContext(Context);
     const actorsData = useQuery(ACTORS_QUERY).data;
@@ -31,17 +34,11 @@ const ApiActor = () => {
             setEditing(false);
             setMessage("Update Actor");
         }
-    }
+    };
 
     const handleDelete= (name) => {
-
-        const res = deleteActor({variables: {name: name}});
-        console.log(res);
-    }
-
-    useEffect(()=>{
-        if( !sessionStorage.getItem('token') ) navigate('/api');
-    }, []);
+        deleteActor({variables: {name: name}});
+    };
 
 if(loading) return 'submitting...';
 if(error) return `Error: ${error}`;

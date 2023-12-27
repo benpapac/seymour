@@ -29,7 +29,6 @@ const AddBlogForm = ({setAdding, refetch}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(process.env.REACT_APP_API);
         await newBlog({
             variables: {
                 ...formState,

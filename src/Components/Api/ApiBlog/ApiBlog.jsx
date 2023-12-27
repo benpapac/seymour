@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { BLOGS_QUERY, DEL_BLOG, UPDATE_BLOG } from '../../../Util/GraphQL';
 import AddBlogForm from './AddBlogForm';
+import { useNavigate } from 'react-router-dom';
 
 import './ApiBlog.css';
 
 const ApiBlog = () => {
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if( !sessionStorage.getItem('token') ) navigate('/api');
+    }, []);
+
+
     const {data, refetch} = useQuery(BLOGS_QUERY);
     const [updateBlog] = useMutation(UPDATE_BLOG);
     const [deleteBlog] = useMutation(DEL_BLOG);
@@ -26,7 +33,6 @@ const ApiBlog = () => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        console.log('changing: ', e.target.id, e.target.value);
         setFormState({
             ...formState,
             [e.target.id]: e.target.value
@@ -85,7 +91,8 @@ const ApiBlog = () => {
                     type="text" 
                     id="title"
                     className='api-blog-input'
-                    placeholder="What's this post about?"
+                    placeholder={"What's this post about?"}
+                    onChange={handleChange}
                     value={formState.title}
                     />
                     <label for="body">Post</label>

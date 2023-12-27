@@ -1,8 +1,15 @@
-.blog-container {
-    width: 100vw;
-    height: 95vh;
-    margin: auto;
+
+.blog-post {
+    height: fit-content;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+    padding: 5vw;
+
+    background-color: antiquewhite;
+    border-radius: 1rem;
 }

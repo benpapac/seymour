@@ -23,12 +23,15 @@ const PhoneNav = () => {
 
     return (
         <>
-        <div>
-        <NavLink className='link home-link' to='/'>
-							<img className='home-link' src={logo} alt='LG Management' />
-						</NavLink>
-            <button id={navButtonId} onClick={toggleNav} style={{animation: navButtonAnimation}}></button>
-        </div>
+            <div 
+              id={navButtonId}
+              style={{animation: navButtonAnimation}}
+              onClick={toggleNav}
+            >
+              <div className={navButtonId}/>
+              <div className={navButtonId}/>
+              <div className={navButtonId}/>
+            </div>
             <div className='nav-screen'  onClick={toggleNav} id={navId}  >
                   <NavLink  className="phone-link" to='/' style={({ isActive }) =>
               isActive ? activeStyle : undefined }>

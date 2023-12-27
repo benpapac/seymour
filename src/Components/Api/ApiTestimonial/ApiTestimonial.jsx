@@ -34,11 +34,9 @@ const ApiTestimonial = () => {
         }
     }
 
-       const handleDelete= (name) => {
-
-        const res = deleteTestimonial({variables: {name: name}});
-        console.log(res);
-    }
+    const handleDelete = (name) => {
+        deleteTestimonial({variables: {name: name}});
+    };
 
     useEffect(()=>{
     if( !sessionStorage.getItem('token') ) navigate('/api');

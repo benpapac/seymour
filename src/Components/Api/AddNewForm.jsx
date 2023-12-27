@@ -74,8 +74,7 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
-   const res = newItem({
+    newItem({
         variables: {
             ...formState,
             date: new Date()
@@ -84,7 +83,6 @@ const handleSubmit = (e) => {
             Authorization: `Bearer ${sessionStorage.getItem('token')}`
         }
     });
-    console.log(res);
 
     setSubmitted(true);
     return navigate(`/api/${itemType}s`);

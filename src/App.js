@@ -29,7 +29,7 @@ function App() {
 	const actorsData = useQuery(ACTORS_QUERY).data?.actors;
 	const blogsData = useQuery(BLOGS_QUERY).data?.blogs
 
-	const [divAnimation, setDivAnimation] = useState([]);
+	const [divAnimation, setDivAnimation] = useState({});
 	return (
 		<Context.Provider
 			value={{
@@ -40,8 +40,9 @@ function App() {
 				setDivAnimation: setDivAnimation,
 			}}>
 			<div className='App'>
-				<header>{window.innerWidth >= 1100 ? <Nav /> : <PhoneNav />}</header>
+				<div className='App-bg'/>
 				<main>
+					{window.innerWidth >= 1100 ? <Nav /> : <PhoneNav />}
 					<Routes>
 						<Route path='/' element={<Home />} />
 

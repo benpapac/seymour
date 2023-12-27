@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
 .about-bg {
-    margin-top: -25vh;
-    padding-top: 25vh;
-    height: fit-content;
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
     width: 100vw;
 
     background-image: url(../../Assets/AdobeStock_Brooklyn.jpg);
@@ -16,41 +16,34 @@
 
 .about-photo {
     position: fixed;
-    z-index: 1;
-    top: 30vh;
-    left: 5vw;
-    width: 25vw;
+    top: 20vh;
+    left: 0vw;
+    width: 30vw;
     border: solid black 1px;
-    /* border-radius: 100%; */
     
     animation: shrink 4s;
-}
-
-
-.about-copy-box {
-    height: fit-content;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin-top: -25vh;
-    padding-top: 35vh;
-    padding-bottom: 5vh;
+    transition: ease 1s;
 }
 
 .about-blurb {
-    font-family: 'Forum', cursive;
-    color: white;
-    margin-left: 50vw;
-    /* position: fixed; */
-    /* left: 50vw; */
+    margin-left: 30vw;
+    width: 70vw;
     height: fit-content;
-    width: 45vw;
 
+    padding-top: 10vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    color: antiquewhite;
+    font-family: 'Forum', cursive;
     line-height: 1.5;
-        font-size: 26px;
-        font-weight: 300;
+    font-size: 26px;
+    font-weight: 300;
 }
 
 .about-blurb p {
-    z-index: 2;
+    margin: 0;
+    margin-left: 5%;
+    width: 90%;
 }
 
 .about-blurb::first-line {
@@ -60,10 +53,28 @@
 }
 
 .about-link {
+    background-color: peachpuff;
+    z-index: 2;
     position: fixed;
-    left: 15vw;
-    bottom: 10vh;
+    bottom: 5vh;
+    right: 5vw;
+
+    height: fit-content;
+    width: 80px;
+    border-radius: 5%;
+
     text-decoration: none;
-    font-size: 30px;
+    text-align: center;
+    font-size: 28px;
     font-family: 'Forum', sans-serif;
+    transition: ease 0.5s;
+}
+
+.about-link:hover {
+    transform: scale(1.1);
+}
+
+#invisible {
+    transform: translateX(200%);
+    transition: ease 1s;
 }

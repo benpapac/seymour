@@ -1,9 +1,7 @@
-import {useContext, useEffect, useState } from 'react';
+import {useContext} from 'react';
 import './Actor.css';
 import './Actor-phone.css';
 import {Context} from '../../../Util/Context';
-import { useQuery } from '@apollo/client';
-import { ACTORS_QUERY } from '../../../Util/GraphQL';
 
 const Actor = ({ idx }) => {
     const {actorsData} = useContext(Context);
