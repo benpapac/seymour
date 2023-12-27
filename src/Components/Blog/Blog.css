@@ -1,6 +1,7 @@
 
 .blog-post {
     height: fit-content;
+    margin: 5vh 5vw;
 
     display: flex;
     flex-direction: column;
@@ -11,5 +12,10 @@
     padding: 5vw;
 
     background-color: antiquewhite;
-    border-radius: 1rem;
+    opacity: 0.6;
+}
+
+.blog-title {
+    font-size: 30px;
+    font-family: 'Forum', serif;
 }

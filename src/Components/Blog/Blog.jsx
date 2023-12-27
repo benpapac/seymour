@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../../Util/Context';
 import BlogPost from './BlogPost';
+import BackButton from '../Back/BackButton';
 
 import './Blog.css';
 
@@ -18,6 +19,8 @@ const Blog = () => {
             { blogsData.map((blog, idx) => 
                 <BlogPost blog={blog} key={idx}/>
             )}
+
+            <BackButton />
         </React.Fragment>
     );
 };

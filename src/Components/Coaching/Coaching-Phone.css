@@ -1,26 +1,12 @@
 @media(max-width: 500px){
-    .coaching-bg {
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-    }
-
-    .coaching-filter {
-        margin-top: 0;
-        background-color: rgba(0,0,0,0.8);
-    }
-
     #coaching-blurb {
         z-index: 0;
-        margin: 0;
         padding: 10vh 5vw;
         height: 100vh;
         width: 90vw;
         position: relative;
         color: antiquewhite;
         font-size: 16px;
-        /* background-color: rgba(0,0,0,0.0); */
     }
 
     .coaching-deco-box p {
@@ -64,7 +50,6 @@
             width: 80px;
     
             padding: 0.1em;
-            /* border-radius: 1em; */
             border: none;
             font-family: 'Playfair Display', serif;
             font-size: 30px;
@@ -72,13 +57,11 @@
 
         #testimonial-toggle-button {
             padding: 0.1em;
-            /* z-index: 3; */
             position: fixed;
             bottom: 10vh;
             left: 50vw;
             height: 40px;
                 width: fit-content;
-                /* border-radius: 1em; */
                 background-color: antiquewhite;
                 border: none;
                 font-family: 'Playfair Display', serif;

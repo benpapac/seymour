@@ -1,0 +1,21 @@
+.back-button {
+    background-color: peachpuff;
+    z-index: 2;
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+
+    height: fit-content;
+    width: 80px;
+    border-radius: 5%;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Forum', sans-serif;
+    transition: ease 0.5s;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+}

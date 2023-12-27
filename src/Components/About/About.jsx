@@ -1,17 +1,14 @@
 import {useState, useReducer, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import useScrollPosition from '../../Hooks/useScrollPosition';
 import portrait from '../../Assets/Nicole_Portrait.jpeg'
 import './About.css';
 import './PhoneAbout.css';
 import aboutMe from '../../Json/aboutMe.json';
+import BackButton from '../Back/BackButton';
 
 
 const About = () => {
    const grafs = aboutMe[0].grafs;
-
-   const scrollHeight = useScrollPosition();
-
    useEffect(()=>{
     window.scroll(0,0);
    },[]);
@@ -26,16 +23,8 @@ const About = () => {
                     <p>{graf}</p>
                 </div>
             ))}
-        
-            <div 
-                id={scrollHeight.y < 300 ? 'invisible' : null}
-                className={'about-link'} 
-                onClick={() => {
-                    window.scrollTo({top: -100, behavior: 'smooth'});
-                }} 
-                > 
-                    {'Back'}
-            </div>
+
+            <BackButton/>
         </>
     );
 };
