@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 import './Contact-Phone.css';
@@ -53,10 +53,10 @@ import './Contact-Phone.css';
 				<label className='label'>Email Address</label>
 				<input className='input' type='email' placeholder='username@email.com' name='email' />
 				<label className='label'>Subject</label>
-				<input className='input' type="text" placeholder="What's on your mind?" name='subject'/>
+				<input className='input' type="text" placeholder="What's your message about?" name='subject'/>
 				<label className='label'>Message</label>
-				<textarea className='message' rows={30} name='message' />
-				<input className='contact-button' type='submit' value='Send Nicole a quick message.' />
+				<textarea className='message' rows={30} name='message' placeholder="Type your message here." />
+				<input className='contact-button' type='submit' value='Send.' />
 			</form>
 		)
 		}

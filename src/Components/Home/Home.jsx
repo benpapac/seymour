@@ -23,7 +23,11 @@ const Home = () => {
             })
         }
         
-    }, [entry.intersectionRatio])
+    }, [entry.intersectionRatio]);
+
+    useEffect(() => {
+        window.scroll(0,0);
+    },[]);
 
     return (
         <section className='home-bg'>

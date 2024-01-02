@@ -2,26 +2,24 @@
 
     .contact {
         padding: 10vh;
-        margin-top: 15vh;
-        height: 85vh;
+        height: 100vh;
     }
 
     .contact-form {
-        margin-top: 20vh;
-            height: fit-content;
-            top: 1vh;
-            left: 0vw;
-            position: fixed;
-            width: 92vw;
-            padding-top: 5vh;
-            padding-bottom: 10vh;
-            background-color: rgba(255, 255, 255, 0);
-    
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            justify-content: center;
-        }
+        height: fit-content;
+        top: 1vh;
+        left: 0vw;
+        position: fixed;
+        width: 92vw;
+        padding-top: 5vh;
+        padding-bottom: 10vh;
+        background-color: rgba(255, 255, 255, 0);
+
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
 
         .label {
             color: black;
@@ -33,12 +31,10 @@
         }
     
         .contact-button {
-            font-size: x-large;
+            font-size: 20px;
+            width: 100px;
             font-family: 'Forum', Courier, monospace;
-            margin-top: 1vh;
-            /* margin-bottom: -40vh; */
-            align-self: end;
-    
+            margin-top: 1vh;    
             box-shadow: 1px 1px 1px black;        
         }
     
@@ -46,8 +42,8 @@
         .contact-photo {
             z-index: 0;
                 position: fixed;
-                top: 16vh;
-                left: 64vw;
+                left: 55vw;
+                top: 65vh;
                 height: 35vw;
                 width: 35vw;
                 border: 1px solid black;
