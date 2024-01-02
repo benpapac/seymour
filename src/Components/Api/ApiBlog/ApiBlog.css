@@ -8,8 +8,15 @@
 }
 
 .api-blog-form {
+    background-color: aliceblue;
+    width: fit-content;
     display: flex;
     flex-direction: column;
+    margin-top: 5vh;
+    margin-left: 35vw;
+    padding: 1vw;
+
+    justify-content: center;
 }
 
 .api-blog-input {

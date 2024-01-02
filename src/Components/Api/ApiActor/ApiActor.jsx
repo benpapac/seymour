@@ -6,12 +6,15 @@ import AddNewForm from '../AddNewForm';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../../Util/Context';
 import { ACTORS_QUERY, DEL_ACTOR } from '../../../Util/GraphQL';
+import ApiSidePanel from '../ApiSidePanel';
 
 const ApiActor = () => {
     const navigate = useNavigate();
-    useEffect(()=>{
-        if( !sessionStorage.getItem('token') ) navigate('/api');
-    }, []);
+    const loggedIn = sessionStorage.getItem('token');
+    if (!loggedIn) {
+        navigate('/api');
+    };
+
     const [editing, setEditing] = useState(false);
     // const {actorsData} = useContext(Context);
     const actorsData = useQuery(ACTORS_QUERY).data;
@@ -47,6 +50,7 @@ if(error) return `Error: ${error}`;
 
     return (
         <>
+        <ApiSidePanel loggedIn={loggedIn}/>
         <button className="api-create-button" onClick={()=> navigate('/api/actors/create')}>Create new Actor. </button>
         {actorsData && (
             <>

@@ -5,12 +5,14 @@ import AddBlogForm from './AddBlogForm';
 import { useNavigate } from 'react-router-dom';
 
 import './ApiBlog.css';
+import ApiSidePanel from '../ApiSidePanel';
 
 const ApiBlog = () => {
     const navigate = useNavigate();
-    useEffect(()=>{
-        if( !sessionStorage.getItem('token') ) navigate('/api');
-    }, []);
+    const loggedIn = sessionStorage.getItem('token');
+    if (!loggedIn) {
+        navigate('/api');
+    };
 
 
     const {data, refetch} = useQuery(BLOGS_QUERY);
@@ -63,6 +65,8 @@ const ApiBlog = () => {
         })
     };
 
+    console.log(data);
+
     if (adding) {
         return (<AddBlogForm 
             setAdding={setAdding}
@@ -72,50 +76,53 @@ const ApiBlog = () => {
 
 
     return (
-        <div className='api-blog-container'>
-            <button className="api-create-button" onClick={()=> setAdding(true)}>Create new Blog. </button>
-            {data?.blogs && data.blogs.map((blog, idx) => (
-                <form 
-                    action="submit" 
-                    onSubmit={handleUpdate}
-                    id={idx}
-                    key={idx}
-                    className='api-blog-form'
-                    onFocus={(e) => {
-                        e.preventDefault();
-                        handleFocus(idx)
-                    }}
-                >
-                    <label for="title">Title</label>
-                    <input 
-                    type="text" 
-                    id="title"
-                    className='api-blog-input'
-                    placeholder={"What's this post about?"}
-                    onChange={handleChange}
-                    value={formState.title}
-                    />
-                    <label for="body">Post</label>
-                    <textarea 
-                        onChange={handleChange}
-                        name="body" 
-                        id="body" 
-                        cols="30" 
-                        rows="10" 
-                        className='api-blog-input'
-                        placeholder='Write or paste your blog here.'
-                        value={formState.body}
-                    />
-                    <div className='api-blog-button-group'>
-                        <button onClick={handleUpdate}>Update</button>
-                        <button onClick={(e) => {
+        <React.Fragment>
+            <ApiSidePanel loggedIn={loggedIn}/>
+            <div className='api-blog-container'>
+                <button className="api-create-button" onClick={()=> setAdding(true)}>Create new Blog. </button>
+                {data?.blogs && data.blogs.map((blog, idx) => (
+                    <form 
+                        action="submit" 
+                        onSubmit={handleUpdate}
+                        id={idx}
+                        key={idx}
+                        className='api-blog-form'
+                        onFocus={(e) => {
                             e.preventDefault();
-                            handleDelete(idx);
-                            }}>Delete</button>
-                    </div>
-                </form>
-            ))}
-        </div>
+                            handleFocus(idx)
+                        }}
+                    >
+                        <label for="title">Title</label>
+                        <input 
+                        type="text" 
+                        id="title"
+                        className='api-blog-input'
+                        placeholder={blog.title}
+                        onChange={handleChange}
+                        value={formState.title}
+                        />
+                        <label for="body">Post</label>
+                        <textarea 
+                            onChange={handleChange}
+                            name="body" 
+                            id="body" 
+                            cols="30" 
+                            rows="10" 
+                            className='api-blog-input'
+                            placeholder={blog.body}
+                            value={formState.body}
+                        />
+                        <div className='api-blog-button-group'>
+                            <button onClick={handleUpdate}>Update</button>
+                            <button onClick={(e) => {
+                                e.preventDefault();
+                                handleDelete(idx);
+                                }}>Delete</button>
+                        </div>
+                    </form>
+                ))}
+            </div>
+        </React.Fragment>
     );
 };
 

@@ -4,6 +4,7 @@ import { useMutation, gql } from '@apollo/client';
 import {client} from '../../index';
 
 import './Api.css';
+import ApiSidePanel from './ApiSidePanel';
 const Api = () => {
      const LOGIN = gql`
        mutation login($email: String!, $password: String!) {
@@ -68,55 +69,26 @@ const Api = () => {
 
     // add a logout that deletes session token, and tell backend to delete its token as well.
 
-if (loading) return 'Submitting...';
-if (error) return `Submission error! ${error.message}`;
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error.message}`;
+    if (loggedIn) return <ApiSidePanel loggedIn={loggedIn}/>;
 
-    return (
-        <div>
-
-            <div 
-                className='api-links-box' 
-                style={loggedIn ? 
-                    {display: 'flex'} : 
-                    {display: 'none'} 
-                }
-            >
-                <Link  className="api-link" to={loggedIn ? "/api/actors" : '/api'}>
-                    Review Actors
-                </Link>
-                <Link  className="api-link" to={loggedIn ? "/api/blogs" : '/api'}>
-                    Review Blogs
-                </Link>
-                <Link className="api-link" to={loggedIn ? '/api/testimonials' : '/api/'}>
-                    Review Testimonials
-                </Link>
-            </div>
-
-            <form 
-                action="submit" 
-                className="api-form" 
-                onSubmit={handleSubmit}
-            >
-                    { !loggedIn &&
-                        <>
-                            <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
-                            <label htmlFor="email">email </label>
-                            <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
-                            <label htmlFor="password">password </label>
-                        </>
-                    }
-
-                    <div className='api-div-buttons'>
-                        <button 
-                            type="submit" 
-                            style={{marginTop: "20vh"}}
-                        > 
-                            {loginMessage}
-                        </button>
-                    </div>
-            </form>
-        </div>
-    );
+    return <form 
+            action="submit" 
+            className="api-form" 
+            onSubmit={handleSubmit}
+        >
+            <input id="email" type="email" onChange={handleChange} value={formState.email} placeholder="email address"/>
+                    <label htmlFor="email">email </label>
+                    <input id="password" type="password" onChange={handleChange} value={formState.password} placeholder="password"/>
+                    <label htmlFor="password">password </label>
+            <button 
+                type="submit" 
+                style={{marginTop: "20vh"}}
+            > 
+                {loginMessage}
+            </button>
+        </form>
 };
 
 export default Api;

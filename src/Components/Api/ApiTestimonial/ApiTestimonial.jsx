@@ -1,22 +1,29 @@
 
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Context } from '../../../Util/Context';
 import { useMutation } from '@apollo/client';
 import TestimonialApiForm from './TestimonialApiForm';
 import AddNewForm from '../AddNewForm';
 import { useNavigate } from 'react-router-dom';
 import { DEL_TESTIMONIAL } from '../../../Util/GraphQL';
+import ApiSidePanel from '../ApiSidePanel';
 
 
 const ApiTestimonial = () => {
     const navigate = useNavigate();
     const [editing, setEditing] = useState(false);
-     const [testimonialId, setTestimonialId] = useState('');
-     const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
-
+    const [testimonialId, setTestimonialId] = useState('');
+    const [deleteTestimonial, {data, loading, error}] = useMutation(DEL_TESTIMONIAL);
+    
     const [message, setMessage] = useState("Update this Testimonial");
     // const queryData = useQuery(TESTIMONIALS_QUERY).data;
     const {testimonialsData} = useContext(Context);
+
+    const loggedIn = sessionStorage.getItem('token');
+    if (!loggedIn) {
+        console.log('navigating.')
+        navigate('/api');
+    };
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -46,7 +53,8 @@ const ApiTestimonial = () => {
     if(error) return `Error: ${error.message}`;
 
     return (
-        <>
+        <React.Fragment>
+            <ApiSidePanel loggedIn={loggedIn}/>
         <button className="api-create-button" onClick={()=> navigate('/api/testimonials/create')}>Create new Testimonial. </button>
         {editing 
         ? (
@@ -54,7 +62,7 @@ const ApiTestimonial = () => {
         )
         : testimonialsData && (
             <>
-            {testimonialsData.testimonials.map(testimonial => (
+            {testimonialsData.map(testimonial => (
                 <div className='api-div'>
                 <h3>{testimonial.name}</h3>
                 <h3>{testimonial.occupation} </h3>
@@ -71,7 +79,7 @@ const ApiTestimonial = () => {
             </>
         )
         }
-        </>
+        </React.Fragment>
         
     );
 };
